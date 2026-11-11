@@ -42,20 +42,63 @@
   .hero h1{color:var(--cream);margin:6px 0 8px;font-size:24px}
   .hero p{font-size:13.5px;opacity:.9;margin-bottom:16px}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--navy);font-weight:600;font-size:14px;padding:12px 18px;border-radius:999px;border:0;text-decoration:none;cursor:pointer;position:relative;z-index:1}
-  /* Home: photo set free, edge to edge, with the page sliding over it */
+  /* ===== HOME (same order as the old app) ===== */
   .phone.on-home header{position:absolute;top:0;left:0;right:0;z-index:5;background:linear-gradient(180deg,rgba(15,31,61,.6),rgba(15,31,61,0))}
   .phone.on-home header .crest,.phone.on-home header .brand{visibility:hidden}
   .phone.on-home main{padding-top:0}
-  .cover{height:340px;margin:0 -18px;background:url("images/hero.jpg") center 32%/cover no-repeat,var(--navy)}
-  .sheet{position:relative;margin:-30px -18px 0;padding:0 20px 4px;background:var(--cream);border-radius:26px 26px 0 0}
-  .badge{width:92px;height:92px;border-radius:50%;margin-top:-46px;display:block;background:#fff;box-shadow:0 0 0 4px var(--cream),0 8px 20px rgba(15,31,61,.25)}
-  .school{font-size:25px;margin:12px 0 2px;line-height:1.2}
-  .kicker{font-size:12.5px;color:var(--gold-d);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-  .intro{font-size:14px;color:var(--muted);margin-bottom:16px}
-  .cta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .cta .btn{padding:13px 10px;font-size:13.5px;text-align:center}
+  .homecover{height:300px;margin:0 -18px;background:url("images/hero.jpg") center 32%/cover no-repeat,var(--navy)}
+  .sheet{position:relative;margin:-26px -18px 0;padding:0 20px 18px;background:var(--cream);border-radius:22px 22px 0 0}
+  .logo{width:84px;height:84px;object-fit:cover;border-radius:10px;margin-top:-56px;display:block;background:var(--navy);box-shadow:0 0 0 4px var(--cream),0 8px 20px rgba(15,31,61,.25)}
+  .school{font-size:24px;margin:14px 0 4px;line-height:1.2}
+  .kicker{font-size:14px;color:var(--ink);margin-bottom:8px}
+  .info-link{display:inline-block;font-size:14px;color:var(--navy-2);font-weight:500;text-decoration:none;margin-bottom:18px;cursor:pointer}
+  .cta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cta .btn{padding:13px 10px;font-size:15px;text-align:center}
+  .sec{padding:22px 0;border-top:1px solid var(--cream-2)}
+  .sec:first-of-type{border-top:0}
+  h2.big{font-size:25px;margin:6px 0 12px}
+  .body{font-size:14.5px;line-height:1.65;color:var(--ink);margin-bottom:16px;white-space:pre-line}
+  .center{text-align:center}
+  .pic{display:block;width:100%;border-radius:14px;box-shadow:var(--shadow);margin:6px 0 16px}
+  .ph{display:grid;place-items:center;text-align:center;width:100%;aspect-ratio:2/1;border-radius:14px;margin:6px 0 16px;background:repeating-linear-gradient(45deg,var(--cream-2) 0 12px,#e6dcc2 12px 24px);color:var(--muted);font-size:12.5px;font-weight:500;border:1.5px dashed #cdbf9c}
+  .tiles4{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 18px}
+  .ptile{aspect-ratio:1;border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;color:#fff;text-decoration:none;font-size:15px;line-height:1.3;box-shadow:var(--shadow);background-size:cover;background-position:center;background-color:var(--navy-2)}
+  .ptile:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.55))}
+  .ptile *{position:relative}
+  .ptile small{font-size:14px;opacity:.95}
+  .feature{border-radius:18px;overflow:hidden;position:relative;padding:28px 22px;color:#fff;background-size:cover;background-position:center;background-color:var(--navy-2);box-shadow:var(--shadow);margin-bottom:6px}
+  .feature:before{content:"";position:absolute;inset:0;background:rgba(15,31,61,.55)}
+  .feature *{position:relative}
+  .feature h3{font-family:'Playfair Display',serif;font-size:28px;line-height:1.15;color:var(--gold);margin:60px 0 14px}
+  .feature p{font-size:14px;line-height:1.55;margin-bottom:18px}
+  .feature.short{min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none}
+  .feature.short h3{color:#fff;font-size:24px;margin:0 0 2px}
+  .feature.short span{font-size:15px}
+  .btn.navy{background:var(--navy);color:var(--cream);padding:13px 26px;font-size:15px}
+  .carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:4px 18px 10px;scrollbar-width:none}
+  .carousel::-webkit-scrollbar{display:none}
+  .event{flex:0 0 84%;scroll-snap-align:start;background:var(--white);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .event .img{height:130px;background-size:cover;background-position:center;background-color:var(--navy-2)}
+  .event .bd{display:flex;gap:14px;padding:16px;flex:1}
+  .event .dt{text-align:center;color:var(--ink);font-size:15px;line-height:1.35;min-width:34px}
+  .event .dt b{display:block;font-size:20px;font-weight:500}
+  .event h4{font-size:18px;color:var(--navy);margin-bottom:6px;line-height:1.25}
+  .event .meta{font-size:13.5px;color:var(--navy-2);line-height:1.5}
+  .event a.rsvp{display:block;text-align:center;border-top:1px solid var(--cream-2);padding:13px;font-weight:600;color:var(--navy);text-decoration:none}
+  .post{background:var(--white);border-radius:14px;box-shadow:var(--shadow);padding:20px;margin:16px 0 6px}
+  .post .who{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .post .who img{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 1.5px var(--navy)}
+  .post .who b{display:block;color:var(--navy);font-size:16px}
+  .post .who span{font-size:13px;color:var(--navy-2)}
+  .post .txt{font-size:14.5px;line-height:1.65;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .post.open .txt{display:block}
+  .post button{border:0;background:none;color:var(--navy);font:600 16px Poppins,sans-serif;margin-top:12px;cursor:pointer;padding:0}
+  .socials{display:flex;justify-content:space-between;gap:8px;margin-top:6px}
+  .socials a{width:56px;height:56px;border-radius:50%;background:var(--cream-2);color:var(--navy);display:grid;place-items:center}
+  .socials a.off{opacity:.35;pointer-events:none}
+  .socials svg{width:26px;height:26px}
   .btn.dark{background:var(--navy);color:var(--cream)}
-  .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn.ghost{background:var(--white);color:var(--navy);border:1.5px solid var(--cream-2)}
   .btn.block{width:100%}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .tile{background:var(--white);border-radius:var(--r);padding:16px 14px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;cursor:pointer;border:0;text-align:left;font:inherit}
@@ -95,9 +138,8 @@
   .media .tag{align-self:flex-start;font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold-d);background:var(--cream-2);padding:2px 8px;border-radius:999px}
   nav{background:var(--white);border-top:1px solid var(--cream-2);display:flex;padding:8px 6px calc(env(safe-area-inset-bottom) + 8px)}
   nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:500 10.5px Poppins,sans-serif;color:var(--muted);padding:6px 0;cursor:pointer}
-  nav button .i{font-size:20px;filter:grayscale(1);opacity:.7}
+  nav button svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
   nav button.on{color:var(--navy)}
-  nav button.on .i{filter:none;opacity:1}
   nav button.on:after{content:"";width:18px;height:3px;border-radius:3px;background:var(--gold);margin-top:1px}
   footer.small{text-align:center;font-size:11px;color:var(--muted);margin-top:26px}
   footer.small a{color:var(--muted)}
@@ -115,28 +157,76 @@
   </header>
 
   <main id="main">
-    <!-- HOME -->
+    <!-- HOME — same order as the old app, so families find things where they expect -->
     <section class="screen active" id="home">
-      <div class="cover" role="img" aria-label="Child with Union Jack face paint"></div>
+      <div class="homecover" role="img" aria-label="Child with Union Jack face paint"></div>
       <div class="sheet">
-        <img class="badge" src="images/crest-176.png" alt="James Albert &amp; Co. crest">
+        <img class="logo" src="images/logo.png" onerror="this.onerror=null;this.src='images/crest-176.png'" alt="James Albert English Institute logo">
         <h1 class="school">James Albert English Institute</h1>
         <p class="kicker" data-t="kicker"></p>
-        <p class="intro" data-t="heroTitle"></p>
+        <a class="info-link" onclick="go('more')"><span data-t="genInfo"></span> ›</a>
         <div class="cta">
-          <a class="btn" data-link="bookTrial" target="_blank" rel="noopener" data-t="trialBtn"></a>
+          <button class="btn ghost" id="inviteBtn">⇪ <span data-t="invite"></span></button>
           <a class="btn dark" data-link="whatsapp" target="_blank" rel="noopener" data-t="chatBtn"></a>
         </div>
       </div>
 
-      <h2 data-t="quick"></h2>
-      <div class="grid">
-        <button class="tile" onclick="go('hubs')"><div class="ic">🎓</div><b data-t="tHub"></b><span data-t="tHubS"></span></button>
-        <button class="tile" onclick="go('book')"><div class="ic">📅</div><b data-t="tBook"></b><span data-t="tBookS"></span></button>
-        <button class="tile" onclick="go('library')"><div class="ic">📚</div><b data-t="tLib"></b><span data-t="tLibS"></span></button>
-        <button class="tile" onclick="go('contact')"><div class="ic">💬</div><b data-t="tContact"></b><span data-t="tContactS"></span></button>
+      <div class="sec">
+        <h2 class="big" data-t="instTitle"></h2>
+        <p class="body" data-t="instText"></p>
+        <div class="tiles4" id="pillars"></div>
+        <div class="feature" style="background-image:url('images/level-challenge.jpg')">
+          <h3 data-t="levelTitle"></h3>
+          <p data-t="levelText"></p>
+          <a class="btn navy" data-link="levelTest" target="_blank" rel="noopener" data-t="startHere"></a>
+        </div>
       </div>
 
+      <div class="sec">
+        <h2 class="big" data-t="tBook"></h2>
+        <p class="body" data-t="bookText"></p>
+        <img class="pic" src="images/kids-banner.jpg" data-ph="Kids banner — Learn naturally, speak naturally" alt="">
+        <div class="center"><button class="btn navy" onclick="go('book')" data-t="tBook"></button></div>
+      </div>
+
+      <div class="sec">
+        <img class="pic" src="images/parlo-inglese.jpg" data-ph="‘Parlo inglese…’ umbrella banner" alt="Parlo inglese…">
+      </div>
+
+      <div class="sec">
+        <a class="feature short" data-link="team" target="_blank" rel="noopener" style="background-image:url('images/team.jpg')">
+          <h3 data-t="teamTitle"></h3><span data-t="clickMe"></span>
+        </a>
+        <div class="center" style="margin-top:18px"><a class="btn navy" data-link="team" target="_blank" rel="noopener" data-t="seeTeam"></a></div>
+      </div>
+
+      <div class="sec">
+        <h2 class="big" data-t="socialTitle"></h2>
+        <p class="body" data-t="socialText"></p>
+        <a data-link="socialGroup" target="_blank" rel="noopener"><img class="pic" src="images/social-group.jpg" data-ph="English Social Group photo" alt=""></a>
+      </div>
+
+      <div class="sec" id="eventsSec">
+        <h2 class="big" data-t="events"></h2>
+        <div class="carousel" id="events"></div>
+        <div class="post" id="welcome">
+          <div class="who"><img src="images/crest-176.png" alt=""><div><b data-t="owner"></b><span data-t="ownerSub"></span></div></div>
+          <p class="txt" data-t="welcome"></p>
+          <button onclick="this.parentNode.classList.toggle('open');this.textContent=T(TEXT[this.parentNode.classList.contains('open')?'showLess':'showMore'])" data-t="showMore"></button>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2 data-t="socialLinks" style="margin-top:0"></h2>
+        <div class="socials" id="socials"></div>
+      </div>
+    </section>
+
+    <!-- MORE -->
+    <section class="screen" id="more">
+      <h1 data-t="nMore"></h1>
+      <p class="sub" data-t="moreSub"></p>
+      <div class="list" id="moreList"></div>
       <h2 data-t="news"></h2>
       <div id="newsList"></div>
     </section>
@@ -187,11 +277,11 @@
   </main>
 
   <nav id="nav">
-    <button class="on" data-go="home"><span class="i">🏠</span><span data-t="nHome"></span></button>
-    <button data-go="book"><span class="i">📅</span><span data-t="nBook"></span></button>
-    <button data-go="hubs"><span class="i">🎓</span><span data-t="nHubs"></span></button>
-    <button data-go="library"><span class="i">📚</span><span data-t="nLib"></span></button>
-    <button data-go="contact"><span class="i">💬</span><span data-t="nContact"></span></button>
+    <button class="on" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button>
+    <button data-go="hubs"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg><span data-t="nClasses"></span></button>
+    <button data-go="library" data-f="Kids"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span data-t="nKidsBooks"></span></button>
+    <button data-go="library" data-f="Adults"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg><span data-t="nAdultBooks"></span></button>
+    <button data-go="more"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span data-t="nMore"></span></button>
   </nav>
 </div>
 
@@ -209,8 +299,29 @@ const CONFIG = {
     privacy:   SITE + "/privacy-policy",
     bookTrial: TRIAL,
     whatsapp:  "https://wa.me/393516211640",
+    // TODO tonight: real addresses for these
+    levelTest:   SITE,
+    team:        SITE + "/tutors",
+    socialGroup: "https://wa.me/393516211640",
     maps:      "https://www.google.com/maps/search/?api=1&query=Via+Piave+2+30028+San+Michele+al+Tagliamento"
   },
+
+  // Home: the four photo tiles (photos go in the images folder)
+  pillars: [
+    { title:{en:"Cultural cohesion", it:"Coesione culturale"}, img:"images/tile-culture.jpg",  link: SITE + "/about", click:true },
+    { title:{en:"Language Development", it:"Sviluppo linguistico"}, img:"images/tile-language.jpg", link: SITE + "/about", click:true },
+    { title:{en:"Heritage", it:"Patrimonio"}, img:"images/tile-heritage.jpg", link: SITE + "/about" },
+    { title:{en:"Dialogue", it:"Dialogo"}, img:"images/tile-dialogue.jpg", link: SITE + "/about" }
+  ],
+
+  // Home: upcoming events (swipe sideways). Delete all to hide the section.
+  events: [
+    { day:"—", mon:{en:"DATE", it:"DATA"}, title:{en:"Your event here", it:"Il tuo evento qui"},
+      when:{en:"Date and time", it:"Data e ora"}, where:"San Michele al Tagliamento", img:"images/event-1.jpg", link:"https://wa.me/393516211640" }
+  ],
+
+  // Home: social links — paste each address between the quotes (empty = greyed out)
+  social: { instagram:"", facebook:"", x:"", youtube:"", tiktok:"" },
 
   news: [
     { date:{en:"November 2026", it:"Novembre 2026"},
@@ -272,7 +383,41 @@ const CONFIG = {
 
 /* ---------- screen text in both languages ---------- */
 const TEXT = {
-  kicker:    {en:"Language Centre · San Michele al Tagliamento", it:"Centro linguistico · San Michele al Tagliamento"},
+  kicker:    {en:"Language Centre", it:"Centro linguistico"},
+  genInfo:   {en:"General Info", it:"Informazioni"},
+  invite:    {en:"Invite", it:"Invita"},
+  copied:    {en:"Link copied", it:"Link copiato"},
+  instTitle: {en:"Our Institute", it:"Il nostro Istituto"},
+  instText:  {en:"The James Albert English Institute is a centre for language learning and cultural integration. English is our principal language of instruction, with German and French offered as additional fields of study.\nWe value cultural cohesion, language development and dialogue as essential pillars of a united Europe.",
+              it:"Il James Albert English Institute è un centro per l'apprendimento delle lingue e l'integrazione culturale. L'inglese è la nostra principale lingua d'insegnamento, con il tedesco e il francese offerti come ulteriori percorsi di studio.\nConsideriamo la coesione culturale, lo sviluppo linguistico e il dialogo pilastri essenziali di un'Europa unita."},
+  clickMe:   {en:"Click me", it:"Clicca qui"},
+  levelTitle:{en:"Free English Level Challenge", it:"Sfida gratuita: qual è il tuo livello?"},
+  levelText: {en:"Discover your level of English with our quick, free online test. Please note: this is not a Cambridge English exam. Results are approximate and not a formal qualification.",
+              it:"Scopri il tuo livello di inglese con il nostro test online, veloce e gratuito. Nota bene: non è un esame Cambridge English. I risultati sono indicativi e non costituiscono una qualifica ufficiale."},
+  startHere: {en:"Start Here", it:"Inizia qui"},
+  bookText:  {en:"Click below to discover a course that fits your needs and take your first step into an international community where language brings people together.",
+              it:"Clicca qui sotto per scoprire il corso adatto a te e fare il primo passo in una comunità internazionale dove la lingua unisce le persone."},
+  teamTitle: {en:"Our Team", it:"Il nostro team"},
+  seeTeam:   {en:"See Our Team", it:"Scopri il team"},
+  socialTitle:{en:"Join an English Social Group", it:"Unisciti a un gruppo di conversazione"},
+  socialText:{en:"The first step to speaking a language is spending time with people who speak it. Click below to join our community of English speakers.",
+              it:"Il primo passo per parlare una lingua è passare del tempo con chi la parla. Clicca qui sotto per unirti alla nostra comunità di persone che parlano inglese."},
+  events:    {en:"Upcoming events", it:"Prossimi eventi"},
+  rsvp:      {en:"RSVP", it:"Partecipo"},
+  owner:     {en:"James Maposa", it:"James Maposa"},
+  ownerSub:  {en:"Founder & Managing Director", it:"Fondatore e Direttore Generale"},
+  welcome:   {en:"Welcome to the James Albert Language Institute, where language comes to life. Here, learning a language is more than lessons and textbooks, it's about confidence…",
+              it:"Benvenuti al James Albert Language Institute, dove la lingua prende vita. Qui imparare una lingua non è solo lezioni e libri di testo: è una questione di fiducia in sé stessi…"},
+  showMore:  {en:"Show more", it:"Mostra di più"},
+  showLess:  {en:"Show less", it:"Mostra meno"},
+  socialLinks:{en:"Social links", it:"Seguici"},
+  nClasses:  {en:"Classes", it:"Classi"},
+  nKidsBooks:{en:"Kids Books", it:"Libri bambini"},
+  nAdultBooks:{en:"Adults Books", it:"Libri adulti"},
+  nMore:     {en:"More", it:"Altro"},
+  moreSub:   {en:"Lessons, contacts and school news.", it:"Lezioni, contatti e novità dalla scuola."},
+  mWebsite:  {en:"Our website", it:"Il nostro sito"},
+  mWebsiteS: {en:"jamesalbert.it", it:"jamesalbert.it"},
   heroTitle: {en:"Learn English the conversation-first way: lessons, class hubs and homework, all in one place.",
               it:"Impara l'inglese parlando: lezioni, aree classe e compiti, tutto in un unico posto."},
   trialBtn:  {en:"Free trial lesson", it:"Lezione di prova gratis"},
@@ -337,6 +482,37 @@ const media = (it, kind) => `<a class="media" href="#" onclick="go('hubs');retur
   <b>${esc(it.title)}</b><span class="tag">${esc(T(TEXT[it.class]) || it.class)}</span></a>`;
 
 let group = 'kids', filter = 'All';
+const SOCIAL_ICONS = {"instagram": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><circle cx=\"17.5\" cy=\"6.5\" r=\"1\" fill=\"currentColor\"/></svg>", "facebook": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M14 8h2.5V4.5H14c-2.6 0-4 1.6-4 4.2V11H7.5v3.5H10V22h3.5v-7.5h2.6l.5-3.5h-3.1V9c0-.6.3-1 1-1z\"/></svg>", "x": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M3.5 3.5h5l4 5.6 4.7-5.6h2.6l-6 7.2 6.7 9.8h-5l-4.3-6.2-5.3 6.2H3.3l6.6-7.7z\"/></svg>", "youtube": "<svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"5.5\" width=\"20\" height=\"13\" rx=\"4\" fill=\"currentColor\"/><path d=\"m10 9 5.2 3-5.2 3z\" fill=\"#efe6d0\"/></svg>", "tiktok": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M14 3h3c.2 2 1.8 3.7 4 3.9v3.1a7.2 7.2 0 0 1-4-1.3v6.4a6 6 0 1 1-6-6v3.1a2.9 2.9 0 1 0 3 2.9z\"/></svg>"};
+
+function renderHome(){
+  document.getElementById('pillars').innerHTML = CONFIG.pillars.map(p =>
+    `<a class="ptile" href="${esc(p.link)}" target="_blank" rel="noopener" style="background-image:url('${esc(p.img)}')">
+      <span>${esc(T(p.title))}</span>${p.click ? `<small>${esc(T(TEXT.clickMe))}</small>` : ''}</a>`).join('');
+  const ev = CONFIG.events;
+  document.getElementById('events').innerHTML = ev.map(e =>
+    `<div class="event"><div class="img" style="background-image:url('${esc(e.img)}')"></div>
+      <div class="bd"><div class="dt"><b>${esc(e.day)}</b>${esc(T(e.mon))}</div>
+        <div><h4>${esc(T(e.title))}</h4><div class="meta">${esc(T(e.when))}<br>${esc(T(e.where))}</div></div></div>
+      <a class="rsvp" href="${esc(e.link)}" target="_blank" rel="noopener">${esc(T(TEXT.rsvp))}</a></div>`).join('');
+  document.getElementById('events').previousElementSibling.style.display = ev.length ? '' : 'none';
+  document.getElementById('events').style.display = ev.length ? '' : 'none';
+  document.getElementById('socials').innerHTML = Object.entries(CONFIG.social).map(([k,u]) =>
+    `<a class="${u ? '' : 'off'}" href="${esc(u || '#')}" target="_blank" rel="noopener" aria-label="${k}">${SOCIAL_ICONS[k]}</a>`).join('');
+  const w = document.getElementById('welcome');
+  w.classList.remove('open');
+}
+
+function renderMore(){
+  const items = [
+    { code:"📅", name:TEXT.tBook,   info:TEXT.tBookS,   go:"book" },
+    { code:"📚", name:TEXT.tLib,    info:TEXT.tLibS,    go:"library" },
+    { code:"💬", name:TEXT.tContact,info:TEXT.tContactS,go:"contact" },
+    { code:"🌐", name:TEXT.mWebsite,info:TEXT.mWebsiteS,link:CONFIG.links.website }
+  ];
+  document.getElementById('moreList').innerHTML = items.map(it => it.go
+    ? `<a class="row" href="#" onclick="go('${it.go}');return false"><div class="ic">${it.code}</div><div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div><span class="chev">›</span></a>`
+    : row(it)).join('');
+}
 
 function renderCourses(){
   document.querySelectorAll('#courseTabs button').forEach(b => b.classList.toggle('on', b.dataset.g === group));
@@ -357,7 +533,7 @@ function renderLib(){
     (!b.length && !f.length ? `<p class="sub" style="margin-top:14px">${esc(T(TEXT.empty))}</p>` : '') +
     `<h2>${esc(T(TEXT.more))}</h2><div class="list">${CONFIG.more.map(h => row(h)).join('')}</div>`;
   document.querySelectorAll('#libList .chips button').forEach(btn =>
-    btn.onclick = () => { filter = btn.dataset.f; renderLib(); });
+    btn.onclick = () => { filter = btn.dataset.f; renderLib(); document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === 'library' && b.dataset.f === filter)); });
 }
 
 function renderAll(){
@@ -368,6 +544,8 @@ function renderAll(){
     `<div class="news"><div class="d">${esc(T(n.date))}</div><b>${esc(T(n.title))}</b><p>${esc(T(n.text))}</p></div>`).join('');
   document.getElementById('hubList').innerHTML = CONFIG.hubs.map(h => row(h)).join('');
   document.getElementById('contactList').innerHTML = CONFIG.contact.map(h => row(h)).join('');
+  renderHome();
+  renderMore();
   renderCourses();
   renderLib();
 }
@@ -378,15 +556,27 @@ function setLang(l){
   renderAll();
 }
 
-function go(id){
+function go(id, f){
+  if (id === 'library') { filter = f || 'All'; renderLib(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on',
+    b.dataset.go === id && (id !== 'library' || b.dataset.f === filter)));
   document.getElementById('main').scrollTop = 0;
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
-document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go));
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go, b.dataset.f));
+document.querySelectorAll('img[data-ph]').forEach(img => {
+  const swap = () => { const d = document.createElement('div'); d.className = 'ph'; d.textContent = 'Image: ' + img.dataset.ph; img.replaceWith(d); };
+  if (img.complete && !img.naturalWidth) swap(); else img.addEventListener('error', swap);
+});
+document.getElementById('inviteBtn').onclick = async () => {
+  const url = 'https://app.jamesalbert.it', title = 'James Albert English Institute';
+  try { if (navigator.share) return await navigator.share({ title, url }); await navigator.clipboard.writeText(url);
+    const sp = document.querySelector('#inviteBtn span'); sp.textContent = T(TEXT.copied); setTimeout(() => sp.textContent = T(TEXT.invite), 2000);
+  } catch(e){}
+};
 document.querySelectorAll('#courseTabs button').forEach(b => b.onclick = () => { group = b.dataset.g; renderCourses(); });
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
 renderAll();
