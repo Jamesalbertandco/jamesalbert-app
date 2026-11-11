@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f1f3d">
-<title>James Albert English Institute</title>
+<title>James Albert English Institute®</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -149,7 +149,7 @@
 <div class="phone">
   <header>
     <img class="crest" src="images/crest-176.png" alt="James Albert &amp; Co. crest">
-    <div class="brand"><img class="wordmark" src="images/wordmark-cream.png" alt="jamesalbert®"><span>English Institute</span></div>
+    <div class="brand"><img class="wordmark" src="images/wordmark-cream.png" alt="jamesalbert®"><span>English Institute®</span></div>
     <div class="lang" role="group" aria-label="Language / Lingua">
       <button data-lang="it" aria-label="Italiano">🇮🇹 IT</button>
       <button data-lang="en" aria-label="English">🇬🇧 EN</button>
@@ -162,7 +162,7 @@
       <div class="homecover" role="img" aria-label="Child with Union Jack face paint"></div>
       <div class="sheet">
         <img class="logo" src="images/logo.png" onerror="this.onerror=null;this.src='images/crest-176.png'" alt="James Albert English Institute logo">
-        <h1 class="school">James Albert English Institute</h1>
+        <h1 class="school">James Albert English Institute®</h1>
         <p class="kicker" data-t="kicker"></p>
         <a class="info-link" onclick="go('more')"><span data-t="genInfo"></span> ›</a>
         <div class="cta">
@@ -265,7 +265,7 @@
       <div class="list" id="contactList"></div>
       <h2 data-t="visit"></h2>
       <div class="card">
-        <p><b>James Albert English Institute</b></p>
+        <p><b>James Albert English Institute®</b></p>
         <p>Via Piave 2<br>30028 San Michele al Tagliamento (VE)</p>
         <a class="btn ghost block" style="margin-top:10px" data-link="maps" target="_blank" rel="noopener" data-t="maps"></a>
       </div>
@@ -388,8 +388,8 @@ const TEXT = {
   invite:    {en:"Invite", it:"Invita"},
   copied:    {en:"Link copied", it:"Link copiato"},
   instTitle: {en:"Our Institute", it:"Il nostro Istituto"},
-  instText:  {en:"The James Albert English Institute is a centre for language learning and cultural integration. English is our principal language of instruction, with German and French offered as additional fields of study.\nWe value cultural cohesion, language development and dialogue as essential pillars of a united Europe.",
-              it:"Il James Albert English Institute è un centro per l'apprendimento delle lingue e l'integrazione culturale. L'inglese è la nostra principale lingua d'insegnamento, con il tedesco e il francese offerti come ulteriori percorsi di studio.\nConsideriamo la coesione culturale, lo sviluppo linguistico e il dialogo pilastri essenziali di un'Europa unita."},
+  instText:  {en:"The James Albert English Institute® is a centre for language learning and cultural integration. English is our principal language of instruction, with German and French offered as additional fields of study.\nWe value cultural cohesion, language development and dialogue as essential pillars of a united Europe.",
+              it:"Il James Albert English Institute® è un centro per l'apprendimento delle lingue e l'integrazione culturale. L'inglese è la nostra principale lingua d'insegnamento, con il tedesco e il francese offerti come ulteriori percorsi di studio.\nConsideriamo la coesione culturale, lo sviluppo linguistico e il dialogo pilastri essenziali di un'Europa unita."},
   clickMe:   {en:"Click me", it:"Clicca qui"},
   levelTitle:{en:"Free English Level Challenge", it:"Sfida gratuita: qual è il tuo livello?"},
   levelText: {en:"Discover your level of English with our quick, free online test. Please note: this is not a Cambridge English exam. Results are approximate and not a formal qualification.",
@@ -406,8 +406,8 @@ const TEXT = {
   rsvp:      {en:"RSVP", it:"Partecipo"},
   owner:     {en:"James Maposa", it:"James Maposa"},
   ownerSub:  {en:"Founder & Managing Director", it:"Fondatore e Direttore Generale"},
-  welcome:   {en:"Welcome to the James Albert Language Institute, where language comes to life. Here, learning a language is more than lessons and textbooks, it's about confidence…",
-              it:"Benvenuti al James Albert Language Institute, dove la lingua prende vita. Qui imparare una lingua non è solo lezioni e libri di testo: è una questione di fiducia in sé stessi…"},
+  welcome:   {en:"Welcome to the James Albert Language Institute®, where language comes to life. Here, learning a language is more than lessons and textbooks, it's about confidence…",
+              it:"Benvenuti al James Albert Language Institute®, dove la lingua prende vita. Qui imparare una lingua non è solo lezioni e libri di testo: è una questione di fiducia in sé stessi…"},
   showMore:  {en:"Show more", it:"Mostra di più"},
   showLess:  {en:"Show less", it:"Mostra meno"},
   socialLinks:{en:"Social links", it:"Seguici"},
@@ -572,7 +572,7 @@ document.querySelectorAll('img[data-ph]').forEach(img => {
   if (img.complete && !img.naturalWidth) swap(); else img.addEventListener('error', swap);
 });
 document.getElementById('inviteBtn').onclick = async () => {
-  const url = 'https://app.jamesalbert.it', title = 'James Albert English Institute';
+  const url = 'https://app.jamesalbert.it', title = 'James Albert English Institute®';
   try { if (navigator.share) return await navigator.share({ title, url }); await navigator.clipboard.writeText(url);
     const sp = document.querySelector('#inviteBtn span'); sp.textContent = T(TEXT.copied); setTimeout(() => sp.textContent = T(TEXT.invite), 2000);
   } catch(e){}
