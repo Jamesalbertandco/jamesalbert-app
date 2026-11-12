@@ -4,7 +4,9 @@
     "target": {
       "namespace": "android_app",
       "package_name": "branded.mfd66cb43a9f64d0cac721ca2c3679308.languageconsultants",
-      "sha256_cert_fingerprints": ["2F:89:A4:35:90:68:80:7A:31:E3:E8:F8:C3:6D:33:2D:79:03:4A:C0:DD:84:B6:09:24:83:64:A8:72:FC:AE:03"]
+      "sha256_cert_fingerprints": [
+        "2F:89:A4:35:90:68:80:7A:31:E3:E8:F8:C3:6D:33:2D:79:03:4A:C0:DD:84:B6:09:24:83:64:A8:72:FC:AE:03"
+      ]
     }
   }
 ]
