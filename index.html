@@ -9,7 +9,7 @@
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0f1f3d; --navy-2:#1b2f57; --cream:#f7f1e3; --cream-2:#efe6d0;
@@ -29,6 +29,33 @@
   .lang{display:flex;background:rgba(15,31,61,.55);border:1px solid rgba(255,255,255,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:999px;padding:3px;flex:none}
   .lang button{border:0;background:transparent;color:#fff;font:600 12.5px Poppins,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:5px;opacity:.75}
   .lang button.on{background:#fff;color:var(--navy);opacity:1}
+  .art{margin:-20px -18px 0;background:#fff}
+  .art .back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--navy);font:600 13px Poppins,sans-serif;padding:14px 20px 4px;cursor:pointer}
+  .art .hd{padding:6px 20px 0}
+  .art .kick{font:600 11px Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#a3121f;border-top:2px solid var(--navy);padding-top:10px;display:block}
+  .art h1.ttl{font-family:'Playfair Display',serif;font-weight:800;font-size:31px;line-height:1.12;color:#111;margin:10px 0 10px}
+  .art .dek{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.45;color:#444;margin-bottom:14px}
+  .art .by{font:500 11.5px Poppins,sans-serif;color:#666;border-top:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;padding:9px 0;display:flex;justify-content:space-between}
+  .art .by b{color:#111;font-weight:600}
+  .art figure{margin:16px 0 0}
+  .art figure img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+  .art figcaption{font:400 11.5px/1.45 Poppins,sans-serif;color:#777;padding:7px 20px 0}
+  .art .bd{padding:14px 20px 8px;font-family:'Source Serif 4',Georgia,serif;font-size:17.5px;line-height:1.62;color:#1a1a1a}
+  .art .bd p{margin:0 0 16px}
+  .art .bd p.lead:first-letter{float:left;font-family:'Playfair Display',serif;font-weight:700;font-size:62px;line-height:.82;padding:6px 8px 0 0;color:var(--navy)}
+  .art blockquote{margin:22px 0;padding:14px 0;border-top:3px solid var(--navy);border-bottom:1px solid #ddd;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.3;color:var(--navy)}
+  .art .box{margin:8px 20px 18px;background:#f5f6f8;border-radius:12px;padding:16px 18px}
+  .art .box h4{font:600 11px Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+  .art ol{margin:0;padding-left:0;list-style:none;counter-reset:f}
+  .art ol li{counter-increment:f;position:relative;padding:10px 0 10px 34px;border-top:1px solid #e3e5ea;font-family:'Source Serif 4',Georgia,serif;font-size:15.5px;line-height:1.5}
+  .art ol li:first-child{border-top:0}
+  .art ol li:before{content:counter(f);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font:600 12px/24px Poppins,sans-serif;text-align:center}
+  .art .say div{padding:9px 0;border-top:1px solid #e3e5ea}
+  .art .say div:first-of-type{border-top:0}
+  .art .say b{display:block;font:600 15px Poppins,sans-serif;color:var(--navy)}
+  .art .say span{font:400 13px Poppins,sans-serif;color:#666}
+  .art .end{text-align:center;padding:8px 20px 26px;font:400 13.5px Poppins,sans-serif;color:#555}
+  .art .end .btn{margin-top:10px}
   main{flex:1;overflow-y:auto;padding:20px 18px 28px}
   .screen{display:none;animation:fade .25s ease}
   .screen.active{display:block}
@@ -71,6 +98,7 @@
   .feature.level{background:url('images/level-brain.png') right 12px top 16px/46% auto no-repeat,var(--navy);padding-top:170px}
   .feature.level:before{background:none}
   .feature.level .btn.navy{background:#fff;color:var(--navy)}
+  .feature.level h3{color:#fff}
   .feature *{position:relative}
   .feature h3{font-family:'Playfair Display',serif;font-size:28px;line-height:1.15;color:var(--gold);margin:60px 0 14px}
   .feature p{font-size:14px;line-height:1.55;margin-bottom:18px}
@@ -247,6 +275,9 @@
       <div class="note" data-t="policy"></div>
     </section>
 
+    <!-- ARTICLE -->
+    <section class="screen" id="article"><div class="art" id="artBody"></div></section>
+
     <!-- HOMEWORK -->
     <section class="screen" id="homework">
       <h1 data-t="hwTitle"></h1>
@@ -297,6 +328,7 @@
   </nav>
 </div>
 
+<script src="articles.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -321,10 +353,10 @@ const CONFIG = {
 
   // Home: the four photo tiles (photos go in the images folder)
   pillars: [
-    { title:{en:"Cultural cohesion", it:"Coesione culturale"}, img:"images/tile-culture.jpg",  link: SITE + "/about", click:true },
-    { title:{en:"Language Development", it:"Sviluppo linguistico"}, img:"images/tile-language.jpg", link: SITE + "/about", click:true },
-    { title:{en:"Heritage", it:"Patrimonio"}, img:"images/tile-heritage.jpg", link: SITE + "/about" },
-    { title:{en:"Dialogue", it:"Dialogo"}, img:"images/tile-dialogue.jpg", link: SITE + "/about" }
+    { title:{en:"Cultural cohesion", it:"Coesione culturale"}, img:"images/tile-culture.jpg", art:"culture" },
+    { title:{en:"Language Development", it:"Sviluppo linguistico"}, img:"images/tile-language.jpg", art:"language" },
+    { title:{en:"Heritage", it:"Patrimonio"}, img:"images/tile-heritage.jpg", art:"heritage" },
+    { title:{en:"Dialogue", it:"Dialogo"}, img:"images/tile-dialogue.jpg", art:"dialogue" }
   ],
 
   // Home: upcoming events (swipe sideways). Delete all to hide the section.
@@ -429,6 +461,10 @@ const TEXT = {
   nAdultBooks:{en:"Adults Books", it:"Libri adulti"},
   nMore:     {en:"More", it:"Altro"},
   nHomework: {en:"Homework", it:"Compiti"},
+  artBack:   {en:"Back", it:"Indietro"},
+  artBy:     {en:"By the jamesalbert® team", it:"A cura del team jamesalbert®"},
+  artEnd:    {en:"Want to practise this for real?", it:"Vuoi metterlo in pratica davvero?"},
+  artCta:    {en:"Book a free trial lesson", it:"Prenota una lezione di prova gratuita"},
   nHub:      {en:"Student Hub", it:"Area Studenti"},
   nBook:     {en:"Book a lesson", it:"Prenota"},
   hwTitle:   {en:"Homework", it:"Compiti"},
@@ -509,8 +545,8 @@ const SOCIAL_ICONS = {"instagram": "<svg viewBox=\"0 0 24 24\" fill=\"none\" str
 
 function renderHome(){
   document.getElementById('pillars').innerHTML = CONFIG.pillars.map(p =>
-    `<a class="ptile" href="${esc(p.link)}" target="_blank" rel="noopener" style="background-image:url('${esc(p.img)}')">
-      <span>${esc(T(p.title))}</span>${p.click ? `<small>${esc(T(TEXT.clickMe))}</small>` : ''}</a>`).join('');
+    `<a class="ptile" href="#" onclick="go('article','${p.art}');return false" style="background-image:url('${esc(p.img)}')">
+      <span>${esc(T(p.title))}</span></a>`).join('');
   const ev = CONFIG.events;
   document.getElementById('events').innerHTML = ev.map(e =>
     `<div class="event"><div class="img" style="background-image:url('${esc(e.img)}')"></div>
@@ -558,6 +594,30 @@ function renderLib(){
     btn.onclick = () => { filter = btn.dataset.f; renderLib();  });
 }
 
+let ART = 'language';
+function renderArticle(){
+  const a = window.ARTICLES && ARTICLES[ART]; if (!a) return;
+  const t = a[LANG] || a.en;
+  document.getElementById('artBody').innerHTML = `
+    <button class="back" onclick="go('home')">‹ ${esc(T(TEXT.artBack))}</button>
+    <div class="hd">
+      <span class="kick">${t.kicker}</span>
+      <h1 class="ttl">${t.title}</h1>
+      <p class="dek">${t.dek}</p>
+      <div class="by"><b>${esc(T(TEXT.artBy))}</b><span>${t.read}</span></div>
+    </div>
+    <figure><img src="${a.img}" alt=""><figcaption>${t.caption}</figcaption></figure>
+    <div class="bd">
+      <p class="lead">${t.lead}</p>
+      ${t.body.map(p => `<p>${p}</p>`).join('')}
+      <blockquote>${t.quote}</blockquote>
+      ${t.body2.map(p => `<p>${p}</p>`).join('')}
+    </div>
+    <div class="box"><h4>${t.factsTitle}</h4><ol>${t.facts.map(f => `<li>${f}</li>`).join('')}</ol></div>
+    <div class="box say"><h4>${t.sayTitle}</h4>${t.say.map(([en,it]) => `<div><b>${en}</b><span>${it}</span></div>`).join('')}</div>
+    <div class="end">${esc(T(TEXT.artEnd))}<br><button class="btn navy" onclick="go('book')">${esc(T(TEXT.artCta))}</button></div>`;
+}
+
 function renderAll(){
   document.documentElement.lang = LANG;
   document.querySelectorAll('[data-t]').forEach(el => el.textContent = T(TEXT[el.dataset.t]));
@@ -573,6 +633,7 @@ function renderAll(){
   renderMore();
   renderCourses();
   renderLib();
+  renderArticle();
 }
 
 function setLang(l){
@@ -583,9 +644,10 @@ function setLang(l){
 
 function go(id, f){
   if (id === 'library') { filter = f || 'All'; renderLib(); }
+  if (id === 'article') { ART = f || ART; renderArticle(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
