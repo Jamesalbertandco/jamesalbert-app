@@ -361,8 +361,13 @@ const CONFIG = {
 
   // Home: upcoming events (swipe sideways). Delete all to hide the section.
   events: [
-    { day:"—", mon:{en:"DATE", it:"DATA"}, title:{en:"Your event here", it:"Il tuo evento qui"},
-      when:{en:"Date and time", it:"Data e ora"}, where:"San Michele al Tagliamento", img:"images/event-christmas.jpg", link:"https://wa.me/393516211640" }
+    { day:"19", mon:{en:"DEC", it:"DIC"},
+      title:{en:"Carols by Candlelight", it:"Carols by Candlelight"},
+      when:{en:"Saturday 19 December · Time to be confirmed", it:"Sabato 19 dicembre · Orario da confermare"},
+      where:"Via Piave 2, San Michele al Tagliamento",
+      note:{en:"Performed by the jamesalbert® children. Free entry · Parents and friends welcome", it:"Con i bambini di jamesalbert®. Ingresso libero · Genitori e amici sono i benvenuti"},
+      img:"images/event-christmas.jpg",
+      link:"https://wa.me/393516211640?text=" + encodeURIComponent("Hi! We'd like to come to Carols by Candlelight on Saturday 19 December.") }
   ],
 
   // Home: social links — paste each address between the quotes (empty = greyed out)
@@ -551,7 +556,7 @@ function renderHome(){
   document.getElementById('events').innerHTML = ev.map(e =>
     `<div class="event"><div class="img" style="background-image:url('${esc(e.img)}')"></div>
       <div class="bd"><div class="dt"><b>${esc(e.day)}</b>${esc(T(e.mon))}</div>
-        <div><h4>${esc(T(e.title))}</h4><div class="meta">${esc(T(e.when))}<br>${esc(T(e.where))}</div></div></div>
+        <div><h4>${esc(T(e.title))}</h4><div class="meta">${esc(T(e.when))}<br>${esc(T(e.where))}${e.note ? `<br><em>${esc(T(e.note))}</em>` : ''}</div></div></div>
       <a class="rsvp" href="${esc(e.link)}" target="_blank" rel="noopener">${esc(T(TEXT.rsvp))}</a></div>`).join('');
   document.getElementById('events').previousElementSibling.style.display = ev.length ? '' : 'none';
   document.getElementById('events').style.display = ev.length ? '' : 'none';
@@ -606,7 +611,7 @@ function renderArticle(){
       <p class="dek">${t.dek}</p>
       <div class="by"><b>${esc(T(TEXT.artBy))}</b><span>${t.read}</span></div>
     </div>
-    <figure><img src="${a.img}" alt=""><figcaption>${t.caption}</figcaption></figure>
+    <figure><img src="${a.hero || a.img}" alt=""><figcaption>${t.caption}</figcaption></figure>
     <div class="bd">
       <p class="lead">${t.lead}</p>
       ${t.body.map(p => `<p>${p}</p>`).join('')}

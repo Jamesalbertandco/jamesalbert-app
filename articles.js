@@ -4,12 +4,13 @@ window.ARTICLES = {
 
   language: {
     img: "images/tile-language.jpg",
+    hero: "images/art-language.jpg",
     en: {
       kicker: "Language",
       title: "How English Became English",
       dek: "Sea-crossing tribes, Vikings, a French king and one very busy playwright: the short, surprising story of the world's most borrowed language.",
       read: "4 min read",
-      caption: "The Union Jack. The language it flies over was shaped by more than a thousand years of visitors.",
+      caption: "Re-enactors in Viking-age dress. The Vikings gave English everyday words like sky, egg and knife.",
       lead: "English did not grow up on its own. It was built, layer by layer, by the people who arrived on a small island at the edge of Europe — and almost every one of them left words behind.",
       body: [
         "Around the 5th century, Angles, Saxons and Jutes crossed the North Sea from what is now Germany and Denmark. Their language, Old English, gave us the everyday core we still use: <i>house</i>, <i>water</i>, <i>bread</i>, <i>mother</i>, <i>love</i>. Vikings followed, and left short, sturdy words such as <i>sky</i>, <i>egg</i>, <i>knife</i> and even <i>they</i>.",
@@ -40,7 +41,7 @@ window.ARTICLES = {
       title: "Come l'inglese è diventato inglese",
       dek: "Tribù venute dal mare, Vichinghi, un re francese e un drammaturgo molto prolifico: la breve e sorprendente storia della lingua che ha preso in prestito più parole al mondo.",
       read: "4 min di lettura",
-      caption: "La Union Jack. La lingua che rappresenta è stata plasmata da oltre mille anni di visitatori.",
+      caption: "Rievocatori in abiti dell'epoca vichinga. I Vichinghi hanno dato all'inglese parole quotidiane come sky, egg e knife.",
       lead: "L'inglese non è cresciuto da solo. È stato costruito, strato dopo strato, dai popoli arrivati su una piccola isola ai margini dell'Europa — e quasi tutti hanno lasciato qualche parola.",
       body: [
         "Intorno al V secolo, Angli, Sassoni e Juti attraversarono il Mare del Nord da quelle che oggi sono la Germania e la Danimarca. La loro lingua, l'inglese antico, ci ha dato il nucleo quotidiano che usiamo ancora: <i>house</i>, <i>water</i>, <i>bread</i>, <i>mother</i>, <i>love</i>. Poi arrivarono i Vichinghi, che lasciarono parole brevi e solide come <i>sky</i>, <i>egg</i>, <i>knife</i> e perfino <i>they</i>.",
@@ -70,12 +71,13 @@ window.ARTICLES = {
 
   culture: {
     img: "images/tile-culture.jpg",
+    hero: "images/art-culture.jpg",
     en: {
       kicker: "Culture",
       title: "Four Nations, One Island, a Lot of Tea",
       dek: "The United Kingdom is not one culture but several, living side by side. Understanding how they fit together is half of understanding the British.",
       read: "3 min read",
-      caption: "Traditional dress at a festival. Cultural cohesion means many identities sharing one place.",
+      caption: "Scottish Highland dress: tartan kilt, sporran and red coat. Scotland's identity is proudly its own, inside the United Kingdom.",
       lead: "Ask someone from Edinburgh if they are English and you may get a polite but firm correction. The United Kingdom is made of four nations — England, Scotland, Wales and Northern Ireland — each with its own history, accent and pride.",
       body: [
         "Scotland has its own legal system and banknotes. In Wales, road signs are written in both Welsh and English, and Welsh is taught in schools. Northern Ireland shares an island with the Republic of Ireland. Yet all four share a parliament in London, a monarch and a great many habits.",
@@ -104,7 +106,7 @@ window.ARTICLES = {
       title: "Quattro nazioni, un'isola, tanto tè",
       dek: "Il Regno Unito non è una sola cultura ma diverse, che vivono fianco a fianco. Capire come si incastrano è metà del lavoro per capire i britannici.",
       read: "3 min di lettura",
-      caption: "Abiti tradizionali a un festival. La coesione culturale è tante identità che condividono lo stesso luogo.",
+      caption: "L'abito tradizionale delle Highlands scozzesi: kilt in tartan, sporran e giubba rossa. L'identità scozzese resta orgogliosamente sua, dentro il Regno Unito.",
       lead: "Chiedete a qualcuno di Edimburgo se è inglese e potreste ricevere una correzione gentile ma decisa. Il Regno Unito è formato da quattro nazioni — Inghilterra, Scozia, Galles e Irlanda del Nord — ognuna con la propria storia, il proprio accento e il proprio orgoglio.",
       body: [
         "La Scozia ha un proprio sistema giuridico e proprie banconote. In Galles i cartelli stradali sono scritti in gallese e in inglese, e il gallese si studia a scuola. L'Irlanda del Nord condivide un'isola con la Repubblica d'Irlanda. Eppure tutte e quattro condividono un parlamento a Londra, un monarca e moltissime abitudini.",
@@ -132,12 +134,13 @@ window.ARTICLES = {
 
   heritage: {
     img: "images/tile-heritage.jpg",
+    hero: "images/art-heritage.jpg",
     en: {
       kicker: "Heritage",
       title: "A Country That Keeps Its Past Close",
       dek: "Castles, country houses, bonfires and pancakes: why the British protect their traditions so carefully — and how they keep changing them.",
       read: "4 min read",
-      caption: "Riders in the English countryside, a scene from centuries of rural tradition. Hunting wild animals with dogs has been banned in England and Wales since 2005.",
+      caption: "The Household Cavalry in ceremonial uniform, a familiar sight on royal occasions in London.",
       lead: "In Britain, the past is never far away. You can drink coffee in a building older than the United States, walk a footpath used by Romans, or watch a ceremony that has barely changed in five hundred years.",
       body: [
         "Much of this survives because people chose to protect it. The National Trust, founded in 1895, now looks after hundreds of historic houses, gardens and castles, as well as long stretches of coastline. Millions of people are members — protecting heritage is something ordinary British families pay for and visit at weekends.",
@@ -166,7 +169,7 @@ window.ARTICLES = {
       title: "Un paese che tiene stretto il suo passato",
       dek: "Castelli, dimore di campagna, falò e frittelle: perché i britannici proteggono le loro tradizioni con tanta cura — e come continuano a cambiarle.",
       read: "4 min di lettura",
-      caption: "Cavalieri nella campagna inglese, una scena da secoli di tradizione rurale. Dal 2005 in Inghilterra e Galles è vietato cacciare animali selvatici con i cani.",
+      caption: "La Household Cavalry in uniforme da cerimonia, una presenza familiare nelle occasioni reali a Londra.",
       lead: "In Gran Bretagna il passato non è mai lontano. Si può bere un caffè in un edificio più antico degli Stati Uniti, camminare su un sentiero usato dai Romani o assistere a una cerimonia quasi immutata da cinquecento anni.",
       body: [
         "Molto di tutto questo sopravvive perché qualcuno ha scelto di proteggerlo. Il National Trust, fondato nel 1895, oggi si prende cura di centinaia di dimore storiche, giardini e castelli, oltre a lunghi tratti di costa. Milioni di persone ne sono soci — proteggere il patrimonio è qualcosa che le famiglie britanniche pagano e visitano nel fine settimana.",
@@ -194,12 +197,13 @@ window.ARTICLES = {
 
   dialogue: {
     img: "images/tile-dialogue.jpg",
+    hero: "images/art-dialogue.jpg",
     en: {
       kicker: "Dialogue",
       title: "What the British Really Mean",
       dek: "Fluency isn't only knowing the words. It's knowing what people mean when they say them — and in Britain, that can be two very different things.",
       read: "3 min read",
-      caption: "Two puffins mid-conversation. Real dialogue is about listening as much as speaking.",
+      caption: "Two puffins, beak to beak. Real dialogue is about listening as much as speaking.",
       lead: "You can know every rule of English grammar and still feel lost in a British conversation. That's because a lot of meaning lives between the words: in tone, in politeness, and in what is left unsaid.",
       body: [
         "The British are famous for understatement. “Not bad” can mean “very good”. “Quite interesting” can mean “not interesting at all”. And “I'll bear it in mind” often means the idea has already been forgotten.",
@@ -228,7 +232,7 @@ window.ARTICLES = {
       title: "Cosa intendono davvero i britannici",
       dek: "Parlare bene non significa solo conoscere le parole. Significa capire cosa intendono le persone quando le usano — e in Gran Bretagna possono essere due cose molto diverse.",
       read: "3 min di lettura",
-      caption: "Due pulcinelle di mare in piena conversazione. Il vero dialogo è ascoltare tanto quanto parlare.",
+      caption: "Due pulcinelle di mare, becco a becco. Il vero dialogo è ascoltare tanto quanto parlare.",
       lead: "Si può conoscere ogni regola della grammatica inglese e sentirsi comunque persi in una conversazione britannica. Questo perché gran parte del significato vive tra le parole: nel tono, nella cortesia e in ciò che non viene detto.",
       body: [
         "I britannici sono famosi per l'understatement. “Not bad” può significare “ottimo”. “Quite interesting” può voler dire “per niente interessante”. E “I'll bear it in mind” spesso significa che l'idea è già stata dimenticata.",
