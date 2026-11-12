@@ -507,6 +507,8 @@ const TEXT = {
   nAdultBooks:{en:"Adults Books", it:"Libri adulti"},
   nMore:     {en:"More", it:"Altro"},
   nHomework: {en:"Homework", it:"Compiti"},
+  privacy:   {en:"Privacy policy", it:"Informativa sulla privacy"},
+  privacyS:  {en:"How we handle your data", it:"Come trattiamo i tuoi dati"},
   memTitle:  {en:"Become a member", it:"Diventa socio"},
   wTag:      {en:"Learn Naturally, Speak Naturally", it:"Impara con naturalezza, parla con naturalezza"},
   wExplore:  {en:"Explore the app", it:"Esplora l'app"},
@@ -616,7 +618,8 @@ function renderMore(){
   const items = [
     { code:"📰", name:TEXT.dispatch,info:TEXT.dispatchS,link:CONFIG.links.dispatch },
     { code:"💬", name:TEXT.tContact,info:TEXT.tContactS,go:"contact" },
-    { code:"🌐", name:TEXT.mWebsite,info:TEXT.mWebsiteS,link:CONFIG.links.website }
+    { code:"🌐", name:TEXT.mWebsite,info:TEXT.mWebsiteS,link:CONFIG.links.website },
+    { code:"🔒", name:TEXT.privacy,info:TEXT.privacyS,link:"/privacy.html" }
   ];
   document.getElementById('moreList').innerHTML = items.map(it => it.go
     ? `<a class="row" href="#" onclick="go('${it.go}');return false"><div class="ic">${it.code}</div><div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div><span class="chev">›</span></a>`
