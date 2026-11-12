@@ -125,31 +125,81 @@ window.TEAM = [
   {
     id: "arianna", img: "images/team/arianna.jpg",
     en: {
-      name: "Teacher Arianna", role: "German & Spanish",
-      tag: "",
+      name: "Teacher Arianna", role: "German & Spanish Teacher",
+      tag: "Children, Teenagers & Adults",
       card: "Over 20 years' experience, high standards and a warm approach.",
-      intro: "Arianna leads our German and Spanish classes. With more than 20 years of teaching experience, she combines high standards with a warm and encouraging approach, giving students a welcoming place to take their first steps in a new language and build confidence."
+      intro: "Arianna is an experienced language teacher with more than 20 years in education. A graduate in Modern Foreign Languages, specialising in German and Spanish, she combines high academic standards with a warm, encouraging manner that helps students feel supported while making real progress. She teaches German and Spanish and also speaks Italian and English fluently.",
+      facts: [["Experience","20+ years"],["Languages taught","German & Spanish"],["Delivery","In person · Online"]],
+      quote: ["I love foreign languages and I enjoy sharing that passion with my students.", "Teacher Arianna"],
+      teachesTitle: "Arianna teaches",
+      teaches: ["German","Spanish","General Language","Conversation","Grammar & Vocabulary","Speaking & Pronunciation","School Support","Exam Preparation","Practical German for Work","Personalised Learning"],
+      sections: [
+        ["Experience", ["Arianna has more than 20 years of teaching experience. She graduated in Modern Foreign Languages at the University of Perugia, specialising in German and Spanish, and later qualified to teach German in secondary schools at Ca' Foscari University of Venice.",
+                        "Her long classroom experience lets her work confidently with learners of different ages and levels, adapting lessons to individual needs while keeping a clear structure and a high standard of teaching."]],
+        ["Biography", ["Languages have always been central to Arianna's academic and professional life. German and Spanish are her main teaching languages, and she also speaks Italian and English fluently.",
+                       "A mother of two young women, Arianna brings a naturally warm and reassuring presence to her lessons. Students respond to her ability to connect with them while still encouraging them to work carefully and aim high."]],
+        ["Approach to teaching", ["Arianna believes learning a language should be purposeful, practical and connected to the learner's real needs. She is particularly aware of how much German matters in our area, where strong language skills can make a real difference in tourism, employment and professional life.",
+                                  "Her lessons combine clear explanation with conversation, grammar, vocabulary and practical communication, guiding students towards greater confidence whether they study for school, work, travel or personal growth."]],
+        ["When not teaching", ["Arianna values family life and enjoys continuing to develop her own knowledge and interests. Her enthusiasm for languages is not just professional — it is something she genuinely loves sharing with others. That mix of experience, high standards and a caring presence gives her lessons a distinctive balance of structure and encouragement."]]
+      ]
     },
     it: {
-      name: "Teacher Arianna", role: "Tedesco e spagnolo",
-      tag: "",
+      name: "Teacher Arianna", role: "Insegnante di tedesco e spagnolo",
+      tag: "Bambini, ragazzi e adulti",
       card: "Oltre 20 anni di esperienza, alti standard e un approccio caloroso.",
-      intro: "Arianna guida i nostri corsi di tedesco e spagnolo. Con più di 20 anni di esperienza nell'insegnamento, unisce standard elevati a un approccio caloroso e incoraggiante, offrendo agli studenti un ambiente accogliente per muovere i primi passi in una nuova lingua e acquisire sicurezza."
+      intro: "Arianna è un'insegnante di lingue con più di 20 anni di esperienza. Laureata in Lingue e Letterature Straniere Moderne con specializzazione in tedesco e spagnolo, unisce alti standard accademici a un modo di fare caloroso e incoraggiante, che fa sentire gli studenti sostenuti mentre fanno progressi reali. Insegna tedesco e spagnolo e parla fluentemente anche italiano e inglese.",
+      facts: [["Esperienza","Oltre 20 anni"],["Lingue insegnate","Tedesco e spagnolo"],["Modalità","In presenza · Online"]],
+      quote: ["Amo le lingue straniere e mi piace condividere questa passione con i miei studenti.", "Teacher Arianna"],
+      teachesTitle: "Arianna insegna",
+      teaches: ["Tedesco","Spagnolo","Lingua generale","Conversazione","Grammatica e lessico","Parlato e pronuncia","Supporto scolastico","Preparazione esami","Tedesco pratico per il lavoro","Percorsi personalizzati"],
+      sections: [
+        ["Esperienza", ["Arianna ha più di 20 anni di esperienza nell'insegnamento. Si è laureata in Lingue Straniere Moderne all'Università di Perugia, con specializzazione in tedesco e spagnolo, e ha poi conseguito l'abilitazione all'insegnamento del tedesco nella scuola secondaria all'Università Ca' Foscari di Venezia.",
+                        "La lunga esperienza in classe le permette di lavorare con sicurezza con studenti di età e livelli diversi, adattando le lezioni alle esigenze di ciascuno e mantenendo una struttura chiara e un alto livello di insegnamento."]],
+        ["Biografia", ["Le lingue sono sempre state al centro della vita accademica e professionale di Arianna. Il tedesco e lo spagnolo sono le sue lingue principali di insegnamento, e parla fluentemente anche italiano e inglese.",
+                       "Mamma di due ragazze ormai grandi, Arianna porta nelle sue lezioni una presenza naturalmente calorosa e rassicurante. Gli studenti apprezzano la sua capacità di entrare in sintonia con loro, spronandoli allo stesso tempo a lavorare con cura e a puntare in alto."]],
+        ["Il suo metodo", ["Per Arianna imparare una lingua deve avere uno scopo, essere pratico e legato alle reali esigenze di chi studia. È particolarmente consapevole dell'importanza del tedesco nel nostro territorio, dove buone competenze linguistiche fanno davvero la differenza nel turismo, nel lavoro e nella vita professionale.",
+                           "Le sue lezioni uniscono spiegazioni chiare, conversazione, grammatica, lessico e comunicazione pratica, accompagnando gli studenti verso una maggiore sicurezza, che studino per la scuola, il lavoro, i viaggi o la crescita personale."]],
+        ["Fuori dalla classe", ["Arianna dà grande valore alla famiglia e continua a coltivare le proprie conoscenze e i propri interessi. Il suo entusiasmo per le lingue non è solo professionale: è qualcosa che ama davvero condividere con gli altri. Questa combinazione di esperienza, alti standard e una presenza premurosa dà alle sue lezioni un equilibrio speciale tra struttura e incoraggiamento."]]
+      ]
     }
   },
   {
     id: "irene", img: "images/team/irene.jpg",
     en: {
-      name: "Irene Rizzin", role: "Mosaic Art in English",
-      tag: "Adults & Children",
-      card: "Master mosaicist bringing art and language together.",
-      intro: "Irene is a master mosaicist who brings art and language together through creative mosaic workshops for children and adults, taught naturally in English. Her classes invite students to explore colour, shape and creativity one small piece at a time — a chance to slow down, experiment and enjoy making something by hand."
+      name: "Irene Rizzin", role: "English Tutor · Mosaic Art in English",
+      tag: "Teenagers & Adults · Mosaic workshops for all ages",
+      card: "English tutor and master mosaicist, bringing art and language together.",
+      intro: "Irene is an experienced English tutor with a solid command of the language at B2 level. Her lessons focus on practical communication, accuracy and building confidence, tailored to each student. With her warm, patient approach and multicultural background, she creates a positive environment where students feel supported and motivated to progress.",
+      facts: [["Nationality","Italian"],["Native languages","Italian, German"],["Delivery","In person · Online"]],
+      quote: ["Irene's lessons are engaging, well-structured and always focused on real communication. I feel much more confident in English now.", "Student testimonial"],
+      teachesTitle: "Irene teaches",
+      teaches: ["General English","Conversation","Grammar & Vocabulary","Reading & Writing","Exam Preparation","Private English – Teens & Adults","Mosaic Art in English"],
+      sections: [
+        ["Experience", ["Irene has several years of experience teaching English to teenagers and adults, in person and online. She has helped learners from different backgrounds improve their fluency, expand their vocabulary and communicate more naturally in everyday, academic and professional contexts."]],
+        ["Biography", ["Irene was born in Cal Fosco, Italy, into a multicultural family: her father is Italian and her mother German. She grew up inspired by their passion for hospitality — her mother managed small hotels and B&Bs, and her father is a renowned chef.",
+                       "She graduated cum laude as a Master Mosaicist from the prestigious Scuola Mosaicisti del Friuli in Spilimbergo, and her mosaic work has taken her to projects in Argentina, the UK and South Africa, among other places. She speaks Italian, German and English."]],
+        ["Approach to tutoring", ["Irene believes learning a language is about connection, expression and real-life use. She combines clear explanations with interactive activities and meaningful conversation, so lessons are both effective and enjoyable. Her goal is to help students build confidence, improve accuracy and communicate well in any situation.",
+                                  "Qualifications: Master Mosaicist, Scuola Mosaicisti del Friuli (Spilimbergo), cum laude; B2 English; ongoing professional development in English language teaching."]],
+        ["When not tutoring", ["Irene loves spending time with her family — day trips, exploring new places and picnics in the countryside or by the sea. These simple moments bring her joy and inspiration."]]
+      ]
     },
     it: {
-      name: "Irene Rizzin", role: "Mosaico in inglese",
-      tag: "Adulti e bambini",
-      card: "Maestra mosaicista che unisce arte e lingua.",
-      intro: "Irene è una maestra mosaicista che unisce arte e lingua attraverso laboratori creativi di mosaico per bambini e adulti, tenuti in modo naturale in inglese. I suoi corsi invitano a esplorare colore, forma e creatività un piccolo pezzo alla volta — un'occasione per rallentare, sperimentare e divertirsi a creare con le proprie mani."
+      name: "Irene Rizzin", role: "Insegnante di inglese · Mosaico in inglese",
+      tag: "Ragazzi e adulti · Laboratori di mosaico per tutte le età",
+      card: "Insegnante di inglese e maestra mosaicista, unisce arte e lingua.",
+      intro: "Irene è un'insegnante di inglese esperta, con una solida padronanza della lingua a livello B2. Le sue lezioni puntano sulla comunicazione pratica, sulla correttezza e sulla fiducia in se stessi, su misura per ogni studente. Con il suo approccio caloroso e paziente e il suo background multiculturale, crea un ambiente positivo in cui gli studenti si sentono sostenuti e motivati a migliorare.",
+      facts: [["Nazionalità","Italiana"],["Lingue madri","Italiano, tedesco"],["Modalità","In presenza · Online"]],
+      quote: ["Le lezioni di Irene sono coinvolgenti, ben strutturate e sempre centrate sulla comunicazione reale. Ora mi sento molto più sicuro in inglese.", "Testimonianza di uno studente"],
+      teachesTitle: "Irene insegna",
+      teaches: ["Inglese generale","Conversazione","Grammatica e lessico","Lettura e scrittura","Preparazione esami","Inglese privato – Ragazzi e adulti","Mosaico in inglese"],
+      sections: [
+        ["Esperienza", ["Irene ha diversi anni di esperienza nell'insegnamento dell'inglese a ragazzi e adulti, in presenza e online. Ha aiutato studenti di diversa provenienza a migliorare la scioltezza, ampliare il lessico e comunicare in modo più naturale in contesti quotidiani, accademici e professionali."]],
+        ["Biografia", ["Irene è nata a Cal Fosco, in Italia, in una famiglia multiculturale: padre italiano e madre tedesca. È cresciuta ispirata dalla loro passione per l'ospitalità — la madre gestiva piccoli hotel e B&B, il padre è un rinomato chef.",
+                       "Si è diplomata con lode come Maestra Mosaicista alla prestigiosa Scuola Mosaicisti del Friuli di Spilimbergo, e il suo lavoro l'ha portata a progetti in Argentina, nel Regno Unito e in Sudafrica, tra gli altri. Parla italiano, tedesco e inglese."]],
+        ["Il suo metodo", ["Per Irene imparare una lingua significa connessione, espressione e uso reale. Unisce spiegazioni chiare ad attività interattive e conversazioni significative, perché le lezioni siano efficaci e piacevoli. Il suo obiettivo è aiutare gli studenti a sentirsi sicuri, migliorare la correttezza e comunicare bene in ogni situazione.",
+                           "Formazione: Maestra Mosaicista, Scuola Mosaicisti del Friuli (Spilimbergo), con lode; inglese livello B2; aggiornamento continuo nell'insegnamento della lingua inglese."]],
+        ["Fuori dalla classe", ["Irene ama passare il tempo con la famiglia: gite in giornata, nuovi posti da scoprire e picnic in campagna o al mare. Sono questi semplici momenti a darle gioia e ispirazione."]]
+      ]
     }
   }
 ];
