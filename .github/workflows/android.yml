@@ -28,7 +28,10 @@ jobs:
         working-directory: android
         run: |
           yes | bubblewrap update --skipVersionUpgrade --manifest=./twa-manifest.json 2>&1 | tee build.log
-          yes | bubblewrap build --skipSigning --manifest=./twa-manifest.json 2>&1 | tee -a build.log
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          chmod +x gradlew
+          ./gradlew --no-daemon bundleRelease 2>&1 | tail -60 | tee -a build.log
+          cp app/build/outputs/bundle/release/*.aab . 2>/dev/null || true
           ls -la
       - name: Publish build output to android-build branch
         if: always()
