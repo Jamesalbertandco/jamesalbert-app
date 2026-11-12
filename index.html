@@ -143,7 +143,7 @@
   nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:500 10.5px Poppins,sans-serif;color:var(--muted);padding:6px 0;cursor:pointer}
   nav button svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
   nav button.on{color:var(--navy)}
-  nav button.on:after{content:"";width:18px;height:3px;border-radius:3px;background:var(--gold);margin-top:1px}
+  nav button.on:after{content:"";width:18px;height:3px;border-radius:3px;background:var(--navy);margin-top:1px}
   footer.small{text-align:center;font-size:11px;color:var(--muted);margin-top:26px}
   footer.small a{color:var(--muted)}
 </style>
@@ -247,11 +247,20 @@
       <div class="note" data-t="policy"></div>
     </section>
 
+    <!-- HOMEWORK -->
+    <section class="screen" id="homework">
+      <h1 data-t="hwTitle"></h1>
+      <p class="sub" data-t="hwSub"></p>
+      <div class="list" id="hwList"></div>
+    </section>
+
     <!-- HUBS -->
     <section class="screen" id="hubs">
       <h1 data-t="hubsTitle"></h1>
       <p class="sub" data-t="hubsSub"></p>
       <div class="list" id="hubList"></div>
+      <h2 data-t="hubLibTitle"></h2>
+      <div class="list" id="hubLib"></div>
     </section>
 
     <!-- LIBRARY -->
@@ -281,9 +290,9 @@
 
   <nav id="nav">
     <button class="on" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button>
-    <button data-go="hubs"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg><span data-t="nClasses"></span></button>
-    <button data-go="library" data-f="Kids"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span data-t="nKidsBooks"></span></button>
-    <button data-go="library" data-f="Adults"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg><span data-t="nAdultBooks"></span></button>
+    <button data-go="homework"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button>
+    <button data-go="hubs"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button>
+    <button data-go="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button>
     <button data-go="more"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span data-t="nMore"></span></button>
   </nav>
 </div>
@@ -299,6 +308,7 @@ const TRIAL = "https://app.acuityscheduling.com/schedule.php?owner=40127847&appo
 const CONFIG = {
   links: {
     website:   SITE,
+    dispatch:  SITE + "/dispatch",   // TODO: replace with the real newsletter link
     privacy:   SITE + "/privacy-policy",
     bookTrial: TRIAL,
     whatsapp:  "https://wa.me/393516211640",
@@ -418,6 +428,17 @@ const TEXT = {
   nKidsBooks:{en:"Kids Books", it:"Libri bambini"},
   nAdultBooks:{en:"Adults Books", it:"Libri adulti"},
   nMore:     {en:"More", it:"Altro"},
+  nHomework: {en:"Homework", it:"Compiti"},
+  nHub:      {en:"Student Hub", it:"Area Studenti"},
+  nBook:     {en:"Book a lesson", it:"Prenota"},
+  hwTitle:   {en:"Homework", it:"Compiti"},
+  hwSub:     {en:"Choose your class to see this week's homework. Your teacher gives you the class password.", it:"Scegli la tua classe per vedere i compiti della settimana. La password te la dà il tuo insegnante."},
+  hwInfo:    {en:"This week's homework", it:"Compiti della settimana"},
+  hubLibTitle:{en:"Books & films", it:"Libri e film"},
+  kidsBooksS:{en:"Picture books and stories", it:"Libri illustrati e storie"},
+  adultBooksS:{en:"Readers, films and documentaries", it:"Letture, film e documentari"},
+  dispatch:  {en:"The jamesalbert Dispatch", it:"The jamesalbert Dispatch"},
+  dispatchS: {en:"Our newsletter: news, stories and student spotlights", it:"La nostra newsletter: notizie, storie e studenti in evidenza"},
   moreSub:   {en:"Lessons, contacts and school news.", it:"Lezioni, contatti e novità dalla scuola."},
   mWebsite:  {en:"Our website", it:"Il nostro sito"},
   mWebsiteS: {en:"jamesalbert.it", it:"jamesalbert.it"},
@@ -441,7 +462,7 @@ const TEXT = {
   gOther:    {en:"Other", it:"Altro"},
   policy:    {en:"Private lessons: free cancellation with 24+ hours' notice. Group classes go ahead even if one student is absent; missed group sessions are not refunded.",
               it:"Lezioni private: cancellazione gratuita con almeno 24 ore di preavviso. Le lezioni di gruppo si svolgono anche se uno studente è assente; le lezioni di gruppo perse non vengono rimborsate."},
-  hubsTitle: {en:"Class Hubs", it:"Aree classe"},
+  hubsTitle: {en:"Student Hub", it:"Area Studenti"},
   hubsSub:   {en:"This week's lesson, homework and materials. Your teacher gives you your class password.",
               it:"La lezione della settimana, i compiti e i materiali. La password della classe te la dà l'insegnante."},
   libSub:    {en:"Practice books, films and flashcards with audio.", it:"Libri di esercizi, film e flashcard con audio."},
@@ -507,8 +528,7 @@ function renderHome(){
 
 function renderMore(){
   const items = [
-    { code:"📅", name:TEXT.tBook,   info:TEXT.tBookS,   go:"book" },
-    { code:"📚", name:TEXT.tLib,    info:TEXT.tLibS,    go:"library" },
+    { code:"📰", name:TEXT.dispatch,info:TEXT.dispatchS,link:CONFIG.links.dispatch },
     { code:"💬", name:TEXT.tContact,info:TEXT.tContactS,go:"contact" },
     { code:"🌐", name:TEXT.mWebsite,info:TEXT.mWebsiteS,link:CONFIG.links.website }
   ];
@@ -536,7 +556,7 @@ function renderLib(){
     (!b.length && !f.length ? `<p class="sub" style="margin-top:14px">${esc(T(TEXT.empty))}</p>` : '') +
     `<h2>${esc(T(TEXT.more))}</h2><div class="list">${CONFIG.more.map(h => row(h)).join('')}</div>`;
   document.querySelectorAll('#libList .chips button').forEach(btn =>
-    btn.onclick = () => { filter = btn.dataset.f; renderLib(); document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === 'library' && b.dataset.f === filter)); });
+    btn.onclick = () => { filter = btn.dataset.f; renderLib();  });
 }
 
 function renderAll(){
@@ -546,6 +566,9 @@ function renderAll(){
   document.getElementById('newsList').innerHTML = CONFIG.news.map(n =>
     `<div class="news"><div class="d">${esc(T(n.date))}</div><b>${esc(T(n.title))}</b><p>${esc(T(n.text))}</p></div>`).join('');
   document.getElementById('hubList').innerHTML = CONFIG.hubs.map(h => row(h)).join('');
+  document.getElementById('hwList').innerHTML = CONFIG.hubs.map(h => row({...h, info:TEXT.hwInfo})).join('');
+  const lib = [{code:"📖",name:TEXT.nKidsBooks,info:TEXT.kidsBooksS,f:"Kids"},{code:"🎬",name:TEXT.nAdultBooks,info:TEXT.adultBooksS,f:"Adults"}];
+  document.getElementById('hubLib').innerHTML = lib.map(it => `<a class="row" href="#" onclick="go('library','${it.f}');return false"><div class="ic">${it.code}</div><div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div><span class="chev">›</span></a>`).join('');
   document.getElementById('contactList').innerHTML = CONFIG.contact.map(h => row(h)).join('');
   renderHome();
   renderMore();
@@ -563,8 +586,8 @@ function go(id, f){
   if (id === 'library') { filter = f || 'All'; renderLib(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on',
-    b.dataset.go === id && (id !== 'library' || b.dataset.f === filter)));
+  const tab = {library:'hubs', contact:'more'}[id] || id;
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
 
