@@ -12,7 +12,7 @@
   "navigationDividerColor": "#FFFFFF",
   "navigationDividerColorDark": "#0F1F3D",
   "backgroundColor": "#0F1F3D",
-  "enableNotifications": false,
+  "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://app.jamesalbert.it/icons/icon-512.png",
   "maskableIconUrl": "https://app.jamesalbert.it/icons/maskable-512.png",

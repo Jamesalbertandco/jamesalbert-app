@@ -88,6 +88,34 @@
   .disp .pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:26px;line-height:1.25;color:var(--navy);margin:0 0 8px}
   .disp .pq span{font:600 10.5px Poppins,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#777}
   .disp .past{padding:4px 20px 8px}
+  .hwc{position:relative}
+  .hwc .badge{margin-left:auto;font:600 10.5px Poppins,sans-serif;padding:4px 9px;border-radius:20px;background:#eef1f6;color:var(--navy);white-space:nowrap}
+  .hwc .badge.new{background:#a3121f;color:#fff}
+  .hwc .badge.lock{background:#f3f4f6;color:#666}
+  .codebox{position:absolute;inset:0;z-index:40;background:rgba(10,20,40,.55);display:flex;align-items:flex-end}
+  .codebox.hide{display:none}
+  .codebox .sh{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:22px 20px calc(env(safe-area-inset-bottom) + 22px);animation:up .25s ease}
+  @keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+  .codebox h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:4px}
+  .codebox p{font-size:13.5px;color:#555;margin-bottom:14px}
+  .codebox input{width:100%;font:500 20px Poppins,sans-serif;letter-spacing:4px;text-align:center;padding:13px;border:1.5px solid #cfd5e0;border-radius:14px;outline:none}
+  .codebox input:focus{border-color:var(--navy)}
+  .codebox .err{color:#a3121f;font-size:13px;min-height:20px;margin:8px 0 4px;text-align:center}
+  .codebox .row2{display:flex;gap:10px}
+  .codebox .row2 .btn{flex:1}
+  .codebox .help{font-size:12.5px;color:#666;text-align:center;margin-top:14px}
+  .codebox .help a{color:var(--navy);font-weight:600}
+  .hwk .card{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+  .hwk .card .top{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+  .hwk .card .top b{font:600 11px Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase}
+  .hwk .card .top span{font-size:12px;opacity:.8}
+  .hwk .card .in{padding:16px 18px 18px}
+  .hwk .card h3{font-family:'Playfair Display',serif;font-size:22px;line-height:1.2;color:#111;margin-bottom:8px}
+  .hwk .card p{font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.55;color:#333;margin-bottom:12px}
+  .hwk .due{display:inline-block;font:600 12px Poppins,sans-serif;color:var(--navy);background:#eef1f6;border-radius:20px;padding:5px 11px;margin-bottom:14px}
+  .hwk .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+  .hwk .empty{background:#f5f6f8;border-radius:16px;padding:22px;text-align:center;color:#555;font-size:14px;margin-bottom:22px}
+  .hwk .lockit{display:block;margin:22px auto 6px;border:0;background:none;color:#888;font:500 12.5px Poppins,sans-serif;text-decoration:underline;cursor:pointer}
   main{flex:1;overflow-y:auto;padding:20px 18px 28px}
   .screen{display:none;animation:fade .25s ease}
   .screen.active{display:block}
@@ -227,6 +255,17 @@
     <p class="wnote" data-t="wNote"></p>
   </div>
 
+  <div class="codebox hide" id="codeBox" onclick="if(event.target===this)this.classList.add('hide')">
+    <div class="sh">
+      <h3></h3>
+      <p data-t="hwCodeP"></p>
+      <input type="password" inputmode="text" autocomplete="off" aria-label="Class code" onkeydown="if(event.key==='Enter')hwCheck()">
+      <div class="err"></div>
+      <div class="row2"><button class="btn ghost" onclick="document.getElementById('codeBox').classList.add('hide')" data-t="hwCancel"></button><button class="btn navy" onclick="hwCheck()" data-t="hwGo"></button></div>
+      <div class="help"><span data-t="hwHelp"></span> <a href="#" onclick="document.getElementById('codeBox').classList.add('hide');go('home');setTimeout(()=>document.querySelector('.sec.member').scrollIntoView({behavior:'smooth'}),100);return false" data-t="memTitle"></a></div>
+    </div>
+  </div>
+
   <header>
     <img class="crest" src="images/crest-176.png" alt="James Albert &amp; Co. crest">
     <div class="brand"><img class="wordmark" src="images/wordmark-cream.png" alt="jamesalbert®"><span>English Institute®</span></div>
@@ -349,6 +388,11 @@
       <div class="list" id="hwList"></div>
     </section>
 
+    <!-- HOMEWORK: one class -->
+    <section class="screen hwk" id="hwClass">
+      <div id="hwBody"></div>
+    </section>
+
     <!-- HUBS -->
     <section class="screen" id="hubs">
       <h1 data-t="hubsTitle"></h1>
@@ -394,6 +438,7 @@
 
 <script src="articles.js"></script>
 <script src="dispatch.js"></script>
+<script src="homework.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -549,8 +594,22 @@ const TEXT = {
   nHub:      {en:"Student Hub", it:"Area Studenti"},
   nBook:     {en:"Book a lesson", it:"Prenota"},
   hwTitle:   {en:"Homework", it:"Compiti"},
-  hwSub:     {en:"Choose your class to see this week's homework. Your teacher gives you the class password.", it:"Scegli la tua classe per vedere i compiti della settimana. La password te la dà il tuo insegnante."},
+  hwSub:     {en:"Choose your class. The first time, enter the class code from your teacher.", it:"Scegli la tua classe. La prima volta inserisci il codice che ti ha dato l'insegnante."},
   hwInfo:    {en:"This week's homework", it:"Compiti della settimana"},
+  hwNew:     {en:"New", it:"Nuovo"},
+  hwOpen:    {en:"Open", it:"Aperto"},
+  hwLocked:  {en:"Code needed", it:"Serve il codice"},
+  hwCodeT:   {en:"Enter the class code", it:"Inserisci il codice della classe"},
+  hwCodeP:   {en:"Your teacher gives each class its own code. You only need to enter it once on this phone.", it:"L'insegnante dà a ogni classe un codice. Basta inserirlo una sola volta su questo telefono."},
+  hwWrong:   {en:"That code doesn't match. Please check and try again.", it:"Il codice non è corretto. Controlla e riprova."},
+  hwCancel:  {en:"Cancel", it:"Annulla"},
+  hwGo:      {en:"Open homework", it:"Apri i compiti"},
+  hwHelp:    {en:"No code yet?", it:"Non hai il codice?"},
+  hwThis:    {en:"This week", it:"Questa settimana"},
+  hwDl:      {en:"Download worksheet", it:"Scarica la scheda"},
+  hwEarlier: {en:"Earlier homework", it:"Compiti precedenti"},
+  hwNone:    {en:"No homework has been posted for this class yet. You'll get a notification when it's up.", it:"Non ci sono ancora compiti per questa classe. Riceverai una notifica appena saranno pubblicati."},
+  hwLock:    {en:"Lock this class on this phone", it:"Blocca questa classe su questo telefono"},
   hubLibTitle:{en:"Books & films", it:"Libri e film"},
   kidsBooksS:{en:"Picture books and stories", it:"Libri illustrati e storie"},
   adultBooksS:{en:"Readers, films and documentaries", it:"Letture, film e documentari"},
@@ -699,6 +758,58 @@ function renderArticle(){
     <div class="end">${esc(T(TEXT.artEnd))}<br><button class="btn navy" onclick="go('book')">${esc(T(TEXT.artCta))}</button></div>`;
 }
 
+// ---------- Homework ----------
+let HWC = 'C2';
+const hwKey = c => 'ja-hw-' + c;
+const hwOpenFor = c => { try { return localStorage.getItem(hwKey(c)) === ((window.HOMEWORK||{})[c]||{}).codeHash; } catch(e){ return false; } };
+const hwSeen = c => { try { return localStorage.getItem(hwKey(c) + '-seen') || ''; } catch(e){ return ''; } };
+const fmtDate = d => new Date(d + 'T12:00:00').toLocaleDateString(LANG === 'it' ? 'it-IT' : 'en-GB', {weekday:'long', day:'numeric', month:'long'});
+function renderHwList(){
+  const H = window.HOMEWORK || {};
+  document.getElementById('hwList').innerHTML = CONFIG.hubs.map(h => {
+    const d = H[h.code] || {items:[]}, open = hwOpenFor(h.code), latest = (d.items[0]||{}).date || '';
+    const badge = !open ? `<span class="badge lock">🔒 ${esc(T(TEXT.hwLocked))}</span>`
+      : (latest && latest > hwSeen(h.code)) ? `<span class="badge new">${esc(T(TEXT.hwNew))}</span>`
+      : `<span class="badge">${esc(T(TEXT.hwOpen))}</span>`;
+    return `<a class="row hwc" href="#" onclick="hwTap('${h.code}');return false"><div class="ic">${esc(h.code)}</div>
+      <div class="t"><b>${esc(T(h.name)).replace(/ Hub$/,'').replace(/^Area /,'')}</b><span>${esc(T(h.info))}${d.teacher ? ' · ' + esc(d.teacher) : ''}</span></div>${badge}</a>`;
+  }).join('');
+}
+function hwTap(c){ HWC = c; if (hwOpenFor(c)) { go('hwClass'); } else { hwAsk(); } }
+function hwAsk(){
+  const box = document.getElementById('codeBox'), h = CONFIG.hubs.find(x => x.code === HWC);
+  box.querySelector('h3').textContent = T(TEXT.hwCodeT) + ' · ' + T(h.name).replace(/ Hub$/,'').replace(/^Area /,'');
+  box.querySelector('.err').textContent = ''; const i = box.querySelector('input'); i.value = '';
+  box.classList.remove('hide'); setTimeout(() => i.focus(), 50);
+}
+async function hwCheck(){
+  const box = document.getElementById('codeBox'), v = box.querySelector('input').value.trim().toLowerCase();
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(HWC + ':' + v));
+  const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+  if (hex === ((window.HOMEWORK||{})[HWC]||{}).codeHash) {
+    try { localStorage.setItem(hwKey(HWC), hex); } catch(e){}
+    box.classList.add('hide'); renderHwList(); go('hwClass');
+  } else { box.querySelector('.err').textContent = T(TEXT.hwWrong); }
+}
+function hwLock(){ try { localStorage.removeItem(hwKey(HWC)); } catch(e){} renderHwList(); go('homework'); }
+function renderHwClass(){
+  const d = (window.HOMEWORK||{})[HWC] || {items:[]}, h = CONFIG.hubs.find(x => x.code === HWC);
+  const [cur, ...older] = d.items;
+  if (cur) { try { localStorage.setItem(hwKey(HWC) + '-seen', cur.date); } catch(e){} }
+  document.getElementById('hwBody').innerHTML = `
+    <button class="back" style="padding-left:0" onclick="renderHwList();go('homework')">‹ ${esc(T(TEXT.artBack))}</button>
+    <h1>${esc(T(h.name)).replace(/ Hub$/,'').replace(/^Area /,'')}</h1>
+    <p class="sub">${esc(T(h.info))}${d.teacher ? ' · ' + esc(d.teacher) : ''}</p>
+    ${cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
+      <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>
+      ${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
+      ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`
+      : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`}
+    ${older.length ? `<h2>${esc(T(TEXT.hwEarlier))}</h2><div class="list">${older.map(o =>
+      `<a class="row" href="${esc(o.file||'#')}" target="_blank" rel="noopener"><div class="ic">⬇</div><div class="t"><b>${esc(T(o.title))}</b><span>${esc(fmtDate(o.date))}</span></div><span class="chev">›</span></a>`).join('')}</div>` : ''}
+    <button class="lockit" onclick="hwLock()">${esc(T(TEXT.hwLock))}</button>`;
+}
+
 let ISSUE = 0;
 function renderDispatch(){
   const all = window.DISPATCH || []; if (!all.length) return;
@@ -743,7 +854,7 @@ function renderAll(){
   document.getElementById('newsList').innerHTML = CONFIG.news.map(n =>
     `<div class="news"><div class="d">${esc(T(n.date))}</div><b>${esc(T(n.title))}</b><p>${esc(T(n.text))}</p></div>`).join('');
   document.getElementById('hubList').innerHTML = CONFIG.hubs.map(h => row(h)).join('');
-  document.getElementById('hwList').innerHTML = CONFIG.hubs.map(h => row({...h, info:TEXT.hwInfo})).join('');
+  renderHwList();
   const lib = [{code:"📖",name:TEXT.nKidsBooks,info:TEXT.kidsBooksS,f:"Kids"},{code:"🎬",name:TEXT.nAdultBooks,info:TEXT.adultBooksS,f:"Adults"}];
   document.getElementById('hubLib').innerHTML = lib.map(it => `<a class="row" href="#" onclick="go('library','${it.f}');return false"><div class="ic">${it.code}</div><div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div><span class="chev">›</span></a>`).join('');
   document.getElementById('contactList').innerHTML = CONFIG.contact.map(h => row(h)).join('');
@@ -764,9 +875,10 @@ function setLang(l){
 function go(id, f){
   if (id === 'library') { filter = f || 'All'; renderLib(); }
   if (id === 'article') { ART = f || ART; renderArticle(); }
+  if (id === 'hwClass') renderHwClass();
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
