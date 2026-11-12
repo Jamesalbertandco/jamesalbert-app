@@ -133,6 +133,12 @@
   .tprof .chips{display:flex;flex-wrap:wrap;gap:7px}
   .tprof .chips span{font:500 12.5px Poppins,sans-serif;background:#eef1f6;color:var(--navy);border-radius:20px;padding:6px 11px}
   .tprof h3.sh{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin:8px 0 8px}
+  .notify{background:#eef1f6;border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center;margin:0 0 18px}
+  .notify .bell{font-size:22px}
+  .notify .t{flex:1;font-size:13px;color:#333;line-height:1.4}
+  .notify .t b{display:block;font-size:14px;color:var(--navy)}
+  .notify button{border:0;background:var(--navy);color:#fff;font:600 12.5px Poppins,sans-serif;border-radius:20px;padding:9px 14px;cursor:pointer;white-space:nowrap}
+  .notify.on button{background:#fff;color:var(--navy);border:1px solid #cfd5e0}
   main{flex:1;overflow-y:auto;padding:20px 18px 28px}
   .screen{display:none;animation:fade .25s ease}
   .screen.active{display:block}
@@ -457,6 +463,20 @@
   </nav>
 </div>
 
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "88141d4f-63f8-4fa3-ab73-96efab87b188",
+      serviceWorkerPath: "sw.js",
+      serviceWorkerParam: { scope: "/" },
+      allowLocalhostAsSecureOrigin: true
+    });
+    window.OS_READY = OneSignal;
+    if (window.renderNotifyBoxes) renderNotifyBoxes();
+  });
+</script>
 <script src="articles.js"></script>
 <script src="dispatch.js"></script>
 <script src="homework.js"></script>
@@ -634,6 +654,12 @@ const TEXT = {
   hwDl:      {en:"Download worksheet", it:"Scarica la scheda"},
   hwEarlier: {en:"Earlier homework", it:"Compiti precedenti"},
   hwNone:    {en:"No homework has been posted for this class yet. You'll get a notification when it's up.", it:"Non ci sono ancora compiti per questa classe. Riceverai una notifica appena saranno pubblicati."},
+  nfT:       {en:"Get a notification for new homework", it:"Ricevi una notifica per i nuovi compiti"},
+  nfS:       {en:"We'll tell you when this class's homework is posted.", it:"Ti avvisiamo quando vengono pubblicati i compiti di questa classe."},
+  nfOn:      {en:"Turn on", it:"Attiva"},
+  nfDone:    {en:"Notifications on", it:"Notifiche attive"},
+  nfOff:     {en:"Turn off", it:"Disattiva"},
+  nfBlocked: {en:"Notifications are blocked in your phone settings.", it:"Le notifiche sono bloccate nelle impostazioni del telefono."},
   hwLock:    {en:"Lock this class on this phone", it:"Blocca questa classe su questo telefono"},
   hubLibTitle:{en:"Books & films", it:"Libri e film"},
   kidsBooksS:{en:"Picture books and stories", it:"Libri illustrati e storie"},
@@ -816,15 +842,44 @@ async function hwCheck(){
     box.classList.add('hide'); renderHwList(); go('hwClass');
   } else { box.querySelector('.err').textContent = T(TEXT.hwWrong); }
 }
+// ---------- Notifications ----------
+const nfKey = c => 'ja-nf-' + c;
+const nfGet = c => { try { return localStorage.getItem(nfKey(c)) === '1'; } catch(e){ return false; } };
+function renderNotifyBoxes(){
+  const box = document.getElementById('notifyBox'); if (!box) return;
+  const on = nfGet(HWC), blocked = ('Notification' in window) && Notification.permission === 'denied';
+  box.classList.toggle('on', on);
+  box.innerHTML = `<div class="bell">🔔</div><div class="t"><b>${esc(T(on ? TEXT.nfDone : TEXT.nfT))}</b>${esc(T(blocked && !on ? TEXT.nfBlocked : TEXT.nfS))}</div>
+    <button onclick="nfToggle()">${esc(T(on ? TEXT.nfOff : TEXT.nfOn))}</button>`;
+}
+async function nfToggle(){
+  const OS = window.OS_READY, c = HWC;
+  if (!OS) { const b = document.querySelector('#notifyBox .t'); if (b) b.lastChild.textContent = LANG === 'it' ? 'Un momento, riprova tra qualche secondo.' : 'One moment, please try again in a few seconds.'; return; }
+  if (nfGet(c)) {
+    try { await OS.User.removeTag('class_' + c); } catch(e){}
+    try { localStorage.removeItem(nfKey(c)); } catch(e){}
+  } else {
+    try { await OS.Notifications.requestPermission(); } catch(e){}
+    if (OS.Notifications.permission) {
+      try { await OS.User.PushSubscription.optIn(); } catch(e){}
+      try { await OS.User.addTags({ ['class_' + c]: '1', lang: LANG }); } catch(e){}
+      try { localStorage.setItem(nfKey(c), '1'); } catch(e){}
+    }
+  }
+  renderNotifyBoxes();
+}
+
 function hwLock(){ try { localStorage.removeItem(hwKey(HWC)); } catch(e){} renderHwList(); go('homework'); }
 function renderHwClass(){
   const d = (window.HOMEWORK||{})[HWC] || {items:[]}, h = CONFIG.hubs.find(x => x.code === HWC);
   const [cur, ...older] = d.items;
   if (cur) { try { localStorage.setItem(hwKey(HWC) + '-seen', cur.date); } catch(e){} }
+  setTimeout(renderNotifyBoxes, 0);
   document.getElementById('hwBody').innerHTML = `
     <button class="back" onclick="renderHwList();go('homework')">‹ ${esc(T(TEXT.artBack))}</button>
     <h1>${esc(T(h.name)).replace(/ Hub$/,'').replace(/^Area /,'')}</h1>
     <p class="sub">${esc(T(h.info))}${d.teacher ? ' · ' + esc(d.teacher) : ''}</p>
+    <div class="notify" id="notifyBox"></div>
     ${cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
       <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>
       ${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
@@ -974,7 +1029,7 @@ document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang
 renderAll();
 go('home');
 if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname.endsWith('jamesalbert.it')) {
-  navigator.serviceWorker.register('/sw.js').catch(() => {});
+  // OneSignal registers /sw.js itself (it also handles offline caching).
 }
 </script>
 </body>
