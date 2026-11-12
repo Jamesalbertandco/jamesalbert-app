@@ -117,6 +117,22 @@
   .hwk .empty{background:#f5f6f8;border-radius:16px;padding:22px;text-align:center;color:#555;font-size:14px;margin-bottom:22px}
   .hwk .back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--navy);font:600 13px Poppins,sans-serif;padding:0 0 8px;cursor:pointer}
   .hwk .lockit{display:block;margin:22px auto 6px;border:0;background:none;color:#888;font:500 12.5px Poppins,sans-serif;text-decoration:underline;cursor:pointer}
+  .teamg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .tcard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+  .tcard img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+  .tcard .t{padding:10px 12px 13px}
+  .tcard b{display:block;font-family:'Playfair Display',serif;font-size:16px;color:#111;line-height:1.2}
+  .tcard span{display:block;font-size:11.5px;color:var(--navy);font-weight:600;margin-top:3px}
+  .tcard small{display:block;font-size:12px;color:#666;margin-top:5px;line-height:1.4}
+  .teamhd p.lead2{font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.5;color:#444;margin-bottom:18px}
+  .tprof .photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+  .tprof .facts3{display:grid;grid-template-columns:1fr;gap:1px;background:#e3e5ea;margin:4px 20px 18px;border:1px solid #e3e5ea;border-radius:12px;overflow:hidden}
+  .tprof .facts3 div{background:#f5f6f8;padding:9px 14px;display:flex;justify-content:space-between;gap:10px}
+  .tprof .facts3 small{font:600 10.5px Poppins,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:#777;padding-top:2px}
+  .tprof .facts3 b{font:500 13.5px Poppins,sans-serif;color:#111;text-align:right}
+  .tprof .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .tprof .chips span{font:500 12.5px Poppins,sans-serif;background:#eef1f6;color:var(--navy);border-radius:20px;padding:6px 11px}
+  .tprof h3.sh{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin:8px 0 8px}
   main{flex:1;overflow-y:auto;padding:20px 18px 28px}
   .screen{display:none;animation:fade .25s ease}
   .screen.active{display:block}
@@ -330,10 +346,10 @@
       </div>
 
       <div class="sec">
-        <a class="feature short" data-link="team" target="_blank" rel="noopener" style="background-image:url('images/team.jpg')">
+        <a class="feature short" href="#" onclick="go('team');return false" style="background-image:url('images/team.jpg')">
           <h3 data-t="teamTitle"></h3><span data-t="clickMe"></span>
         </a>
-        <div class="center" style="margin-top:18px"><a class="btn navy" data-link="team" target="_blank" rel="noopener" data-t="seeTeam"></a></div>
+        <div class="center" style="margin-top:18px"><a class="btn navy" href="#" onclick="go('team');return false" data-t="seeTeam"></a></div>
       </div>
 
       <div class="sec">
@@ -375,6 +391,10 @@
       <div class="list" id="courseList"></div>
       <div class="note" data-t="policy"></div>
     </section>
+
+    <!-- TEAM -->
+    <section class="screen teamhd" id="team"><div id="teamBody"></div></section>
+    <section class="screen" id="teacher"><div class="art tprof" id="teacherBody"></div></section>
 
     <!-- DISPATCH -->
     <section class="screen" id="dispatch"><div class="art disp" id="dispBody"></div></section>
@@ -440,6 +460,7 @@
 <script src="articles.js"></script>
 <script src="dispatch.js"></script>
 <script src="homework.js"></script>
+<script src="team.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -598,6 +619,9 @@ const TEXT = {
   hwSub:     {en:"Choose your class. The first time, enter the class code from your teacher.", it:"Scegli la tua classe. La prima volta inserisci il codice che ti ha dato l'insegnante."},
   hwInfo:    {en:"This week's homework", it:"Compiti della settimana"},
   hwNew:     {en:"New", it:"Nuovo"},
+  teamH:     {en:"Every learner, matched with the right teacher.", it:"Ogni studente, con l'insegnante giusto."},
+  teamP:     {en:"Our tutors are chosen as much for how they teach as what they know — patient with beginners, sharp with exam candidates, and genuinely good company either way.", it:"I nostri insegnanti sono scelti tanto per come insegnano quanto per ciò che sanno — pazienti con i principianti, precisi con chi prepara un esame, e sempre di ottima compagnia."},
+  teamMeet:  {en:"Ready to meet", it:"Vuoi conoscere"},
   hwOpen:    {en:"Open", it:"Aperto"},
   hwLocked:  {en:"Code needed", it:"Serve il codice"},
   hwCodeT:   {en:"Enter the class code", it:"Inserisci il codice della classe"},
@@ -811,6 +835,35 @@ function renderHwClass(){
     <button class="lockit" onclick="hwLock()">${esc(T(TEXT.hwLock))}</button>`;
 }
 
+// ---------- Our Team ----------
+let TID = 'james';
+function renderTeam(){
+  const tm = window.TEAM || [];
+  document.getElementById('teamBody').innerHTML = `
+    <button class="back" style="border:0;background:none;color:var(--navy);font:600 13px Poppins,sans-serif;padding:0 0 8px;cursor:pointer" onclick="go('home')">‹ ${esc(T(TEXT.artBack))}</button>
+    <h1>${esc(T(TEXT.teamTitle))}</h1>
+    <p class="lead2"><b>${esc(T(TEXT.teamH))}</b> ${esc(T(TEXT.teamP))}</p>
+    <div class="teamg">${tm.map(m => { const t = m[LANG] || m.en; return `
+      <a class="tcard" href="#" onclick="go('teacher','${m.id}');return false"><img src="${m.img}" alt="${esc(t.name)}" loading="lazy">
+        <div class="t"><b>${esc(t.name)}</b><span>${esc(t.role)}</span><small>${esc(t.card)}</small></div></a>`; }).join('')}</div>`;
+}
+function renderTeacher(){
+  const m = (window.TEAM || []).find(x => x.id === TID); if (!m) return;
+  const t = m[LANG] || m.en, first = t.name.replace(/^Teacher /,'').split(' ')[0];
+  document.getElementById('teacherBody').innerHTML = `
+    <button class="back" onclick="go('team')">‹ ${esc(T(TEXT.artBack))}</button>
+    <img class="photo" src="${m.img}" alt="${esc(t.name)}">
+    <div class="hd" style="padding-top:16px"><span class="kick">${esc(t.role)}</span>
+      <h1 class="ttl">${esc(t.name)}</h1>${t.tag ? `<p class="dek">${esc(t.tag)}</p>` : ''}</div>
+    ${t.facts ? `<div class="facts3">${t.facts.map(([k,v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+    <div class="bd"><p class="lead">${esc(t.intro)}</p>
+      ${t.quote ? `<blockquote>“${esc(t.quote[0])}”<br><span style="font:600 11px Poppins,sans-serif;font-style:normal;letter-spacing:1.3px;text-transform:uppercase;color:#777">${esc(t.quote[1])}</span></blockquote>` : ''}
+      ${t.teaches ? `<h3 class="sh">${esc(t.teachesTitle)}</h3><div class="chips">${t.teaches.map(x => `<span>${esc(x)}</span>`).join('')}</div>` : ''}
+      ${(t.sections||[]).map(([h,ps]) => `<h3 class="sh" style="margin-top:22px">${esc(h)}</h3>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}
+    </div>
+    <div class="end">${esc(T(TEXT.teamMeet))} ${esc(first)}?<br><button class="btn navy" onclick="go('book')">${esc(T(TEXT.artCta))}</button></div>`;
+}
+
 let ISSUE = 0;
 function renderDispatch(){
   const all = window.DISPATCH || []; if (!all.length) return;
@@ -865,6 +918,8 @@ function renderAll(){
   renderLib();
   renderArticle();
   renderDispatch();
+  renderTeam();
+  renderTeacher();
 }
 
 function setLang(l){
@@ -877,9 +932,11 @@ function go(id, f){
   if (id === 'library') { filter = f || 'All'; renderLib(); }
   if (id === 'article') { ART = f || ART; renderArticle(); }
   if (id === 'hwClass') renderHwClass();
+  if (id === 'team') renderTeam();
+  if (id === 'teacher') { TID = f || TID; renderTeacher(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
