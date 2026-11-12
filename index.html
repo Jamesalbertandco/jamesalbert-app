@@ -188,7 +188,7 @@
   </header>
 
   <main id="main">
-    <!-- HOME — same order as the old app, so families find things where they expect -->
+    <!-- HOME — actions first, reading after. Previous order: commit 121f667 -->
     <section class="screen active" id="home">
       <div class="homecover" role="img" aria-label="Child with Union Jack face paint"></div>
       <div class="sheet">
@@ -202,15 +202,15 @@
         </div>
       </div>
 
-      <div class="sec">
-        <h2 class="big" data-t="instTitle"></h2>
-        <p class="body" data-t="instText"></p>
-        <div class="tiles4" id="pillars"></div>
-        <div class="feature level">
-          <h3 data-t="levelTitle"></h3>
-          <p data-t="levelText"></p>
-          <a class="btn navy" data-link="levelTest" target="_blank" rel="noopener" data-t="startHere"></a>
-        </div>
+      <div class="sec" id="eventsSec">
+        <h2 class="big" data-t="events"></h2>
+        <div class="carousel" id="events"></div>
+      </div>
+
+      <div class="sec member">
+        <h2 class="big" data-t="memTitle"></h2>
+        <p class="body" data-t="memText"></p>
+        <div class="center"><a class="btn navy" id="memberBtn" data-t="memBtn"></a></div>
       </div>
 
       <div class="sec">
@@ -221,7 +221,23 @@
       </div>
 
       <div class="sec">
-        <img class="pic" src="images/parlo-inglese.jpg" data-ph="‘Parlo inglese…’ umbrella banner" alt="Parlo inglese…">
+        <div class="feature level">
+          <h3 data-t="levelTitle"></h3>
+          <p data-t="levelText"></p>
+          <a class="btn navy" data-link="levelTest" target="_blank" rel="noopener" data-t="startHere"></a>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2 class="big" data-t="instTitle"></h2>
+        <p class="body" data-t="instText"></p>
+        <div class="tiles4" id="pillars"></div>
+      </div>
+
+      <div class="sec">
+        <h2 class="big" data-t="socialTitle"></h2>
+        <p class="body" data-t="socialText"></p>
+        <a data-link="socialGroup" target="_blank" rel="noopener"><img class="pic" src="images/social-group.jpg" data-ph="English Social Group photo" alt=""></a>
       </div>
 
       <div class="sec">
@@ -232,14 +248,10 @@
       </div>
 
       <div class="sec">
-        <h2 class="big" data-t="socialTitle"></h2>
-        <p class="body" data-t="socialText"></p>
-        <a data-link="socialGroup" target="_blank" rel="noopener"><img class="pic" src="images/social-group.jpg" data-ph="English Social Group photo" alt=""></a>
+        <img class="pic" src="images/parlo-inglese.jpg" data-ph="‘Parlo inglese…’ umbrella banner" alt="Parlo inglese…">
       </div>
 
-      <div class="sec" id="eventsSec">
-        <h2 class="big" data-t="events"></h2>
-        <div class="carousel" id="events"></div>
+      <div class="sec">
         <div class="post" id="welcome">
           <div class="who"><img src="images/crest-176.png" alt=""><div><b data-t="owner"></b><span data-t="ownerSub"></span></div></div>
           <p class="txt" data-t="welcome"></p>
@@ -466,6 +478,9 @@ const TEXT = {
   nAdultBooks:{en:"Adults Books", it:"Libri adulti"},
   nMore:     {en:"More", it:"Altro"},
   nHomework: {en:"Homework", it:"Compiti"},
+  memTitle:  {en:"Become a member", it:"Diventa socio"},
+  memText:   {en:"Get access to the class hubs, homework and our books and films. Send us a request and our team will reply with your class password.", it:"Accedi alle aree classe, ai compiti e ai nostri libri e film. Inviaci una richiesta e il nostro team ti risponderà con la password della tua classe."},
+  memBtn:    {en:"Request membership", it:"Richiedi l'iscrizione"},
   artBack:   {en:"Back", it:"Indietro"},
   artBy:     {en:"By the jamesalbert® team", it:"A cura del team jamesalbert®"},
   artEnd:    {en:"Want to practise this for real?", it:"Vuoi metterlo in pratica davvero?"},
@@ -558,8 +573,7 @@ function renderHome(){
       <div class="bd"><div class="dt"><b>${esc(e.day)}</b>${esc(T(e.mon))}</div>
         <div><h4>${esc(T(e.title))}</h4><div class="meta">${esc(T(e.when))}<br>${esc(T(e.where))}${e.note ? `<br><em>${esc(T(e.note))}</em>` : ''}</div></div></div>
       <a class="rsvp" href="${esc(e.link)}" target="_blank" rel="noopener">${esc(T(TEXT.rsvp))}</a></div>`).join('');
-  document.getElementById('events').previousElementSibling.style.display = ev.length ? '' : 'none';
-  document.getElementById('events').style.display = ev.length ? '' : 'none';
+  document.getElementById('eventsSec').style.display = ev.length ? '' : 'none';
   document.getElementById('socials').innerHTML = Object.entries(CONFIG.social).map(([k,u]) =>
     `<a class="${u ? '' : 'off'}" href="${esc(u || '#')}" target="_blank" rel="noopener" aria-label="${k}">${SOCIAL_ICONS[k]}</a>`).join('');
   const w = document.getElementById('welcome');
@@ -658,6 +672,9 @@ function go(id, f){
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
+// Temporary: membership requests open an email to info@ until the in-app form is connected.
+document.getElementById('memberBtn').href = 'mailto:info@jamesalbert.it?subject=' + encodeURIComponent('Membership request') +
+  '&body=' + encodeURIComponent('Name:\nEmail:\nPhone:\nClass or course:\nIf the student is under 18, parent/guardian name:\n');
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go, b.dataset.f));
 document.querySelectorAll('img[data-ph]').forEach(img => {
   const swap = () => { const d = document.createElement('div'); d.className = 'ph'; d.textContent = 'Image: ' + img.dataset.ph; img.replaceWith(d); };
