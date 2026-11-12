@@ -68,6 +68,8 @@
   .ptile small{font-size:14px;opacity:.95}
   .feature{border-radius:18px;overflow:hidden;position:relative;padding:28px 22px;color:#fff;background-size:cover;background-position:center;background-color:var(--navy-2);box-shadow:var(--shadow);margin-bottom:6px}
   .feature:before{content:"";position:absolute;inset:0;background:rgba(15,31,61,.55)}
+  .feature.level{background:url('images/level-brain.png') right -40px top 14px/62% auto no-repeat,var(--navy)}
+  .feature.level:before{background:linear-gradient(90deg,rgba(15,31,61,.9) 0%,rgba(15,31,61,.6) 55%,rgba(15,31,61,.1) 100%)}
   .feature *{position:relative}
   .feature h3{font-family:'Playfair Display',serif;font-size:28px;line-height:1.15;color:var(--gold);margin:60px 0 14px}
   .feature p{font-size:14px;line-height:1.55;margin-bottom:18px}
@@ -175,7 +177,7 @@
         <h2 class="big" data-t="instTitle"></h2>
         <p class="body" data-t="instText"></p>
         <div class="tiles4" id="pillars"></div>
-        <div class="feature" style="background-image:url('images/level-challenge.jpg')">
+        <div class="feature level">
           <h3 data-t="levelTitle"></h3>
           <p data-t="levelText"></p>
           <a class="btn navy" data-link="levelTest" target="_blank" rel="noopener" data-t="startHere"></a>
