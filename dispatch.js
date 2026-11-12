@@ -5,7 +5,7 @@ window.DISPATCH = [
   {
     no: 1,
     dir: "images/dispatch/1/",
-    pdf: "",  // optional: link to a print PDF of this issue
+    pdf: "images/dispatch/1/the-dispatch-issue-1.pdf",
     en: {
       issue: "Issue No. 1",
       date: "October 2026",
