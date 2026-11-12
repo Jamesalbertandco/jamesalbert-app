@@ -7,7 +7,7 @@ window.ARTICLES = {
     en: {
       kicker: "Language",
       title: "How English Became English",
-      dek: "Invaders, monks, a French king and one very busy playwright: the short, surprising story of the world's most borrowed language.",
+      dek: "Sea-crossing tribes, Vikings, a French king and one very busy playwright: the short, surprising story of the world's most borrowed language.",
       read: "4 min read",
       caption: "The Union Jack. The language it flies over was shaped by more than a thousand years of visitors.",
       lead: "English did not grow up on its own. It was built, layer by layer, by the people who arrived on a small island at the edge of Europe — and almost every one of them left words behind.",
@@ -38,7 +38,7 @@ window.ARTICLES = {
     it: {
       kicker: "Lingua",
       title: "Come l'inglese è diventato inglese",
-      dek: "Invasori, monaci, un re francese e un drammaturgo molto prolifico: la breve e sorprendente storia della lingua che ha preso in prestito più parole al mondo.",
+      dek: "Tribù venute dal mare, Vichinghi, un re francese e un drammaturgo molto prolifico: la breve e sorprendente storia della lingua che ha preso in prestito più parole al mondo.",
       read: "4 min di lettura",
       caption: "La Union Jack. La lingua che rappresenta è stata plasmata da oltre mille anni di visitatori.",
       lead: "L'inglese non è cresciuto da solo. È stato costruito, strato dopo strato, dai popoli arrivati su una piccola isola ai margini dell'Europa — e quasi tutti hanno lasciato qualche parola.",
