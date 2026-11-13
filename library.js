@@ -1873,7 +1873,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "The Tales of Mother Goose",
   "meta": "Classic rhymes · Stories",
@@ -1887,7 +1889,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Oliver Twist",
   "meta": "Classic literature · Charles Dickens",
@@ -1901,7 +1905,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Gulliver’s Travels",
   "meta": "Classic literature · Adventure",
@@ -1915,7 +1921,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Frankenstein",
   "meta": "Classic literature · Mary Shelley",
@@ -1929,7 +1937,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Around the World in Eighty Days",
   "meta": "Classic literature · Jules Verne",
@@ -1943,7 +1953,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Anne of Green Gables",
   "meta": "Classic literature · Friendship",
@@ -1957,7 +1969,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Grimm’s Fairy Tales",
   "meta": "Fairy tales · Brothers Grimm",
@@ -1971,7 +1985,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Treasure Island",
   "meta": "Classic literature · Pirates",
@@ -1985,7 +2001,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Robin Hood",
   "meta": "Legends · English history",
@@ -1999,7 +2017,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Robinson Crusoe",
   "meta": "Classic literature · Survival",
@@ -2013,7 +2033,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Andersen’s Fairy Tales",
   "meta": "Fairy tales · Hans Christian Andersen",
@@ -2024,5 +2046,89 @@ window.LIBRARY = [
   "focus": "Reading · Emotions · Storytelling",
   "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/997d5f1f-5599-413b-bcc1-293357681556/Andersen%E2%80%99s+Fairy+Tales_+The+Ugly+Duckling.png?format=2500w",
   "link": "https://books.jamesalbert.it/books/omju/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Emma",
+  "meta": "Classic literature · Jane Austen",
+  "desc": {
+   "it": "La storia di Emma Woodhouse, tra amicizia, amore e malintesi nella società inglese.",
+   "en": "La storia di Emma Woodhouse, tra amicizia, amore e malintesi nella società inglese."
+  },
+  "focus": "Reading · Relationships · British literature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/cc7b09af-fd61-4043-bdf6-5d2454b75aca/Screenshot+2026-11-03+at+9.16.55%E2%80%AFPM.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/mled/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Northanger Abbey",
+  "meta": "Classic literature · Jane Austen",
+  "desc": {
+   "it": "Un romanzo che unisce ironia, mistero e immaginazione nella società inglese dell’Ottocento.",
+   "en": "Un romanzo che unisce ironia, mistero e immaginazione nella società inglese dell’Ottocento."
+  },
+  "focus": "Reading · Gothic fiction · British literature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/cca78fb0-e894-43f7-8719-7c73fef077ba/Northanger+Abbey+Regency+Cover.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/ssus/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Jane Eyre",
+  "meta": "Classic literature · Charlotte Brontë",
+  "desc": {
+   "it": "La storia di una giovane donna alla ricerca di indipendenza, dignità e amore.",
+   "en": "La storia di una giovane donna alla ricerca di indipendenza, dignità e amore."
+  },
+  "focus": "Reading · Identity · Victorian literature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/70b3bb0a-bf9c-43f0-8660-653f15efe3a4/Screenshot+2026-11-03+at+9.11.12%E2%80%AFPM.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/wkjo/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Great Expectations",
+  "meta": "Classic literature · Charles Dickens",
+  "desc": {
+   "it": "Seguiamo Pip nel suo percorso di crescita tra ambizione, amicizia e scelte difficili.",
+   "en": "Seguiamo Pip nel suo percorso di crescita tra ambizione, amicizia e scelte difficili."
+  },
+  "focus": "Reading · Social class · Victorian literature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/7cdcab32-b9fa-4051-9091-ebf87da2c336/Great+Expectations+by+Charles+Dickens.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/xxmi/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Twelve Years a Slave",
+  "meta": "Memoir · Solomon Northup",
+  "desc": {
+   "it": "La testimonianza di Solomon Northup sulla schiavitù, la libertà e la dignità umana.",
+   "en": "La testimonianza di Solomon Northup sulla schiavitù, la libertà e la dignità umana."
+  },
+  "focus": "Reading · American history · Human rights",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/cea5ab4c-f9e6-4d59-b2e1-47c108d9ee2b/Classic+Twelve+Years+a+Slave+Book+Cover.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/etpq/"
+ },
+ {
+  "classes": [
+   "AD"
+  ],
+  "title": "Persuasion",
+  "meta": "Classic literature · Jane Austen",
+  "desc": {
+   "it": "Una storia di seconde possibilità, sentimenti e scelte nella società dell’epoca Regency.",
+   "en": "Una storia di seconde possibilità, sentimenti e scelte nella società dell’epoca Regency."
+  },
+  "focus": "Reading · Relationships · British literature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/2be990e9-17a6-4998-849c-fa9c45876148/Persuasion_+Regency+Garden+Romance.png?format=750w",
+  "link": "https://books.jamesalbert.it/books/fxoj/"
  }
 ];

@@ -2,7 +2,9 @@
 window.VIDEOS = [
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Diana, Princess of Wales",
   "meta": "Biography · History & Culture · English listening",
@@ -19,7 +21,9 @@ window.VIDEOS = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "The History of English",
   "meta": "Language history · History & Culture · English listening",
@@ -36,7 +40,9 @@ window.VIDEOS = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Nelson Mandela",
   "meta": "Biography · History & Culture · English listening",
@@ -53,7 +59,9 @@ window.VIDEOS = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Louis Pasteur",
   "meta": "Biography · History & Culture · English listening",
@@ -70,7 +78,9 @@ window.VIDEOS = [
  },
  {
   "classes": [
-   "C3"
+   "C3",
+   "AD",
+   "TG"
   ],
   "title": "Jesus Christ",
   "meta": "Biography · History & Culture · English listening",
@@ -83,6 +93,78 @@ window.VIDEOS = [
   "source": "vimeo",
   "id": "1236972105",
   "h": "53a20573cf",
+  "credit": "A jamesalbert® production"
+ },
+ {
+  "classes": [
+   "AD",
+   "TG"
+  ],
+  "title": "Abraham Lincoln",
+  "meta": "Biography · History & Culture · English listening",
+  "desc": {
+   "it": "Conosciamo il sedicesimo presidente degli Stati Uniti, la Guerra Civile e il suo ruolo nella lotta contro la schiavitù.",
+   "en": "Conosciamo il sedicesimo presidente degli Stati Uniti, la Guerra Civile e il suo ruolo nella lotta contro la schiavitù."
+  },
+  "focus": "American history · Past Simple · Equality",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/7119d40a-0c1d-4376-985f-0c5ab90a42f6/Abraham+Lincoln_+A+Fairer+Nation.png?format=2500w",
+  "source": "vimeo",
+  "id": "1236952800",
+  "h": "371f75325f",
+  "credit": "A jamesalbert® production"
+ },
+ {
+  "classes": [
+   "AD",
+   "TG"
+  ],
+  "title": "Nikola Tesla",
+  "meta": "Biography · History & Culture · English listening",
+  "desc": {
+   "it": "Un inventore visionario: scopriamo le sue idee sull’elettricità e come la curiosità scientifica può cambiare il mondo.",
+   "en": "Un inventore visionario: scopriamo le sue idee sull’elettricità e come la curiosità scientifica può cambiare il mondo."
+  },
+  "focus": "Science · Electricity · Listening comprehension",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/802c0519-734c-42e0-b019-f37a8abbd9c2/Nikola+Tesla_+Electrical+Visionary.png?format=2500w",
+  "source": "vimeo",
+  "id": "1236886743",
+  "h": "6f3c57d613",
+  "credit": "A jamesalbert® production"
+ },
+ {
+  "classes": [
+   "AD",
+   "TG"
+  ],
+  "title": "Rosa Parks",
+  "meta": "Biography · History & Culture · English listening",
+  "desc": {
+   "it": "La storia di una donna coraggiosa il cui gesto su un autobus divenne un simbolo della lotta per i diritti civili.",
+   "en": "La storia di una donna coraggiosa il cui gesto su un autobus divenne un simbolo della lotta per i diritti civili."
+  },
+  "focus": "Civil rights · History · Past Simple",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/3c886736-bff8-4dd5-9f03-795058541d9e/Rosa+Parks_+A+Brave+Choice.png?format=2500w",
+  "source": "vimeo",
+  "id": "1236885370",
+  "h": "a989f876a1",
+  "credit": "A jamesalbert® production"
+ },
+ {
+  "classes": [
+   "AD",
+   "TG"
+  ],
+  "title": "Neil Armstrong",
+  "meta": "Biography · History & Culture · English listening",
+  "desc": {
+   "it": "Dalla Terra alla Luna: scopriamo la missione Apollo 11 e il primo uomo a camminare sulla superficie lunare.",
+   "en": "Dalla Terra alla Luna: scopriamo la missione Apollo 11 e il primo uomo a camminare sulla superficie lunare."
+  },
+  "focus": "Space · Science · Past Simple",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/6d6ff273-b992-47ed-8e62-56258424d1db/Neil+Armstrong_+The+First+Moonwalker.png?format=2500w",
+  "source": "vimeo",
+  "id": "1236884611",
+  "h": "ff14b7eac5",
   "credit": "A jamesalbert® production"
  }
 ];
