@@ -6,7 +6,7 @@ window.LIBRARY = [
   "author": "Beatrix Potter",
   "level": "Class 2 · A1",
   "dir": "library/peter-rabbit/",
-  "cover": "img/cover.jpg",
+  "cover": "img/cover-2.jpg",
   "pdf": "the-tale-of-peter-rabbit-jamesalbert.pdf",
   "words": "peter-words.mp3",
   "vocab": [
@@ -102,7 +102,7 @@ window.LIBRARY = [
   "source": "Original text and illustrations: Beatrix Potter, 1902 · public domain. Retold edition © jamesalbert® 2026.",
   "pages": [
    {
-    "img": "cover.jpg",
+    "img": "cover-2.jpg",
     "text": "",
     "audio": "peter-00-title.mp3"
    },
