@@ -204,7 +204,7 @@
     #club .cl-banner{display:block;width:calc(100% + 36px);margin:0 -18px 6px;height:230px;object-fit:cover;object-position:center 30%}
     #club .cl-sec{padding:24px 0 6px;border-top:1px solid #ddd5c3;margin-top:14px}
     #club .cl-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px}
-    #club .cl-card img{display:block;width:100%;height:220px;object-fit:cover}
+    #club .cl-card img{display:block;width:100%;height:auto}
     #club .cl-card>div{padding:14px 16px 4px}
     #club .cl-num{font:600 12px Poppins,sans-serif;color:var(--gold-d);letter-spacing:1px}
     #club .cl-guide img{display:block;width:100%;border-radius:16px;margin-bottom:16px}
