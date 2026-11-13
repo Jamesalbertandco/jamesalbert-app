@@ -6,7 +6,7 @@
 // then paste it into accessKey below. Every finished test is then emailed to that address.
 // While accessKey is empty, students get a "Send my results" button that opens an email instead.
 window.LEVEL_TEST = {
-  accessKey: "",
+  accessKey: "922e38cb-8fe1-449b-9d12-aba23eab8208",
   minutes: 35,
   bands: [ // [lowest score, level]
     [0,  "A1", {en:"Beginner", it:"Principiante"}],
