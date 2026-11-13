@@ -724,6 +724,7 @@ const TEXT = {
   rdPause:   {en:"⏸ Pause", it:"⏸ Pausa"},
   rdAuto:    {en:"Turn pages automatically", it:"Gira le pagine da solo"},
   rdOpen:    {en:"📖 Read & listen", it:"📖 Leggi e ascolta"},
+  rdRead:    {en:"📖 Read", it:"📖 Leggi"},
   rdPdf:     {en:"Download the book (PDF)", it:"Scarica il libro (PDF)"},
   rdWords:   {en:"🔊 Words to learn", it:"🔊 Parole da imparare"},
   libNote:   {en:"The original stories in our readers are in the public domain (their authors died more than 70 years ago; Italian Law 633/1941, art. 25). Our retold editions, activities and audio are © jamesalbert® 2026.", it:"Le storie originali delle nostre letture sono di pubblico dominio (autori scomparsi da oltre 70 anni; Legge 633/1941, art. 25). Le nostre edizioni adattate, le attività e l'audio sono © jamesalbert® 2026."},
@@ -734,6 +735,7 @@ const TEXT = {
   hbWatch:   {en:"▶ Watch", it:"▶ Guarda"},
   hbOpenFc:  {en:"Open flashcards →", it:"Apri le flashcard →"},
   hbSoon:    {en:"Coming soon", it:"In arrivo"},
+  hbOpenPdf: {en:"Open PDF →", it:"Apri il PDF →"},
   hbMoving:  {en:"We're moving this section into the app. It will be here soon.", it:"Stiamo spostando questa sezione nell'app. Sarà disponibile a breve."},
   hbEmpty:   {en:"Material for this class will appear here soon.", it:"Il materiale di questa classe sarà disponibile qui a breve."},
   teamH:     {en:"Every learner, matched with the right teacher.", it:"Ogni studente, con l'insegnante giusto."},
@@ -1029,16 +1031,17 @@ function renderHub(){
       ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`
       : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`) + `<div class="center"><a class="btn ghost" href="#" onclick="go('hwClass');return false">${esc(T(TEXT.hbAllHw))}</a></div>`;
   if (HUBTAB === 'mat') body = hub.material.length ? hub.material.map((m,i) => {
-      const ok = m.type === 'flash' || (m.type === 'video' && m.vimeo);
+      const ok = m.type === 'flash' || m.type === 'pdf' || (m.type === 'video' && m.vimeo);
       return `<button class="mcard${ok ? '' : ' soon'}" ${ok ? `onclick="hubOpen(${i})"` : ''}>${m.image ? `<img src="${esc(m.image)}" alt="" loading="lazy">` : ''}
         <div class="in"><small>${esc(m.meta)}</small><b>${esc(m.title)}</b><p>${esc(T(m.desc))}</p>
-        <span class="go">${esc(T(m.type === 'flash' ? TEXT.hbOpenFc : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
+        <span class="go">${esc(T(m.type === 'flash' ? TEXT.hbOpenFc : m.type === 'pdf' ? TEXT.hbOpenPdf : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
       : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`;
-  if (HUBTAB === 'read') body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (window.LIBRARY||[]).map((b,i) => `<div class="bk">
-      <div class="th" onclick="rdOpen(${i})"><img src="${b.dir+b.cover}" alt="${esc(b.title)}"></div>
+  if (HUBTAB === 'read') { const BL = (window.LIBRARY||[]).map((b,i) => [b,i]).filter(([b]) => !b.classes || b.classes.includes(HWC));
+    body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (BL.length ? BL.map(([b,i]) => { const cov = b.image || (b.dir + b.cover); const open = b.link ? `window.open('${esc(b.link)}','_blank')` : `rdOpen(${i})`; return `<div class="bk">
+      <div class="th" onclick="${open}"><img src="${esc(cov)}" alt="${esc(b.title)}" loading="lazy"></div>
       <div class="in"><span class="badge2">Book</span><small>${esc(b.meta||'')}</small><b>${esc(b.title)}</b><p>${esc(T(b.desc||''))}</p>
       ${b.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(b.focus)}</p>` : ''}
-      <div class="cta"><button class="p" onclick="rdOpen(${i})">${esc(T(TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`).join('');
+      <div class="cta"><button class="p" onclick="${open}">${esc(T(b.link ? TEXT.rdRead : TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`; }).join('') : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`); }
   if (HUBTAB === 'vid') { const V = (window.VIDEOS||[]).filter(v => !v.classes || v.classes.includes(HWC));
     body = `<div class="libnote">${esc(T(TEXT.vidNote))}</div>` + (V.length ? V.map(v => `<div class="bk"><div class="th" style="padding:0" onclick="vidPlay('${esc(v.source)}','${esc(v.id)}','${esc(v.h||'')}','${esc(v.title).replace(/'/g,"\\'")}')"><img src="${esc(v.image)}" alt="" style="width:100%;aspect-ratio:16/9;border-radius:0;box-shadow:none"></div>
       <div class="in"><span class="badge2">Video</span><small>${esc(v.meta||'')}</small><b>${esc(v.title)}</b><p>${esc(T(v.desc||''))}</p>
@@ -1054,6 +1057,7 @@ function renderHub(){
 function hubOpen(i){
   const m = ((window.HUB||{})[HWC]||{material:[]}).material[i]; if (!m) return;
   if (m.type === 'flash') { fcOpen(); return; }
+  if (m.type === 'pdf') { window.open(m.link, '_blank'); return; }
   document.getElementById('vidFrame').src = vimeoEmbed(m.vimeo);
   document.getElementById('vidT').textContent = m.title;
   document.getElementById('vidBox').classList.remove('hide');

@@ -1,4 +1,4 @@
-// jamesalbert® Readers — own editions of public-domain stories.
+// jamesalbert® Library — own editions of public-domain stories and our own books.
 window.LIBRARY = [
  {
   "id": "peter-rabbit",
@@ -234,6 +234,233 @@ window.LIBRARY = [
    "it": "Peter è un coniglietto birichino che entra nell’orto del signor McGregor… Una storia classica, raccontata con frasi semplici, con le illustrazioni originali di Beatrix Potter e l’audio da ascoltare pagina per pagina.",
    "en": "Peter is a naughty little rabbit who sneaks into Mr. McGregor’s garden… A classic story told in simple sentences, with Beatrix Potter’s original illustrations and audio for every page."
   },
-  "focus": "Reading · Listening · Garden & food vocabulary"
+  "focus": "Reading · Listening · Garden & food vocabulary",
+  "classes": [
+   "C2"
+  ]
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "The Red Kite",
+  "meta": "Early readers · Leo & Mia",
+  "desc": {
+   "it": "Leo e Mia vivono una giornata all’aria aperta con un aquilone rosso. Una lettura per imparare parole sul gioco, i colori e il movimento.",
+   "en": "Leo e Mia vivono una giornata all’aria aperta con un aquilone rosso. Una lettura per imparare parole sul gioco, i colori e il movimento."
+  },
+  "focus": "Reading · Colours · Outdoor activities",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/c9e4bd5f-8ca5-4bff-9b44-2d25e4490419/The+Red+Kite_+Fun+with+Leo+and+Mia.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/tret/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "The Garden Mystery",
+  "meta": "Early readers · Tom & Lucy",
+  "desc": {
+   "it": "Tom e Lucy esplorano un mistero in giardino. Una storia per osservare gli indizi e praticare semplici descrizioni in inglese.",
+   "en": "Tom e Lucy esplorano un mistero in giardino. Una storia per osservare gli indizi e praticare semplici descrizioni in inglese."
+  },
+  "focus": "Reading · Nature · Questions",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/1623740c-634a-4d6e-bdf5-3ffb6d8f6f40/The+Garden+Mystery_+Fun+with+Tom+and+Lucy.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/vpls/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Where Is Pip?",
+  "meta": "Early readers · Tom & Lucy",
+  "desc": {
+   "it": "Dov’è Pip? Seguiamo Tom e Lucy nella loro ricerca, imparando a fare domande e a descrivere luoghi e oggetti.",
+   "en": "Dov’è Pip? Seguiamo Tom e Lucy nella loro ricerca, imparando a fare domande e a descrivere luoghi e oggetti."
+  },
+  "focus": "Reading · Questions · Places",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/2b6b4517-2166-414f-bd4b-7dd5a5f31d6c/Tom+and+Lucy+Search+for+Pip.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/Book-2-2/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Tom and Lucy: A Day at Home",
+  "meta": "Early readers · Daily life",
+  "desc": {
+   "it": "Una giornata a casa con Tom e Lucy per esercitare il vocabolario delle attività quotidiane e della famiglia.",
+   "en": "Una giornata a casa con Tom e Lucy per esercitare il vocabolario delle attività quotidiane e della famiglia."
+  },
+  "focus": "Reading · Daily routines · Family",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/e224ae6a-6325-4066-9191-8baa1b389e65/Tom+and+Lucy_+A+Day+at+Home.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/Book-1/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Summer in the Arctic",
+  "meta": "Nature · Geography",
+  "desc": {
+   "it": "Un viaggio tra i paesaggi dell’Artico in estate per conoscere nuovi ambienti e arricchire il lessico della natura.",
+   "en": "Un viaggio tra i paesaggi dell’Artico in estate per conoscere nuovi ambienti e arricchire il lessico della natura."
+  },
+  "focus": "Reading · Geography · Nature",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/68d6ca21-75ef-4efb-8bc9-ac4cdb0cfd58/Summer+in+the+Arctic.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/Summer-in-the-Arctic/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "The Tales of Mother Goose",
+  "meta": "Classic rhymes · Stories",
+  "desc": {
+   "it": "Una raccolta di filastrocche e racconti tradizionali inglesi per scoprire ritmo, rime e parole nuove.",
+   "en": "Una raccolta di filastrocche e racconti tradizionali inglesi per scoprire ritmo, rime e parole nuove."
+  },
+  "focus": "Rhymes · Pronunciation · Vocabulary",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/dd2320e5-c188-42f5-819e-cfe1bebcdfbf/The+Tales+of+Mother+Goose+Cover.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/fngf/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Oliver Twist",
+  "meta": "Classic literature · Charles Dickens",
+  "desc": {
+   "it": "La storia di Oliver Twist ci porta nell’Inghilterra vittoriana e invita a riflettere su amicizia, coraggio e giustizia.",
+   "en": "La storia di Oliver Twist ci porta nell’Inghilterra vittoriana e invita a riflettere su amicizia, coraggio e giustizia."
+  },
+  "focus": "Reading · British literature · Past Simple",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/98a5cf6c-dbae-4337-9de0-c9ef6def1c79/Oliver+Twist_+A+Victorian+Chase.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/qwmn/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Gulliver’s Travels",
+  "meta": "Classic literature · Adventure",
+  "desc": {
+   "it": "Viaggiamo con Gulliver in mondi straordinari, tra incontri sorprendenti e avventure ricche di immaginazione.",
+   "en": "Viaggiamo con Gulliver in mondi straordinari, tra incontri sorprendenti e avventure ricche di immaginazione."
+  },
+  "focus": "Reading · Adventure · Descriptive language",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/c4e6b9c5-b157-47de-94f0-9d11ba760b5d/Gulliver%E2%80%99s+Travels_+Skybound+Encounter.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/vfbr/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Frankenstein",
+  "meta": "Classic literature · Mary Shelley",
+  "desc": {
+   "it": "Un classico della letteratura gotica che invita a esplorare temi come la scienza, la responsabilità e le conseguenze delle scelte.",
+   "en": "Un classico della letteratura gotica che invita a esplorare temi come la scienza, la responsabilità e le conseguenze delle scelte."
+  },
+  "focus": "Reading · Literature · Science vocabulary",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/d45bfa49-b008-404a-9791-ddcfc144b533/Frankenstein_+Stormbound+Monster.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/fgiw/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Around the World in Eighty Days",
+  "meta": "Classic literature · Jules Verne",
+  "desc": {
+   "it": "Un’avventura intorno al mondo con Phileas Fogg, tra paesi, mezzi di trasporto e sfide contro il tempo.",
+   "en": "Un’avventura intorno al mondo con Phileas Fogg, tra paesi, mezzi di trasporto e sfide contro il tempo."
+  },
+  "focus": "Reading · Travel · Geography",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/3afe184d-adfc-4983-b371-f58a461117e8/Around+the+World+in+Eighty+Days+Balloon+Adventure.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/ybee/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Anne of Green Gables",
+  "meta": "Classic literature · Friendship",
+  "desc": {
+   "it": "La storia di Anne, una ragazza piena di fantasia, ci parla di amicizia, crescita e del piacere di essere sé stessi.",
+   "en": "La storia di Anne, una ragazza piena di fantasia, ci parla di amicizia, crescita e del piacere di essere sé stessi."
+  },
+  "focus": "Reading · Feelings · Friendship",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/6717f3da-8eda-442e-a7b7-89bcec4312a5/Anne+of+Green+Gables_+Garden+Portrait.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/tmnt/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Grimm’s Fairy Tales",
+  "meta": "Fairy tales · Brothers Grimm",
+  "desc": {
+   "it": "Una raccolta di fiabe tradizionali tra boschi incantati, personaggi memorabili e avventure fantastiche.",
+   "en": "Una raccolta di fiabe tradizionali tra boschi incantati, personaggi memorabili e avventure fantastiche."
+  },
+  "focus": "Reading · Fairy-tale vocabulary · Storytelling",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/7e7c6f86-806b-41bf-a43a-26b03c312054/Grimm%E2%80%99s+Fairy+Tales_+Enchanted+Cottage.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/evnn/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Treasure Island",
+  "meta": "Classic literature · Pirates",
+  "desc": {
+   "it": "Un’avventura tra pirati, mappe e tesori nascosti, ideale per scoprire il lessico del mare e dell’esplorazione.",
+   "en": "Un’avventura tra pirati, mappe e tesori nascosti, ideale per scoprire il lessico del mare e dell’esplorazione."
+  },
+  "focus": "Reading · Adventure · Sea vocabulary",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/4dae4e58-9469-4114-b0e5-ca123af66434/Treasure+Island_+Pirate+on+the+High+Seas.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/pkhf/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Robin Hood",
+  "meta": "Legends · English history",
+  "desc": {
+   "it": "La leggenda di Robin Hood, il celebre arciere di Sherwood, tra coraggio, amicizia e senso di giustizia.",
+   "en": "La leggenda di Robin Hood, il celebre arciere di Sherwood, tra coraggio, amicizia e senso di giustizia."
+  },
+  "focus": "Reading · Legends · History",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/b964ac50-16ab-4aaa-b47c-471f094ecb58/Robin+Hood_+Archer+of+Sherwood.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/xsad/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Robinson Crusoe",
+  "meta": "Classic literature · Survival",
+  "desc": {
+   "it": "Su un’isola lontana, Robinson Crusoe impara a cavarsela con ingegno e perseveranza. Una storia di scoperta e sopravvivenza.",
+   "en": "Su un’isola lontana, Robinson Crusoe impara a cavarsela con ingegno e perseveranza. Una storia di scoperta e sopravvivenza."
+  },
+  "focus": "Reading · Nature · Survival vocabulary",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/2ec28dd0-81b4-4f71-80b1-85401479beed/Robinson+Crusoe_+Island+Survivor.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/wgpy/"
+ },
+ {
+  "classes": [
+   "C3"
+  ],
+  "title": "Andersen’s Fairy Tales",
+  "meta": "Fairy tales · Hans Christian Andersen",
+  "desc": {
+   "it": "Le fiabe di Andersen ci accompagnano in storie ricche di fantasia, emozioni e importanti riflessioni.",
+   "en": "Le fiabe di Andersen ci accompagnano in storie ricche di fantasia, emozioni e importanti riflessioni."
+  },
+  "focus": "Reading · Emotions · Storytelling",
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/997d5f1f-5599-413b-bcc1-293357681556/Andersen%E2%80%99s+Fairy+Tales_+The+Ugly+Duckling.png?format=2500w",
+  "link": "https://books.jamesalbert.it/books/omju/"
  }
 ];
