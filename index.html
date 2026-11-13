@@ -458,8 +458,7 @@
       <h1 data-t="hubsTitle"></h1>
       <p class="sub" data-t="hubsSub"></p>
       <div class="list" id="hubList"></div>
-      <h2 data-t="hubLibTitle"></h2>
-      <div class="list" id="hubLib"></div>
+      <div id="hubLib" hidden></div>
     </section>
 
     <!-- LIBRARY -->
@@ -969,7 +968,7 @@ let HUBTAB = 'week';
 function vimeoEmbed(u){ const m = (u||'').match(/vimeo\.com\/(\d+)(?:\/([0-9a-f]+))?/); return m ? `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] + '&' : '?'}autoplay=1&title=0&byline=0&portrait=0` : ''; }
 function renderHub(){
   const h = CONFIG.hubs.find(x => x.code === HWC), hub = (window.HUB||{})[HWC] || {material:[]}, hw = ((window.HOMEWORK||{})[HWC]||{items:[]}), cur = hw.items[0];
-  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat],['films',TEXT.hbFilms],['books',TEXT.hbBooks]];
+  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat]];
   let body = '';
   if (HUBTAB === 'week') body = (cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
       <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
