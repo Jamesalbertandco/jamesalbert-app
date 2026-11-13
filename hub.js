@@ -430,7 +430,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-01.webp"
  },
  {
   "title": "Articles",
@@ -459,7 +460,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-03.webp"
  },
  {
   "title": "IF Clauses",
@@ -578,7 +580,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-11.webp"
  },
  {
   "title": "Tenses",
@@ -622,7 +625,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-14.webp"
  },
  {
   "title": "Email Writing",
@@ -794,7 +798,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-01.webp"
  },
  {
   "title": "Articles",
@@ -823,7 +828,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-03.webp"
  },
  {
   "title": "IF Clauses",
@@ -942,7 +948,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-11.webp"
  },
  {
   "title": "Tenses",
@@ -986,7 +993,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-14.webp"
  },
  {
   "title": "Email Writing",
