@@ -556,6 +556,7 @@
 <script src="team.js"></script>
 <script src="hub.js"></script>
 <script src="library.js"></script>
+<script src="videos.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -716,6 +717,9 @@ const TEXT = {
   hwNew:     {en:"New", it:"Nuovo"},
   hbWeek:    {en:"This week", it:"Settimana"},
   hbRead:    {en:"Book Library", it:"Biblioteca"},
+  hbVid:     {en:"Video Library", it:"Video"},
+  vidNote:   {en:"Every video here is our own, free to share (public domain or Creative Commons), or played from the official channel of its owner. Credits are shown with each video.", it:"Ogni video qui è nostro, liberamente condivisibile (pubblico dominio o Creative Commons) oppure riprodotto dal canale ufficiale del suo autore. I crediti sono indicati con ciascun video."},
+  vidEmpty:  {en:"Our Video Library is being prepared: short films, documentaries and English videos chosen for this class. Coming soon!", it:"La nostra videoteca è in preparazione: cortometraggi, documentari e video in inglese scelti per questa classe. In arrivo!"},
   rdListen:  {en:"🔊 Listen", it:"🔊 Ascolta"},
   rdPause:   {en:"⏸ Pause", it:"⏸ Pausa"},
   rdAuto:    {en:"Turn pages automatically", it:"Gira le pagine da solo"},
@@ -1018,7 +1022,7 @@ let HUBTAB = 'week';
 function vimeoEmbed(u){ const m = (u||'').match(/vimeo\.com\/(\d+)(?:\/([0-9a-f]+))?/); return m ? `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] + '&' : '?'}autoplay=1&title=0&byline=0&portrait=0` : ''; }
 function renderHub(){
   const h = CONFIG.hubs.find(x => x.code === HWC), hub = (window.HUB||{})[HWC] || {material:[]}, hw = ((window.HOMEWORK||{})[HWC]||{items:[]}), cur = hw.items[0];
-  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat],['read',TEXT.hbRead]];
+  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat],['read',TEXT.hbRead],['vid',TEXT.hbVid]];
   let body = '';
   if (HUBTAB === 'week') body = (cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
       <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
@@ -1035,6 +1039,11 @@ function renderHub(){
       <div class="in"><span class="badge2">Book</span><small>${esc(b.meta||'')}</small><b>${esc(b.title)}</b><p>${esc(T(b.desc||''))}</p>
       ${b.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(b.focus)}</p>` : ''}
       <div class="cta"><button class="p" onclick="rdOpen(${i})">${esc(T(TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`).join('');
+  if (HUBTAB === 'vid') { const V = (window.VIDEOS||[]).filter(v => !v.classes || v.classes.includes(HWC));
+    body = `<div class="libnote">${esc(T(TEXT.vidNote))}</div>` + (V.length ? V.map(v => `<div class="bk"><div class="th" style="padding:0" onclick="vidPlay('${esc(v.source)}','${esc(v.id)}','${esc(v.h||'')}','${esc(v.title).replace(/'/g,"\\'")}')"><img src="${esc(v.image)}" alt="" style="width:100%;aspect-ratio:16/9;border-radius:0;box-shadow:none"></div>
+      <div class="in"><span class="badge2">Video</span><small>${esc(v.meta||'')}</small><b>${esc(v.title)}</b><p>${esc(T(v.desc||''))}</p>
+      ${v.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(v.focus)}</p>` : ''}${v.credit ? `<p class="fo" style="font-size:11px;color:#888">${esc(v.credit)}</p>` : ''}
+      <div class="cta"><button class="p" onclick="vidPlay('${esc(v.source)}','${esc(v.id)}','${esc(v.h||'')}','${esc(v.title).replace(/'/g,"\\'")}')">${esc(T(TEXT.hbWatch))}</button></div></div></div>`).join('') : `<div class="empty">${esc(T(TEXT.vidEmpty))}</div>`); }
   if (HUBTAB === 'films' || HUBTAB === 'books') body = `<div class="empty">${esc(T(TEXT.hbMoving))}</div>`;
   document.getElementById('hubBody').innerHTML = `
     <button class="back" onclick="renderAll();go('hubs')">‹ ${esc(T(TEXT.artBack))}</button>
@@ -1047,6 +1056,11 @@ function hubOpen(i){
   if (m.type === 'flash') { fcOpen(); return; }
   document.getElementById('vidFrame').src = vimeoEmbed(m.vimeo);
   document.getElementById('vidT').textContent = m.title;
+  document.getElementById('vidBox').classList.remove('hide');
+}
+function vidPlay(src, id, h, title){
+  const u = src === 'youtube' ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0` : `https://player.vimeo.com/video/${id}?${h ? 'h=' + h + '&' : ''}autoplay=1&title=0&byline=0&portrait=0`;
+  document.getElementById('vidFrame').src = u; document.getElementById('vidT').textContent = title;
   document.getElementById('vidBox').classList.remove('hide');
 }
 function vidClose(){ document.getElementById('vidFrame').src = 'about:blank'; document.getElementById('vidBox').classList.add('hide'); }
