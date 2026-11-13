@@ -2,7 +2,7 @@
 // "facts", "teaches", "quote" and "sections" are optional; short profiles can have just "intro".
 window.TEAM = [
   {
-    id: "james", img: "images/team/james-2.jpg",
+    id: "james", img: "images/team/james-3.jpg",
     en: {
       name: "James Maposa", role: "Founder & English Tutor",
       tag: "Adults, Teenagers & Corporate English",
