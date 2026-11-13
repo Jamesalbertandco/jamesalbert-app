@@ -1,9 +1,9 @@
 // Homework for each class, newest first.
 // codeHash = SHA-256 of "<class code>:<class password>" (the password itself is never stored here).
-// Demo password for every class while testing: 2026
+// Passwords are not written here (this code is public). Capitals are ignored when typing.
 window.HOMEWORK = {
-  C1: { teacher: "", codeHash: "a831d9c756287936257bc324a4a193dab90a3a8b48c5b0cb99ec7d80247588fc", items: [] },
-  C2: { teacher: "Teacher Diana", codeHash: "4df86e23afa4da7143808f5fafc078dfc9bf107ea7f1ade4f849924a8f9013cb", items: [
+  C1: { teacher: "", codeHash: "03d53b7eaa65b761735a2c8aa9e631b7212ae8b5b93d1cf177bee8dd7269a617", items: [] },
+  C2: { teacher: "Teacher Diana", codeHash: "6946ef235ac07cc5814158c36f7cb26cf519006e27d1c52eca0c5512efeb9aa5", items: [
     { date: "2026-11-12",
       title: { en: "Food words: match and colour", it: "Parole del cibo: abbina e colora" },
       note:  { en: "We practised food words in class with our flashcards. Match each word to a picture, then colour the food you like and say “I like…” at home.",
@@ -16,14 +16,14 @@ window.HOMEWORK = {
       due:   { en: "Saturday 8 November", it: "Sabato 8 novembre" },
       file:  "homework/C2/2026-11-12-food-words.pdf" }
   ] },
-  C3: { teacher: "", codeHash: "1ab942677579c0d1ca105ced83e456773eaa99efe4780e3098f917540caf6260", items: [] },
-  TG: { teacher: "", codeHash: "425897387a9464a25876c90cb486b05dac5556fb70a9cf26bad43d81001c18d5", items: [
+  C3: { teacher: "", codeHash: "2ff162b6fd045055f25ccc52281605d8f58db6a0646bb6226ead69769cffcd60", items: [] },
+  TG: { teacher: "", codeHash: "217bbc082bdd733ae2336bb3bab01aaa30cbcbf703ea0a0bbbdbeaa0a52093a8", items: [
       { date: "2026-10-30",
         title: { en: "Homework 1 – Opposite Words", it: "Compiti 1 – Parole opposte" },
         note:  { en: "Choose 10 words from the list, look up their meaning and write one sentence in English for each word.", it: "Scegli 10 parole dalla lista, cerca il loro significato e scrivi una frase in inglese per ciascuna parola." },
         file:  "https://www.jamesalbert.it/s/Opposite_Words_Homework_jamesalbert.pdf" }
     ] },
-  AD: { teacher: "", codeHash: "4e25aef94ca36bcd0a136b0df66c5722c5443666f56089e8233ebfc0ab87c11c", items: [
+  AD: { teacher: "", codeHash: "7d073e3756e277ca02c271320cb796e7f2ad39b3a0920d32382fcf6617aa8b7d", items: [
       { date: "2026-11-04",
         title: { en: "Homework 1 – 4 November", it: "Compiti 1 – 4 novembre" },
         note:  { en: "Practise reading big numbers out loud in English, as we learned in class. You don't need to write anything.", it: "Esercitatevi a leggere i numeri grandi ad alta voce in inglese, come abbiamo imparato in classe. Non è necessario scrivere nulla." },
