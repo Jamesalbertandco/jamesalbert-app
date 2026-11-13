@@ -166,9 +166,10 @@ window.TEAM = [
     }
   },
   {
-    id: "irene", img: "images/team/irene.jpg",
+    id: "irene", img: "images/team/irene-2.jpg", photo2: "images/team/irene-family.jpg",
     en: {
       name: "Irene Rizzin", role: "English Tutor · Mosaic Art in English",
+      photo2Caption: "Irene enjoying a family day by the sea.",
       tag: "Teenagers & Adults · Mosaic workshops for all ages",
       card: "English tutor and master mosaicist, bringing art and language together.",
       intro: "Irene is an experienced English tutor with a solid command of the language at B2 level. Her lessons focus on practical communication, accuracy and building confidence, tailored to each student. With her warm, patient approach and multicultural background, she creates a positive environment where students feel supported and motivated to progress.",
@@ -187,6 +188,7 @@ window.TEAM = [
     },
     it: {
       name: "Irene Rizzin", role: "Insegnante di inglese · Mosaico in inglese",
+      photo2Caption: "Irene in una giornata al mare in famiglia.",
       tag: "Ragazzi e adulti · Laboratori di mosaico per tutte le età",
       card: "Insegnante di inglese e maestra mosaicista, unisce arte e lingua.",
       intro: "Irene è un'insegnante di inglese esperta, con una solida padronanza della lingua a livello B2. Le sue lezioni puntano sulla comunicazione pratica, sulla correttezza e sulla fiducia in se stessi, su misura per ogni studente. Con il suo approccio caloroso e paziente e il suo background multiculturale, crea un ambiente positivo in cui gli studenti si sentono sostenuti e motivati a migliorare.",
