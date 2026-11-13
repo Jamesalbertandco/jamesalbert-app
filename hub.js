@@ -444,7 +444,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-02.webp"
  },
  {
   "title": "Gerund and Infinitive",
@@ -472,7 +473,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-04.webp"
  },
  {
   "title": "Modal Verbs",
@@ -486,7 +488,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-05.webp"
  },
  {
   "title": "Passive Voice",
@@ -500,7 +503,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-06.webp"
  },
  {
   "title": "Prepositions",
@@ -514,7 +518,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-07.webp"
  },
  {
   "title": "Quantifiers",
@@ -528,7 +533,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-08.webp"
  },
  {
   "title": "Question Tags and Questions",
@@ -542,7 +548,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-09.webp"
  },
  {
   "title": "Relative Clauses",
@@ -556,7 +563,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-10.webp"
  },
  {
   "title": "Reported Speech",
@@ -584,7 +592,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-12.webp"
  },
  {
   "title": "Tenses B",
@@ -598,7 +607,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-13.webp"
  },
  {
   "title": "Word Formation and Word Order",
@@ -626,7 +636,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-15.webp"
  },
  {
   "title": "Phrasal Verbs",
@@ -640,7 +651,8 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-16.webp"
  }
 ] };
 window.HUB.AD = { flash: window.HUB.C2.flash, material: [
@@ -796,7 +808,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-02.webp"
  },
  {
   "title": "Gerund and Infinitive",
@@ -824,7 +837,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-04.webp"
  },
  {
   "title": "Modal Verbs",
@@ -838,7 +852,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-05.webp"
  },
  {
   "title": "Passive Voice",
@@ -852,7 +867,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-06.webp"
  },
  {
   "title": "Prepositions",
@@ -866,7 +882,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-07.webp"
  },
  {
   "title": "Quantifiers",
@@ -880,7 +897,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-08.webp"
  },
  {
   "title": "Question Tags and Questions",
@@ -894,7 +912,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-09.webp"
  },
  {
   "title": "Relative Clauses",
@@ -908,7 +927,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-10.webp"
  },
  {
   "title": "Reported Speech",
@@ -936,7 +956,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-12.webp"
  },
  {
   "title": "Tenses B",
@@ -950,7 +971,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-13.webp"
  },
  {
   "title": "Word Formation and Word Order",
@@ -978,7 +1000,8 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-15.webp"
  },
  {
   "title": "Phrasal Verbs",
@@ -992,6 +1015,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "cta": {
    "it": "Apri il booklet →",
    "en": "Open the booklet →"
-  }
+  },
+  "image": "images/grammar/b1-16.webp"
  }
 ] };
