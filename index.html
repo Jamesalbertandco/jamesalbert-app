@@ -176,6 +176,19 @@
   .rd .ctl .play{background:#a3121f;color:#fff;min-width:110px}
   .rd .ctl .n{font:600 12px Poppins,sans-serif;color:#9aa3b5;min-width:46px}
   .rd .auto{display:flex;align-items:center;gap:6px;justify-content:center;font:500 12px Poppins,sans-serif;color:#666;padding-bottom:4px}
+  .bk{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;cursor:pointer}
+  .bk .th{background:#f3f1ec;display:flex;justify-content:center;padding:16px}
+  .bk .th img{width:62%;aspect-ratio:2/3;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+  .bk .in{padding:16px 18px 18px}
+  .bk .badge2{display:inline-block;background:#0f1f3d;color:#fff;font:600 10px Poppins,sans-serif;letter-spacing:1.6px;text-transform:uppercase;padding:4px 9px;margin-bottom:10px}
+  .bk small{display:block;font:600 10.5px Poppins,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:#a3121f;margin-bottom:5px}
+  .bk b{display:block;font-family:'Playfair Display',serif;font-size:21px;color:#0f1f3d;margin-bottom:8px}
+  .bk p{font-size:13.5px;color:#555;line-height:1.55;margin:0 0 12px}
+  .bk .fl{font:600 10px Poppins,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:#a3121f;margin:0 0 3px}
+  .bk .fo{font-size:12.5px;color:#565866;margin:0 0 14px}
+  .bk .cta{display:flex;gap:8px;flex-wrap:wrap}
+  .bk .cta button,.bk .cta a{font:600 12px Poppins,sans-serif;border-radius:20px;padding:9px 13px;border:1px solid #cfd5e0;background:#fff;color:var(--navy);text-decoration:none;cursor:pointer}
+  .bk .cta .p{background:#0f1f3d;color:#fff;border-color:#0f1f3d}
   .bookc{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px;margin-bottom:14px;cursor:pointer;border:0;width:100%;text-align:left;font:inherit}
   .bookc img{width:84px;height:84px;object-fit:contain;background:#fffdf8;border-radius:10px}
   .bookc b{display:block;font-family:'Playfair Display',serif;font-size:17px;color:#111}
@@ -702,7 +715,7 @@ const TEXT = {
   hwInfo:    {en:"This week's homework", it:"Compiti della settimana"},
   hwNew:     {en:"New", it:"Nuovo"},
   hbWeek:    {en:"This week", it:"Settimana"},
-  hbRead:    {en:"Readers", it:"Letture"},
+  hbRead:    {en:"Book Library", it:"Biblioteca"},
   rdListen:  {en:"🔊 Listen", it:"🔊 Ascolta"},
   rdPause:   {en:"⏸ Pause", it:"⏸ Pausa"},
   rdAuto:    {en:"Turn pages automatically", it:"Gira le pagine da solo"},
@@ -1017,7 +1030,11 @@ function renderHub(){
         <div class="in"><small>${esc(m.meta)}</small><b>${esc(m.title)}</b><p>${esc(T(m.desc))}</p>
         <span class="go">${esc(T(m.type === 'flash' ? TEXT.hbOpenFc : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
       : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`;
-  if (HUBTAB === 'read') body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (window.LIBRARY||[]).map((b,i) => `<div class="bookc" onclick="rdOpen(${i})"><img src="${b.dir+b.cover}" alt=""><div><b>${esc(b.title)}</b><span>${esc(b.author)} · ${esc(b.level)}</span><br><em>${esc(T(TEXT.rdOpen))}</em></div></div>`).join('') + ((window.LIBRARY||[])[0] ? `<div class="center" style="display:flex;flex-direction:column;gap:10px;align-items:center"><button class="btn ghost" onclick="rdWords(0)">${esc(T(TEXT.rdWords))}</button><a class="btn ghost" href="${LIBRARY[0].dir+LIBRARY[0].pdf}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.rdPdf))}</a></div>` : '');
+  if (HUBTAB === 'read') body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (window.LIBRARY||[]).map((b,i) => `<div class="bk">
+      <div class="th" onclick="rdOpen(${i})"><img src="${b.dir+b.cover}" alt="${esc(b.title)}"></div>
+      <div class="in"><span class="badge2">Book</span><small>${esc(b.meta||'')}</small><b>${esc(b.title)}</b><p>${esc(T(b.desc||''))}</p>
+      ${b.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(b.focus)}</p>` : ''}
+      <div class="cta"><button class="p" onclick="rdOpen(${i})">${esc(T(TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`).join('');
   if (HUBTAB === 'films' || HUBTAB === 'books') body = `<div class="empty">${esc(T(TEXT.hbMoving))}</div>`;
   document.getElementById('hubBody').innerHTML = `
     <button class="back" onclick="renderAll();go('hubs')">‹ ${esc(T(TEXT.artBack))}</button>

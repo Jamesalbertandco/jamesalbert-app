@@ -6,7 +6,7 @@ window.LIBRARY = [
   "author": "Beatrix Potter",
   "level": "Class 2 · A1",
   "dir": "library/peter-rabbit/",
-  "cover": "img/peter20.jpg",
+  "cover": "img/cover.jpg",
   "pdf": "the-tale-of-peter-rabbit-jamesalbert.pdf",
   "words": "peter-words.mp3",
   "vocab": [
@@ -102,8 +102,8 @@ window.LIBRARY = [
   "source": "Original text and illustrations: Beatrix Potter, 1902 · public domain. Retold edition © jamesalbert® 2026.",
   "pages": [
    {
-    "img": "peter20.jpg",
-    "text": "<b>The Tale of Peter Rabbit</b><br>by Beatrix Potter<br><small>Retold by jamesalbert®</small>",
+    "img": "cover.jpg",
+    "text": "",
     "audio": "peter-00-title.mp3"
    },
    {
@@ -227,6 +227,13 @@ window.LIBRARY = [
     "audio": "peter-24-the-end.mp3",
     "then": "peter-25-closing.mp3"
    }
-  ]
+  ],
+  "tag": "jamesalbert® Reader",
+  "meta": "Beatrix Potter · Class 2 · A1",
+  "desc": {
+   "it": "Peter è un coniglietto birichino che entra nell’orto del signor McGregor… Una storia classica, raccontata con frasi semplici, con le illustrazioni originali di Beatrix Potter e l’audio da ascoltare pagina per pagina.",
+   "en": "Peter is a naughty little rabbit who sneaks into Mr. McGregor’s garden… A classic story told in simple sentences, with Beatrix Potter’s original illustrations and audio for every page."
+  },
+  "focus": "Reading · Listening · Garden & food vocabulary"
  }
 ];
