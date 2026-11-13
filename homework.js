@@ -17,6 +17,16 @@ window.HOMEWORK = {
       file:  "homework/C2/2026-11-12-food-words.pdf" }
   ] },
   C3: { teacher: "", codeHash: "1ab942677579c0d1ca105ced83e456773eaa99efe4780e3098f917540caf6260", items: [] },
-  TG: { teacher: "", codeHash: "425897387a9464a25876c90cb486b05dac5556fb70a9cf26bad43d81001c18d5", items: [] },
-  AD: { teacher: "", codeHash: "4e25aef94ca36bcd0a136b0df66c5722c5443666f56089e8233ebfc0ab87c11c", items: [] }
+  TG: { teacher: "", codeHash: "425897387a9464a25876c90cb486b05dac5556fb70a9cf26bad43d81001c18d5", items: [
+      { date: "2026-10-30",
+        title: { en: "Homework 1 – Opposite Words", it: "Compiti 1 – Parole opposte" },
+        note:  { en: "Choose 10 words from the list, look up their meaning and write one sentence in English for each word.", it: "Scegli 10 parole dalla lista, cerca il loro significato e scrivi una frase in inglese per ciascuna parola." },
+        file:  "https://www.jamesalbert.it/s/Opposite_Words_Homework_jamesalbert.pdf" }
+    ] },
+  AD: { teacher: "", codeHash: "4e25aef94ca36bcd0a136b0df66c5722c5443666f56089e8233ebfc0ab87c11c", items: [
+      { date: "2026-11-04",
+        title: { en: "Homework 1 – 4 November", it: "Compiti 1 – 4 novembre" },
+        note:  { en: "Practise reading big numbers out loud in English, as we learned in class. You don't need to write anything.", it: "Esercitatevi a leggere i numeri grandi ad alta voce in inglese, come abbiamo imparato in classe. Non è necessario scrivere nulla." },
+        file:  "https://www.jamesalbert.it/s/jamesalbert_adults_homework_4_november_3_pages.pdf" }
+    ] }
 };

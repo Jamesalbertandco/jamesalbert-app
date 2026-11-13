@@ -299,3 +299,699 @@ window.HUB = {
   ]
  }
 };
+
+
+// Teens (TG) and Adults (AD) class hubs: same food flashcards, tenses, articles and B1 grammar booklets.
+window.HUB.TG = { flash: window.HUB.C2.flash, material: [
+ {
+  "title": "Food Flashcards",
+  "type": "flash",
+  "meta": "Vocabulary · Food",
+  "desc": {
+   "it": "Le flashcard sono uno dei modi più efficaci per memorizzare il vocabolario: immagine, parola e suono insieme fissano le parole nella mente più in fretta. Ascolta la pronuncia, ripeti ad alta voce e scorri le 20 carte del cibo.",
+   "en": "Flashcards are one of the best ways to remember vocabulary: picture, word and sound together fix words in your mind faster. Listen, repeat out loud and go through the 20 food cards."
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/9320f741-e313-4bfb-9776-cb1f974cd992/Food+Flashcards+Banner.png?format=750w"
+ },
+ {
+  "title": "Present Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Present tense forms",
+  "desc": {
+   "it": "Le quattro forme del presente inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English present tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_present_tenses_A4_landscape_fixed.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/588e1ae9-46ed-4d1f-b2e0-5c6a43c810a6/Present+Tenses+Grammar+Lesson+Cover.png?format=1000w"
+ },
+ {
+  "title": "Past Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Past tense forms",
+  "desc": {
+   "it": "Le quattro forme del passato inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English past tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_past_tenses_A4_landscape.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/bb6db302-49dd-4fec-96f4-1fe33033462d/Past+Tenses+Grammar+Poster.png?format=1000w"
+ },
+ {
+  "title": "Future Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Future tense forms",
+  "desc": {
+   "it": "Le quattro forme del futuro inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English future tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_future_tenses_A4_landscape.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/50177580-c4e6-4ed7-82b1-49b33f3d5a10/Future+Tenses+Educational+Title+Card.png?format=1000w"
+ },
+ {
+  "title": "Everest: The Price of the Summit",
+  "type": "pdf",
+  "meta": "Reading · Adventure & Ethics",
+  "desc": {
+   "it": "Perché le persone rischiano la vita per raggiungere la vetta dell’Everest? Un articolo sull’ambizione, il coraggio e il prezzo delle nostre conquiste.",
+   "en": "Why do people risk their lives to reach the top of Everest? An article about ambition, courage and the price of our achievements."
+  },
+  "link": "https://www.jamesalbert.it/s/Articles.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/c6c14ab9-d31a-4313-9a59-be8fef925dec/Everest_+The+Price+of+the+Summit.png?format=1000w"
+ },
+ {
+  "title": "The Dark Side of Sport",
+  "type": "pdf",
+  "meta": "Reading · Sport & Society",
+  "desc": {
+   "it": "Uno sguardo alle pressioni dello sport professionistico, al doping e alle conseguenze della ricerca della perfezione.",
+   "en": "A look at the pressure of professional sport, doping and the consequences of chasing perfection."
+  },
+  "link": "https://www.jamesalbert.it/s/hh-Image-Sep-27-2026-at-05_58_58-PM.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/8124d59c-7696-4e21-9141-b477372d073c/The+Dark+Side+of+Sport.png?format=1000w"
+ },
+ {
+  "title": "The Picture of Dorian Gray",
+  "type": "pdf",
+  "meta": "Reading · Classic Literature",
+  "desc": {
+   "it": "La storia di Oscar Wilde esplora bellezza, giovinezza, coscienza e le conseguenze delle nostre scelte.",
+   "en": "Oscar Wilde’s story explores beauty, youth, conscience and the consequences of our choices."
+  },
+  "link": "https://www.jamesalbert.it/s/The-Picture-of-Dorian-Gray-Editorial.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/d4f6b261-4dd8-4a5c-a3f3-76def0866478/Dorian+Gray+and+the+Gilded+Mirror.png?format=1000w"
+ },
+ {
+  "title": "William Shakespeare: The Man Behind the Words",
+  "type": "pdf",
+  "meta": "Reading · British Literature & History",
+  "desc": {
+   "it": "Un viaggio nella vita di William Shakespeare, nelle sue opere e nell’influenza che continua ad avere sulla lingua inglese.",
+   "en": "A journey into William Shakespeare’s life, his works and his lasting influence on the English language."
+  },
+  "link": "https://www.jamesalbert.it/s/Shakespeare_-The-Man-Behind-the-Words.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/e439883b-6811-4b5b-90a4-3d394fd65741/William+Shakespeare_+A+Candlelit+Study.png?format=1000w"
+ },
+ {
+  "title": "Adjectives and Adverbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 01",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_01_Adjectives_and_Adverbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Articles",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 02",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_02_Articles/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Gerund and Infinitive",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 03",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_03_Gerund_and_Infinitive/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "IF Clauses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 04",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_04_IF_Clauses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Modal Verbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 05",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_05_Modal_Verbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Passive Voice",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 06",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_06_Passive_Voice/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Prepositions",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 07",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_07_Prepositions/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Quantifiers",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 08",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_08_Quantifiers/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Question Tags and Questions",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 09",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_09_Question_Tags_and_Questions/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Relative Clauses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 10",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_10_Relative_Clauses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Reported Speech",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 11",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_11_Reported_Speech/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Tenses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 12",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_12_Tenses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Tenses B",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 13",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_13_Tenses_B/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Word Formation and Word Order",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 14",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_14_Word_Formation_and_Word_Order/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Email Writing",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 15",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_15_Email_Writing/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Phrasal Verbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 16",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_16_Phrasal_Verbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ }
+] };
+window.HUB.AD = { flash: window.HUB.C2.flash, material: [
+ {
+  "title": "Food Flashcards",
+  "type": "flash",
+  "meta": "Vocabulary · Food",
+  "desc": {
+   "it": "Le flashcard sono un metodo semplice ed efficace per imparare il vocabolario a qualsiasi età: associare immagine, parola e suono aiuta la memoria e migliora la pronuncia. Scorri le 20 carte del cibo, ascolta ogni parola e ripetila ad alta voce.",
+   "en": "Flashcards are a simple, effective way to learn vocabulary at any age: matching picture, word and sound helps memory and pronunciation. Go through the 20 food cards, listen to each word and repeat it out loud."
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/9320f741-e313-4bfb-9776-cb1f974cd992/Food+Flashcards+Banner.png?format=750w"
+ },
+ {
+  "title": "Lesson Revision – Introducing Yourself",
+  "type": "video",
+  "meta": "Lesson revision · 4 November",
+  "desc": {
+   "it": "Ripassiamo come presentarci in inglese: nome, provenienza, lavoro e famiglia. Ascolta il video e ripeti le frasi ad alta voce.",
+   "en": "Let’s review how to introduce yourself in English: name, where you’re from, work and family. Watch the video and repeat the sentences out loud."
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/eb5ea355-4319-4b30-b85a-8bc30085b85c/Play+Button+Over+Introductions.png?format=750w",
+  "vimeo": "https://vimeo.com/1243660480/b255f2453a?share=copy&fl=sv&fe=ci"
+ },
+ {
+  "title": "Present Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Present tense forms",
+  "desc": {
+   "it": "Le quattro forme del presente inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English present tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_present_tenses_A4_landscape_fixed.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/588e1ae9-46ed-4d1f-b2e0-5c6a43c810a6/Present+Tenses+Grammar+Lesson+Cover.png?format=1000w"
+ },
+ {
+  "title": "Past Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Past tense forms",
+  "desc": {
+   "it": "Le quattro forme del passato inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English past tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_past_tenses_A4_landscape.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/bb6db302-49dd-4fec-96f4-1fe33033462d/Past+Tenses+Grammar+Poster.png?format=1000w"
+ },
+ {
+  "title": "Future Tenses",
+  "type": "pdf",
+  "meta": "Grammar · Future tense forms",
+  "desc": {
+   "it": "Le quattro forme del futuro inglese: strutture, formule ed esempi a confronto.",
+   "en": "The four English future tense forms: structures, formulas and examples side by side."
+  },
+  "link": "https://www.jamesalbert.it/s/jamesalbert_future_tenses_A4_landscape.pdf",
+  "cta": {
+   "it": "Apri il PDF →",
+   "en": "Open PDF →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/50177580-c4e6-4ed7-82b1-49b33f3d5a10/Future+Tenses+Educational+Title+Card.png?format=1000w"
+ },
+ {
+  "title": "Everest: The Price of the Summit",
+  "type": "pdf",
+  "meta": "Reading · Adventure & Ethics",
+  "desc": {
+   "it": "Perché le persone rischiano la vita per raggiungere la vetta dell’Everest? Un articolo sull’ambizione, il coraggio e il prezzo delle nostre conquiste.",
+   "en": "Why do people risk their lives to reach the top of Everest? An article about ambition, courage and the price of our achievements."
+  },
+  "link": "https://www.jamesalbert.it/s/Articles.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/c6c14ab9-d31a-4313-9a59-be8fef925dec/Everest_+The+Price+of+the+Summit.png?format=1000w"
+ },
+ {
+  "title": "The Dark Side of Sport",
+  "type": "pdf",
+  "meta": "Reading · Sport & Society",
+  "desc": {
+   "it": "Uno sguardo alle pressioni dello sport professionistico, al doping e alle conseguenze della ricerca della perfezione.",
+   "en": "A look at the pressure of professional sport, doping and the consequences of chasing perfection."
+  },
+  "link": "https://www.jamesalbert.it/s/hh-Image-Sep-27-2026-at-05_58_58-PM.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/8124d59c-7696-4e21-9141-b477372d073c/The+Dark+Side+of+Sport.png?format=1000w"
+ },
+ {
+  "title": "The Picture of Dorian Gray",
+  "type": "pdf",
+  "meta": "Reading · Classic Literature",
+  "desc": {
+   "it": "La storia di Oscar Wilde esplora bellezza, giovinezza, coscienza e le conseguenze delle nostre scelte.",
+   "en": "Oscar Wilde’s story explores beauty, youth, conscience and the consequences of our choices."
+  },
+  "link": "https://www.jamesalbert.it/s/The-Picture-of-Dorian-Gray-Editorial.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/d4f6b261-4dd8-4a5c-a3f3-76def0866478/Dorian+Gray+and+the+Gilded+Mirror.png?format=1000w"
+ },
+ {
+  "title": "William Shakespeare: The Man Behind the Words",
+  "type": "pdf",
+  "meta": "Reading · British Literature & History",
+  "desc": {
+   "it": "Un viaggio nella vita di William Shakespeare, nelle sue opere e nell’influenza che continua ad avere sulla lingua inglese.",
+   "en": "A journey into William Shakespeare’s life, his works and his lasting influence on the English language."
+  },
+  "link": "https://www.jamesalbert.it/s/Shakespeare_-The-Man-Behind-the-Words.png",
+  "cta": {
+   "it": "Leggi l’articolo →",
+   "en": "Read the article →"
+  },
+  "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/e439883b-6811-4b5b-90a4-3d394fd65741/William+Shakespeare_+A+Candlelit+Study.png?format=1000w"
+ },
+ {
+  "title": "Adjectives and Adverbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 01",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_01_Adjectives_and_Adverbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Articles",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 02",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_02_Articles/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Gerund and Infinitive",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 03",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_03_Gerund_and_Infinitive/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "IF Clauses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 04",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_04_IF_Clauses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Modal Verbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 05",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_05_Modal_Verbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Passive Voice",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 06",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_06_Passive_Voice/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Prepositions",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 07",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_07_Prepositions/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Quantifiers",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 08",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_08_Quantifiers/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Question Tags and Questions",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 09",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_09_Question_Tags_and_Questions/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Relative Clauses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 10",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_10_Relative_Clauses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Reported Speech",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 11",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_11_Reported_Speech/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Tenses",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 12",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_12_Tenses/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Tenses B",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 13",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_13_Tenses_B/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Word Formation and Word Order",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 14",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_14_Word_Formation_and_Word_Order/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Email Writing",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 15",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_15_Email_Writing/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ },
+ {
+  "title": "Phrasal Verbs",
+  "type": "pdf",
+  "meta": "B1 Grammar · Booklet 16",
+  "desc": {
+   "it": "Consulta il booklet di grammatica e ripassa le regole e gli esempi in inglese.",
+   "en": "Open the grammar booklet to review the rules and examples in English."
+  },
+  "link": "https://books.jamesalbert.it/books/B1_16_Phrasal_Verbs/",
+  "cta": {
+   "it": "Apri il booklet →",
+   "en": "Open the booklet →"
+  }
+ }
+] };

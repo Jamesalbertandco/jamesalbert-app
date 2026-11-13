@@ -1035,7 +1035,7 @@ function renderHub(){
       const ok = m.type === 'flash' || m.type === 'pdf' || (m.type === 'video' && m.vimeo);
       return `<button class="mcard${ok ? '' : ' soon'}" ${ok ? `onclick="hubOpen(${i})"` : ''}>${m.image ? `<img src="${esc(m.image)}" alt="" loading="lazy">` : ''}
         <div class="in"><small>${esc(m.meta)}</small><b>${esc(m.title)}</b><p>${esc(T(m.desc))}</p>
-        <span class="go">${esc(T(m.type === 'flash' ? TEXT.hbOpenFc : m.type === 'pdf' ? TEXT.hbOpenPdf : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
+        <span class="go">${esc(T(m.cta ? m.cta : m.type === 'flash' ? TEXT.hbOpenFc : m.type === 'pdf' ? TEXT.hbOpenPdf : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
       : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`;
   if (HUBTAB === 'read') { const BL = (window.LIBRARY||[]).map((b,i) => [b,i]).filter(([b]) => !b.classes || b.classes.includes(HWC));
     body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (BL.length ? BL.map(([b,i]) => { const cov = b.image || (b.dir + b.cover); const open = b.link ? `window.open('${esc(b.link)}','_blank')` : `rdOpen(${i})`; return `<div class="bk">
