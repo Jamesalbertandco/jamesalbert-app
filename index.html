@@ -727,6 +727,7 @@ const TEXT = {
   rdRead:    {en:"📖 Read", it:"📖 Leggi"},
   rdPdf:     {en:"Download the book (PDF)", it:"Scarica il libro (PDF)"},
   rdWords:   {en:"🔊 Words to learn", it:"🔊 Parole da imparare"},
+  rdSoon:    {en:"Audio coming soon", it:"Audio in arrivo"},
   libNote:   {en:"The original stories in our readers are in the public domain (their authors died more than 70 years ago; Italian Law 633/1941, art. 25). Our retold editions, activities and audio are © jamesalbert® 2026.", it:"Le storie originali delle nostre letture sono di pubblico dominio (autori scomparsi da oltre 70 anni; Legge 633/1941, art. 25). Le nostre edizioni adattate, le attività e l'audio sono © jamesalbert® 2026."},
   hbMat:     {en:"Class material", it:"Materiale"},
   hbFilms:   {en:"Films", it:"Film"},
@@ -1040,8 +1041,8 @@ function renderHub(){
     body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (BL.length ? BL.map(([b,i]) => { const cov = b.image || (b.dir + b.cover); const open = b.link ? `window.open('${esc(b.link)}','_blank')` : `rdOpen(${i})`; return `<div class="bk">
       <div class="th" onclick="${open}"><img src="${esc(cov)}" alt="${esc(b.title)}" loading="lazy"></div>
       <div class="in"><span class="badge2">Book</span><small>${esc(b.meta||'')}</small><b>${esc(b.title)}</b><p>${esc(T(b.desc||''))}</p>
-      ${b.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(b.focus)}</p>` : ''}
-      <div class="cta"><button class="p" onclick="${open}">${esc(T(b.link ? TEXT.rdRead : TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`; }).join('') : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`); }
+      ${b.focus ? `<p class="fl">English learning focus</p><p class="fo">${esc(b.focus)}</p>` : ''}${b.pages && !b.pages.some(p => p.audio) ? `<p class="fo" style="font-size:11px;color:#888">🎧 ${esc(T(TEXT.rdSoon))}</p>` : ''}
+      <div class="cta"><button class="p" onclick="${open}">${esc(T(b.link ? TEXT.rdRead : (b.pages && !b.pages.some(p => p.audio)) ? TEXT.rdRead : TEXT.rdOpen))}</button>${b.words ? `<button onclick="rdWords(${i})">${esc(T(TEXT.rdWords))}</button>` : ''}${b.pdf ? `<a href="${b.dir+b.pdf}" target="_blank" rel="noopener">⬇ PDF</a>` : ''}</div></div></div>`; }).join('') : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`); }
   if (HUBTAB === 'vid') { const V = (window.VIDEOS||[]).filter(v => !v.classes || v.classes.includes(HWC));
     body = `<div class="libnote">${esc(T(TEXT.vidNote))}</div>` + (V.length ? V.map(v => `<div class="bk"><div class="th" style="padding:0" onclick="vidPlay('${esc(v.source)}','${esc(v.id)}','${esc(v.h||'')}','${esc(v.title).replace(/'/g,"\\'")}')"><img src="${esc(v.image)}" alt="" style="width:100%;aspect-ratio:16/9;border-radius:0;box-shadow:none"></div>
       <div class="in"><span class="badge2">Video</span><small>${esc(v.meta||'')}</small><b>${esc(v.title)}</b><p>${esc(T(v.desc||''))}</p>
@@ -1089,11 +1090,11 @@ function rdGo(i, play){
   document.getElementById('rdImg').src = RDB.dir + 'img/' + p.img;
   document.getElementById('rdTxt').innerHTML = p.text;
   document.getElementById('rdN').textContent = (RDI + 1) + ' / ' + RDB.pages.length;
-  RDA.pause(); RDNEXT = p.then || ''; RDA.src = RDB.dir + 'audio/' + p.audio;
-  if (play !== false) RDA.play().catch(()=>{}); rdBtn();
+  RDA.pause(); RDNEXT = p.then || ''; const hasA = !!p.audio; document.getElementById('rdPlay').style.display = hasA ? '' : 'none';
+  if (hasA) { RDA.src = RDB.dir + 'audio/' + p.audio; if (play !== false) RDA.play().catch(()=>{}); } else RDA.removeAttribute('src'); rdBtn();
 }
 function rdPlayTgl(){ if (RDA.paused) { if (RDA.ended || !RDA.currentTime) RDA.currentTime = 0; RDA.play().catch(()=>{}); } else RDA.pause(); setTimeout(rdBtn, 50); }
-function rdOpen(i){ RDB = LIBRARY[i]; document.getElementById('rdT').textContent = RDB.title; document.getElementById('rdAutoL').textContent = T(TEXT.rdAuto);
+function rdOpen(i){ RDB = LIBRARY[i]; document.getElementById('rdT').textContent = RDB.title; const au = RDB.pages.some(p => p.audio); document.getElementById('rdAuto').parentElement.style.display = au ? '' : 'none'; document.getElementById('rdAutoL').textContent = T(TEXT.rdAuto);
   document.getElementById('reader').classList.remove('hide'); rdGo(0, false); }
 function rdClose(){ RDA.pause(); document.getElementById('reader').classList.add('hide'); }
 function rdWords(i){ const b = LIBRARY[i]; RDA.pause(); RDNEXT = ''; RDA.src = b.dir + 'audio/' + b.words; RDA.play().catch(()=>{}); }
