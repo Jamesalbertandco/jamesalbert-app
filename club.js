@@ -14,28 +14,28 @@
     about:   {en:[
       "The jamesalbert Travel Club began as a simple idea: the best way to practise a language is to live inside it for a weekend. What started as a handful of students taking a walk together has grown into a small, English-speaking community that meets throughout the year.",
       "We organise excursions on a weekly, monthly and annual basis — from a Sunday walk on the coast to a long-haul trip abroad. Every outing is planned and led directly by jamesalbert, and the Club operates on a non-profit basis: it exists to add real value to the language-learning experience, not to turn a profit.",
-      "Our founder and Managing Director, James Maposa, is a certified, licensed tour guide for Africa — which means the Club has access to discounted rates most travel groups simply don't. The result is small, boutique trips where the focus stays exactly where it should: good company, good scenery, and English as the language that ties it all together."],
+      "Our founder and Managing Director, James Maposa, is a certified, licensed tour guide for Southern Africa — which means the Club has access to discounted rates most travel groups simply don't. The result is small, boutique trips where the focus stays exactly where it should: good company, good scenery, and English as the language that ties it all together."],
               it:[
       "Il jamesalbert Travel Club nasce da un'idea semplice: il modo migliore per praticare una lingua è viverla per un intero fine settimana. Quella che era una passeggiata tra pochi studenti è diventata una piccola comunità che parla inglese e che si ritrova durante tutto l'anno.",
       "Organizziamo uscite settimanali, mensili e annuali: da una passeggiata domenicale sulla costa a un viaggio a lungo raggio all'estero. Ogni uscita è pianificata e guidata direttamente da jamesalbert, e il Club è senza scopo di lucro: esiste per dare valore reale all'apprendimento della lingua, non per guadagnare.",
-      "Il nostro fondatore e Direttore Generale, James Maposa, è guida turistica certificata e abilitata per l'Africa: per questo il Club ha accesso a tariffe agevolate che la maggior parte dei gruppi non ha. Il risultato sono viaggi piccoli e su misura, dove contano davvero la buona compagnia, i bei paesaggi e l'inglese come lingua che ci unisce."]},
+      "Il nostro fondatore e Direttore Generale, James Maposa, è guida turistica certificata e abilitata per l'Africa australe: per questo il Club ha accesso a tariffe agevolate che la maggior parte dei gruppi non ha. Il risultato sono viaggi piccoli e su misura, dove contano davvero la buona compagnia, i bei paesaggi e l'inglese come lingua che ci unisce."]},
     calK:    {en:"The Calendar", it:"Il calendario"},
     calH:    {en:"Weekly, Monthly & Annual", it:"Settimanale, mensile e annuale"},
     cards: [
       {img:"weekend.jpg", t:{en:"Weekend Excursions", it:"Uscite del weekend"},
        p:{en:"Regular outings close to home — beach walks, picnics and barbecues with the Travel Club community. Simple time together, entirely in English.",
           it:"Uscite regolari vicino a casa: passeggiate in spiaggia, picnic e grigliate con la comunità del Travel Club. Tempo semplice insieme, tutto in inglese."}},
-      {img:"monthly.jpg", t:{en:"Monthly Excursions", it:"Gite mensili"},
+      {img:"monthly.jpg", pos:"center 12%", t:{en:"Monthly Excursions", it:"Gite mensili"},
        p:{en:"Once a month, we take the group further afield — afternoon trips to nearby towns like Trieste and Venice, exploring landmarks and local life along the way.",
           it:"Una volta al mese andiamo un po' più lontano: pomeriggi in città vicine come Trieste e Venezia, alla scoperta di monumenti e vita locale."}},
       {img:"annual.jpg", t:{en:"Annual Long-Haul Trip", it:"Il grande viaggio annuale"},
-       p:{en:"Once a year, the Club travels further still — a long-haul trip to an English-speaking country such as the United Kingdom or South Africa, led personally by our founder, a licensed African tour guide.",
-          it:"Una volta all'anno il Club va ancora più lontano: un viaggio in un paese di lingua inglese, come il Regno Unito o il Sudafrica, guidato personalmente dal nostro fondatore, guida turistica abilitata per l'Africa."}}
+       p:{en:"Once a year, the Club travels further still — a long-haul trip to an English-speaking country such as the United Kingdom or South Africa, led personally by our founder, a certified, licensed tour guide for Southern Africa.",
+          it:"Una volta all'anno il Club va ancora più lontano: un viaggio in un paese di lingua inglese, come il Regno Unito o il Sudafrica, guidato personalmente dal nostro fondatore, guida turistica certificata e abilitata per l'Africa australe."}}
     ],
     guideK:  {en:"Your Guide", it:"La vostra guida"},
     guideH:  {en:"Led by James Maposa", it:"Guidato da James Maposa"},
-    guide:   {en:"Every jamesalbert excursion is organised and, for our long-haul trips, personally guided by James Maposa, founder and Managing Director of jamesalbert. James is a certified, licensed tour guide for Africa — and it's that professional guiding background, paired with a genuine love of bringing people together, that shapes how the Travel Club runs: carefully planned, personally led, and always with an eye for a good story along the way.",
-              it:"Ogni uscita jamesalbert è organizzata e, per i viaggi a lungo raggio, guidata personalmente da James Maposa, fondatore e Direttore Generale di jamesalbert. James è guida turistica certificata e abilitata per l'Africa: è questa esperienza professionale, unita alla passione per far incontrare le persone, a definire il Travel Club. Viaggi pianificati con cura, guidati di persona e sempre con una bella storia da raccontare."},
+    guide:   {en:"Every jamesalbert excursion is organised and, for our long-haul trips, personally guided by James Maposa, founder and Managing Director of jamesalbert. James is a certified, licensed tour guide for Southern Africa — and it's that professional guiding background, paired with a genuine love of bringing people together, that shapes how the Travel Club runs: carefully planned, personally led, and always with an eye for a good story along the way.",
+              it:"Ogni uscita jamesalbert è organizzata e, per i viaggi a lungo raggio, guidata personalmente da James Maposa, fondatore e Direttore Generale di jamesalbert. James è guida turistica certificata e abilitata per l'Africa australe: è questa esperienza professionale, unita alla passione per far incontrare le persone, a definire il Travel Club. Viaggi pianificati con cura, guidati di persona e sempre con una bella storia da raccontare."},
     pillars: [
       [{en:"Small, boutique groups", it:"Gruppi piccoli e su misura"}, {en:"Never a big, anonymous tour bus — you travel with people you actually get to know.", it:"Mai un grande pullman anonimo: viaggi con persone che impari davvero a conoscere."}],
       [{en:"English as the common language", it:"L'inglese come lingua comune"}, {en:"Every excursion doubles as immersion practice, without ever feeling like a lesson.", it:"Ogni uscita è anche pratica di immersione, senza mai sembrare una lezione."}],
@@ -96,7 +96,7 @@
       </div>
       <div class="cl-sec">
         <span class="cl-k">${esc(t('calK'))}</span><h2>${esc(t('calH'))}</h2>
-        ${L.cards.map((c, i) => `<div class="cl-card"><img src="${D}${c.img}" alt=""><div><span class="cl-num">0${i + 1}</span><h3>${esc(T(c.t))}</h3><p>${esc(T(c.p))}</p></div></div>`).join('')}
+        ${L.cards.map((c, i) => `<div class="cl-card"><img src="${D}${c.img}" alt="" style="object-position:${c.pos || 'center'}"><div><span class="cl-num">0${i + 1}</span><h3>${esc(T(c.t))}</h3><p>${esc(T(c.p))}</p></div></div>`).join('')}
       </div>
       <div class="cl-sec cl-guide">
         <img src="${D}founder.jpg" alt="James Maposa">
@@ -204,7 +204,7 @@
     #club .cl-banner{display:block;width:calc(100% + 36px);margin:0 -18px 6px;height:230px;object-fit:cover;object-position:center 30%}
     #club .cl-sec{padding:24px 0 6px;border-top:1px solid #ddd5c3;margin-top:14px}
     #club .cl-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px}
-    #club .cl-card img{display:block;width:100%;height:190px;object-fit:cover}
+    #club .cl-card img{display:block;width:100%;height:220px;object-fit:cover}
     #club .cl-card>div{padding:14px 16px 4px}
     #club .cl-num{font:600 12px Poppins,sans-serif;color:var(--gold-d);letter-spacing:1px}
     #club .cl-guide img{display:block;width:100%;border-radius:16px;margin-bottom:16px}
