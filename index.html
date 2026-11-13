@@ -413,7 +413,7 @@
         <div class="feature level">
           <h3 data-t="levelTitle"></h3>
           <p data-t="levelText"></p>
-          <a class="btn navy" data-link="levelTest" target="_blank" rel="noopener" data-t="startHere"></a>
+          <button class="btn navy" onclick="go('levelTest')" data-t="startHere"></button>
         </div>
       </div>
 
@@ -482,6 +482,9 @@
 
     <!-- DISPATCH -->
     <section class="screen" id="dispatch"><div class="art disp" id="dispBody"></div></section>
+
+    <!-- LEVEL TEST -->
+    <section class="screen" id="levelTest"><div id="ltBody"></div></section>
 
     <!-- ARTICLE -->
     <section class="screen" id="article"><div class="art" id="artBody"></div></section>
@@ -564,6 +567,7 @@
 <script src="hub.js"></script>
 <script src="library.js"></script>
 <script src="videos.js"></script>
+<script src="leveltest.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -1175,6 +1179,7 @@ function renderAll(){
   renderCourses();
   renderLib();
   renderArticle();
+  renderLevelTest();
   renderDispatch();
   renderTeam();
   renderTeacher();
@@ -1192,10 +1197,11 @@ function go(id, f){
   if (id === 'hwClass') renderHwClass();
   if (id === 'hubClass') { HUBTAB = HUBTAB || 'week'; renderHub(); }
   if (id === 'team') renderTeam();
+  if (id === 'levelTest') renderLevelTest();
   if (id === 'teacher') { TID = f || TID; renderTeacher(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', hubClass:'hubs'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', levelTest:'home', hubClass:'hubs'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
