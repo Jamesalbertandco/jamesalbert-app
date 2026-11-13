@@ -166,7 +166,7 @@ window.TEAM = [
     }
   },
   {
-    id: "irene", img: "images/team/irene-2.jpg", photo2: "images/team/irene-mountain.jpg",
+    id: "irene", img: "images/team/irene-3.jpg", photo2: "images/team/irene-mountain.jpg",
     en: {
       name: "Irene Rizzin", role: "English Tutor · Mosaic Art in English",
       photo2Caption: "Irene on a winter day in the mountains.",
