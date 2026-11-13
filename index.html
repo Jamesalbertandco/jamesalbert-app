@@ -9,7 +9,7 @@
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0f1f3d; --navy-2:#1b2f57; --cream:#f7f1e3; --cream-2:#efe6d0;
@@ -161,6 +161,27 @@
   .overlay .ctl button.p{background:#a3121f;color:#fff}
   .overlay .vid{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
   .overlay .vt{color:#fff;font-family:'Playfair Display',serif;font-size:20px;margin-top:12px;text-align:center}
+  .rd{position:absolute;inset:0;z-index:46;background:#fffdf8;display:flex;flex-direction:column}
+  .rd.hide{display:none}
+  .rd .bar{display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top) + 10px) 14px 8px;border-bottom:1px solid #eee}
+  .rd .bar b{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy)}
+  .rd .bar button{border:0;background:none;font-size:28px;line-height:1;color:var(--navy);cursor:pointer}
+  .rd .pg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 20px;text-align:center;overflow:auto}
+  .rd .pg img{max-width:100%;max-height:46vh;object-fit:contain}
+  .rd .pg p{font-size:21px;line-height:1.45;color:#1d2433;margin-top:16px;font-family:'Andika','Poppins',sans-serif}
+  .rd .pg p i{color:#a3121f;font-style:normal}
+  .rd .pg p small{font-size:14px;color:#6b7280}
+  .rd .ctl{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 14px calc(env(safe-area-inset-bottom) + 14px)}
+  .rd .ctl button{border:0;border-radius:26px;padding:12px 18px;font:600 14px Poppins,sans-serif;background:#eef1f6;color:var(--navy);cursor:pointer}
+  .rd .ctl .play{background:#a3121f;color:#fff;min-width:110px}
+  .rd .ctl .n{font:600 12px Poppins,sans-serif;color:#9aa3b5;min-width:46px}
+  .rd .auto{display:flex;align-items:center;gap:6px;justify-content:center;font:500 12px Poppins,sans-serif;color:#666;padding-bottom:4px}
+  .bookc{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px;margin-bottom:14px;cursor:pointer;border:0;width:100%;text-align:left;font:inherit}
+  .bookc img{width:84px;height:84px;object-fit:contain;background:#fffdf8;border-radius:10px}
+  .bookc b{display:block;font-family:'Playfair Display',serif;font-size:17px;color:#111}
+  .bookc span{font-size:12.5px;color:#666}
+  .bookc em{display:inline-block;margin-top:6px;font:600 12px Poppins,sans-serif;color:var(--navy);font-style:normal}
+  .libnote{font-size:11.5px;color:#777;line-height:1.5;background:#f5f6f8;border-radius:12px;padding:10px 12px;margin:4px 0 14px}
   main{flex:1;overflow-y:auto;padding:20px 18px 28px}
   .screen{display:none;animation:fade .25s ease}
   .screen.active{display:block}
@@ -317,6 +338,13 @@
   </div>
   <div class="overlay hide" id="vidBox"><button class="x" onclick="vidClose()" aria-label="Close">×</button>
     <iframe class="vid" id="vidFrame" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><div class="vt" id="vidT"></div>
+  </div>
+
+  <div class="rd hide" id="reader">
+    <div class="bar"><b id="rdT"></b><button onclick="rdClose()" aria-label="Close">×</button></div>
+    <div class="pg"><img id="rdImg" alt=""><p id="rdTxt"></p></div>
+    <label class="auto"><input type="checkbox" id="rdAuto" checked> <span id="rdAutoL"></span></label>
+    <div class="ctl"><button onclick="rdGo(RDI-1)">←</button><button class="play" id="rdPlay" onclick="rdPlayTgl()"></button><span class="n" id="rdN"></span><button onclick="rdGo(RDI+1)">→</button></div>
   </div>
 
   <header>
@@ -514,6 +542,7 @@
 <script src="homework.js"></script>
 <script src="team.js"></script>
 <script src="hub.js"></script>
+<script src="library.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -673,6 +702,14 @@ const TEXT = {
   hwInfo:    {en:"This week's homework", it:"Compiti della settimana"},
   hwNew:     {en:"New", it:"Nuovo"},
   hbWeek:    {en:"This week", it:"Settimana"},
+  hbRead:    {en:"Readers", it:"Letture"},
+  rdListen:  {en:"🔊 Listen", it:"🔊 Ascolta"},
+  rdPause:   {en:"⏸ Pause", it:"⏸ Pausa"},
+  rdAuto:    {en:"Turn pages automatically", it:"Gira le pagine da solo"},
+  rdOpen:    {en:"📖 Read & listen", it:"📖 Leggi e ascolta"},
+  rdPdf:     {en:"Download the book (PDF)", it:"Scarica il libro (PDF)"},
+  rdWords:   {en:"🔊 Words to learn", it:"🔊 Parole da imparare"},
+  libNote:   {en:"The original stories in our readers are in the public domain (their authors died more than 70 years ago; Italian Law 633/1941, art. 25). Our retold editions, activities and audio are © jamesalbert® 2026.", it:"Le storie originali delle nostre letture sono di pubblico dominio (autori scomparsi da oltre 70 anni; Legge 633/1941, art. 25). Le nostre edizioni adattate, le attività e l'audio sono © jamesalbert® 2026."},
   hbMat:     {en:"Class material", it:"Materiale"},
   hbFilms:   {en:"Films", it:"Film"},
   hbBooks:   {en:"Books", it:"Libri"},
@@ -968,7 +1005,7 @@ let HUBTAB = 'week';
 function vimeoEmbed(u){ const m = (u||'').match(/vimeo\.com\/(\d+)(?:\/([0-9a-f]+))?/); return m ? `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] + '&' : '?'}autoplay=1&title=0&byline=0&portrait=0` : ''; }
 function renderHub(){
   const h = CONFIG.hubs.find(x => x.code === HWC), hub = (window.HUB||{})[HWC] || {material:[]}, hw = ((window.HOMEWORK||{})[HWC]||{items:[]}), cur = hw.items[0];
-  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat]];
+  const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat],['read',TEXT.hbRead]];
   let body = '';
   if (HUBTAB === 'week') body = (cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
       <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
@@ -980,6 +1017,7 @@ function renderHub(){
         <div class="in"><small>${esc(m.meta)}</small><b>${esc(m.title)}</b><p>${esc(T(m.desc))}</p>
         <span class="go">${esc(T(m.type === 'flash' ? TEXT.hbOpenFc : ok ? TEXT.hbWatch : TEXT.hbSoon))}</span></div></button>`; }).join('')
       : `<div class="empty">${esc(T(TEXT.hbEmpty))}</div>`;
+  if (HUBTAB === 'read') body = `<div class="libnote">${esc(T(TEXT.libNote))}</div>` + (window.LIBRARY||[]).map((b,i) => `<div class="bookc" onclick="rdOpen(${i})"><img src="${b.dir+b.cover}" alt=""><div><b>${esc(b.title)}</b><span>${esc(b.author)} · ${esc(b.level)}</span><br><em>${esc(T(TEXT.rdOpen))}</em></div></div>`).join('') + ((window.LIBRARY||[])[0] ? `<div class="center" style="display:flex;flex-direction:column;gap:10px;align-items:center"><button class="btn ghost" onclick="rdWords(0)">${esc(T(TEXT.rdWords))}</button><a class="btn ghost" href="${LIBRARY[0].dir+LIBRARY[0].pdf}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.rdPdf))}</a></div>` : '');
   if (HUBTAB === 'films' || HUBTAB === 'books') body = `<div class="empty">${esc(T(TEXT.hbMoving))}</div>`;
   document.getElementById('hubBody').innerHTML = `
     <button class="back" onclick="renderAll();go('hubs')">‹ ${esc(T(TEXT.artBack))}</button>
@@ -1003,6 +1041,28 @@ function fcShow(i){ const L = fcList(); if (!L.length) return; FCI = (i + L.leng
   document.getElementById('fcN').textContent = (LANG === 'it' ? 'Carta ' : 'Card ') + (FCI+1) + ' / ' + L.length; fcSay(); }
 function fcOpen(){ document.getElementById('fcBox').classList.remove('hide'); fcShow(0); }
 function fcClose(){ FCA.pause(); document.getElementById('fcBox').classList.add('hide'); }
+
+// ---------- Read-along reader ----------
+let RDB = null, RDI = 0; const RDA = new Audio(); let RDNEXT = '';
+RDA.addEventListener('ended', () => {
+  if (RDNEXT) { const n = RDNEXT; RDNEXT = ''; RDA.src = RDB.dir + 'audio/' + n; RDA.play().catch(()=>{}); return; }
+  rdBtn(); if (document.getElementById('rdAuto').checked && RDB && RDI < RDB.pages.length - 1) setTimeout(() => rdGo(RDI + 1, true), 700);
+});
+function rdBtn(){ document.getElementById('rdPlay').textContent = T(RDA.paused ? TEXT.rdListen : TEXT.rdPause); }
+function rdGo(i, play){
+  if (!RDB) return; RDI = Math.max(0, Math.min(RDB.pages.length - 1, i)); const p = RDB.pages[RDI];
+  document.getElementById('rdImg').src = RDB.dir + 'img/' + p.img;
+  document.getElementById('rdTxt').innerHTML = p.text;
+  document.getElementById('rdN').textContent = (RDI + 1) + ' / ' + RDB.pages.length;
+  RDA.pause(); RDNEXT = p.then || ''; RDA.src = RDB.dir + 'audio/' + p.audio;
+  if (play !== false) RDA.play().catch(()=>{}); rdBtn();
+}
+function rdPlayTgl(){ if (RDA.paused) { if (RDA.ended || !RDA.currentTime) RDA.currentTime = 0; RDA.play().catch(()=>{}); } else RDA.pause(); setTimeout(rdBtn, 50); }
+function rdOpen(i){ RDB = LIBRARY[i]; document.getElementById('rdT').textContent = RDB.title; document.getElementById('rdAutoL').textContent = T(TEXT.rdAuto);
+  document.getElementById('reader').classList.remove('hide'); rdGo(0, false); }
+function rdClose(){ RDA.pause(); document.getElementById('reader').classList.add('hide'); }
+function rdWords(i){ const b = LIBRARY[i]; RDA.pause(); RDNEXT = ''; RDA.src = b.dir + 'audio/' + b.words; RDA.play().catch(()=>{}); }
+RDA.addEventListener('play', () => { if (RDB) rdBtn(); }); RDA.addEventListener('pause', () => { if (RDB) rdBtn(); });
 
 let ISSUE = 0;
 function renderDispatch(){
