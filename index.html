@@ -914,7 +914,7 @@ function renderTeacher(){
     <div class="bd"><p class="lead">${esc(t.intro)}</p>
       ${t.quote ? `<blockquote>“${esc(t.quote[0])}”<br><span style="font:600 11px Poppins,sans-serif;font-style:normal;letter-spacing:1.3px;text-transform:uppercase;color:#777">${esc(t.quote[1])}</span></blockquote>` : ''}
       ${t.teaches ? `<h3 class="sh">${esc(t.teachesTitle)}</h3><div class="chips">${t.teaches.map(x => `<span>${esc(x)}</span>`).join('')}</div>` : ''}
-      ${(t.sections||[]).map(([h,ps]) => `<h3 class="sh" style="margin-top:22px">${esc(h)}</h3>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}
+      ${(t.sections||[]).map(([h,ps],i,a) => `${m.photo2 && i === a.length-1 ? `</div><figure><img src="${m.photo2}" alt="" loading="lazy">${t.photo2Caption ? `<figcaption>${esc(t.photo2Caption)}</figcaption>` : ''}</figure><div class="bd">` : ''}<h3 class="sh" style="margin-top:22px">${esc(h)}</h3>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}
     </div>
     <div class="end">${esc(T(TEXT.teamMeet))} ${esc(first)}?<br><button class="btn navy" onclick="go('book')">${esc(T(TEXT.artCta))}</button></div>`;
 }

@@ -2,9 +2,10 @@
 // "facts", "teaches", "quote" and "sections" are optional; short profiles can have just "intro".
 window.TEAM = [
   {
-    id: "james", img: "images/team/james-3.jpg",
+    id: "james", img: "images/team/james-3.jpg", photo2: "images/team/james-snow.jpg",
     en: {
       name: "James Maposa", role: "Founder & English Tutor",
+      photo2Caption: "James on a snowy winter morning.",
       tag: "Adults, Teenagers & Corporate English",
       card: "Supportive, practical English for children, adults and corporate learners.",
       intro: "James is the founder of jamesalbert Language Institute and an experienced English tutor with a strong focus on natural communication and building genuine confidence. His lessons encourage students to move beyond simply knowing English and begin using it comfortably, spontaneously and effectively in real situations.",
@@ -24,6 +25,7 @@ window.TEAM = [
     },
     it: {
       name: "James Maposa", role: "Fondatore e insegnante di inglese",
+      photo2Caption: "James in una mattina d'inverno sotto la neve.",
       tag: "Adulti, ragazzi e inglese aziendale",
       card: "Inglese pratico e motivante per bambini, adulti e aziende.",
       intro: "James è il fondatore di jamesalbert Language Institute e un insegnante di inglese esperto, con una forte attenzione alla comunicazione naturale e alla fiducia in se stessi. Le sue lezioni aiutano gli studenti ad andare oltre il semplice “sapere” l'inglese e a usarlo con naturalezza, spontaneità ed efficacia nelle situazioni reali.",
