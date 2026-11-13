@@ -280,6 +280,13 @@
   .news b{display:block;color:var(--navy);margin:3px 0;font-size:14.5px}
   .news p{font-size:13px;color:var(--muted)}
   .list{display:flex;flex-direction:column;gap:10px}
+  .row.trial{border:2px solid var(--gold);background:#fffaf0}
+  .bkov{position:fixed;inset:0;z-index:9999;background:var(--white);display:none;flex-direction:column}
+  .bkov.on{display:flex}
+  .bkov .bar{display:flex;gap:10px;align-items:center;padding:10px 14px;background:var(--navy);color:#fff}
+  .bkov .bar b{flex:1;font-size:15px}
+  .bkov .bar a,.bkov .bar button{color:#fff;background:transparent;border:1px solid #fff5;border-radius:10px;padding:7px 12px;font-size:13px;text-decoration:none;cursor:pointer}
+  .bkov iframe{flex:1;border:0;width:100%}
   .row{background:var(--white);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink)}
   .row .ic{width:42px;height:42px;flex:none;border-radius:12px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:700;font-size:15px}
   .row .t{flex:1;min-width:0}
@@ -563,6 +570,7 @@
    Text in two languages is written as { en:"…", it:"…" }.
    ========================================================= */
 const SITE = "https://www.jamesalbert.it";
+const AC = "https://app.acuityscheduling.com/schedule.php?owner=40127847&appointmentType=";
 const TRIAL = "https://app.acuityscheduling.com/schedule.php?owner=40127847&appointmentType=97516939";
 
 const CONFIG = {
@@ -613,21 +621,34 @@ const CONFIG = {
   ],
 
   // group: kids | teens | other.  book: Acuity link per course (TODO: real links)
+  // Bookable lessons. acuity = direct Acuity scheduling page (opens inside the app); trial:true = pinned first in its tab.
   courses: [
-    { group:"kids",  code:"C1", name:{en:"Class 1 · Ages 3–5",  it:"Classe 1 · 3–5 anni"},  info:{en:"Group · TPR method", it:"Gruppo · metodo TPR"}, price:"€10", book: SITE + "/courses-1" },
-    { group:"kids",  code:"C2", name:{en:"Class 2 · Ages 6–8",  it:"Classe 2 · 6–8 anni"},  info:{en:"Group", it:"Gruppo"}, price:"€12", book: SITE + "/courses-1" },
-    { group:"kids",  code:"C3", name:{en:"Class 3 · Ages 9–11", it:"Classe 3 · 9–11 anni"}, info:{en:"Group", it:"Gruppo"}, price:"€14", book: SITE + "/courses-1" },
-    { group:"kids",  code:"C4", name:{en:"Class 4 · Ages 11–13",it:"Classe 4 · 11–13 anni"},info:{en:"Group", it:"Gruppo"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"kids",  code:"AS", name:"After School Club", info:{en:"Membership", it:"Abbonamento"}, price:"", book: SITE + "/after-school-club" },
-    { group:"teens", code:"TG", name:{en:"Teen English Group", it:"Inglese per ragazzi (gruppo)"}, info:{en:"Group", it:"Gruppo"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"teens", code:"AC", name:{en:"Adult Conversation", it:"Conversazione per adulti"}, info:{en:"Group", it:"Gruppo"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"teens", code:"PE", name:{en:"Private English", it:"Inglese privato"}, info:{en:"Kids, teens or adults", it:"Bambini, ragazzi o adulti"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"teens", code:"ON", name:{en:"Online Private English", it:"Inglese privato online"}, info:{en:"One-to-one online", it:"Individuale online"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"other", code:"FR", name:{en:"French", it:"Francese"}, info:{en:"Group or private", it:"Gruppo o privato"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"other", code:"DE", name:{en:"German", it:"Tedesco"},  info:{en:"Group or private", it:"Gruppo o privato"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"other", code:"ES", name:{en:"Spanish", it:"Spagnolo"},info:{en:"Group or private", it:"Gruppo o privato"}, price:"€15", book: SITE + "/courses-1" },
-    { group:"other", code:"CO", name:{en:"Corporate training", it:"Formazione aziendale"}, info:{en:"For companies", it:"Per le aziende"}, price:{en:"On request", it:"Su richiesta"}, book: SITE + "/contact" },
-    { group:"other", code:"★",  name:{en:"Trial Lesson", it:"Lezione di prova"}, info:{en:"In person or online, all ages", it:"In presenza o online, tutte le età"}, price:{en:"FREE", it:"GRATIS"}, book: TRIAL }
+    { group:"kids", code:"★", name:{en:"Free Trial Lesson",it:"Lezione di prova gratuita"}, info:{en:"In person or online · all ages",it:"In presenza o online · tutte le età"}, price:{en:"FREE",it:"GRATIS"}, trial:true, book:SITE + "/courses-1", acuity:AC+"97516939" },
+    { group:"kids", code:"C1", name:{en:"Class 1 · Ages 3–5",it:"Classe 1 · 3–5 anni"}, info:{en:"Group · TPR method",it:"Gruppo · metodo TPR"}, price:"€10", book:SITE + "/courses-1" },
+    { group:"kids", code:"C2", name:{en:"Class 2 · Ages 6–8",it:"Classe 2 · 6–8 anni"}, info:{en:"Group",it:"Gruppo"}, price:"€12", book:SITE + "/courses-1" },
+    { group:"kids", code:"C3", name:{en:"Class 3 · Ages 9–11",it:"Classe 3 · 9–11 anni"}, info:{en:"Group",it:"Gruppo"}, price:"€14", book:SITE + "/courses-1" },
+    { group:"kids", code:"C4", name:{en:"Class 4 · Ages 11–13",it:"Classe 4 · 11–13 anni"}, info:{en:"Group",it:"Gruppo"}, price:"€15", book:SITE + "/courses-1" },
+    { group:"kids", code:"AS", name:{en:"After School Club",it:"After School Club"}, info:{en:"Membership",it:"Abbonamento"}, book:SITE + "/after-school-club" },
+    { group:"kids", code:"🎨", name:{en:"Mosaic Art in English · Trial",it:"Arte del mosaico in inglese · prova"}, info:{en:"Trial with Teacher Irene",it:"Prova con l’insegnante Irene"}, price:{en:"FREE",it:"GRATIS"}, book:SITE + "/courses-1", acuity:AC+"97516983" },
+    { group:"kids", code:"1:1", name:{en:"Private English for Kids",it:"Inglese privato per bambini"}, info:{en:"Private · in person",it:"Privato · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97557144" },
+    { group:"kids", code:"✎", name:{en:"Homework Help",it:"Aiuto compiti"}, info:{en:"Private · in person",it:"Privato · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97558462" },
+    { group:"teens", code:"★", name:{en:"Free Trial Lesson",it:"Lezione di prova gratuita"}, info:{en:"In person or online · all ages",it:"In presenza o online · tutte le età"}, price:{en:"FREE",it:"GRATIS"}, trial:true, book:SITE + "/courses-1", acuity:AC+"97516939" },
+    { group:"teens", code:"TG", name:{en:"Teen English Group",it:"Inglese per ragazzi (gruppo)"}, info:{en:"Group",it:"Gruppo"}, price:"€15", book:SITE + "/courses-1" },
+    { group:"teens", code:"AC", name:{en:"Adult Conversation",it:"Conversazione per adulti"}, info:{en:"Group",it:"Gruppo"}, price:"€15", book:SITE + "/courses-1" },
+    { group:"teens", code:"1:1", name:{en:"Private English for Teenagers",it:"Inglese privato per ragazzi"}, info:{en:"Private · in person",it:"Privato · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97558299" },
+    { group:"teens", code:"1:1", name:{en:"Private English for Adults",it:"Inglese privato per adulti"}, info:{en:"Private · in person",it:"Privato · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97031506" },
+    { group:"teens", code:"ON", name:{en:"Online Private English",it:"Inglese privato online"}, info:{en:"One-to-one online",it:"Individuale online"}, book:SITE + "/courses-1", acuity:AC+"97156104" },
+    { group:"teens", code:"💬", name:{en:"Flash Chat",it:"Flash Chat"}, info:{en:"Online conversation",it:"Conversazione online"}, book:SITE + "/courses-1", acuity:AC+"97166497" },
+    { group:"teens", code:"✎", name:{en:"Homework Help",it:"Aiuto compiti"}, info:{en:"Private · in person",it:"Privato · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97558462" },
+    { group:"teens", code:"CO", name:{en:"Corporate English · Group Training",it:"Inglese aziendale · formazione di gruppo"}, info:{en:"For companies",it:"Per le aziende"}, book:SITE + "/courses-1", acuity:AC+"97558419" },
+    { group:"teens", code:"CO", name:{en:"Corporate Training Consultation",it:"Consulenza formazione aziendale"}, info:{en:"For companies",it:"Per le aziende"}, book:SITE + "/courses-1", acuity:AC+"97369308" },
+    { group:"other", code:"★", name:{en:"Free Trial · German or Spanish",it:"Prova gratuita · tedesco o spagnolo"}, info:{en:"With Teacher Arianna",it:"Con l’insegnante Arianna"}, price:{en:"FREE",it:"GRATIS"}, trial:true, book:SITE + "/courses-1", acuity:AC+"97518282" },
+    { group:"other", code:"FR", name:{en:"Private French",it:"Francese privato"}, info:{en:"Teacher Melani · in person",it:"Insegnante Melani · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97156171" },
+    { group:"other", code:"DE", name:{en:"Private German",it:"Tedesco privato"}, info:{en:"In person",it:"In presenza"}, book:SITE + "/courses-1", acuity:AC+"97558006" },
+    { group:"other", code:"ES", name:{en:"Private Spanish",it:"Spagnolo privato"}, info:{en:"Teacher Arianna · in person",it:"Insegnante Arianna · in presenza"}, book:SITE + "/courses-1", acuity:AC+"97156208" },
+    { group:"other", code:"FR", name:{en:"Online French",it:"Francese online"}, info:{en:"One-to-one online",it:"Individuale online"}, book:SITE + "/courses-1", acuity:AC+"97156197" },
+    { group:"other", code:"DE", name:{en:"Online German",it:"Tedesco online"}, info:{en:"One-to-one online",it:"Individuale online"}, book:SITE + "/courses-1", acuity:AC+"97156194" },
+    { group:"other", code:"ES", name:{en:"Online Spanish",it:"Spagnolo online"}, info:{en:"Teacher Arianna · online",it:"Insegnante Arianna · online"}, book:SITE + "/courses-1", acuity:AC+"97156212" }
   ],
 
   hubs: [
@@ -822,7 +843,7 @@ const T = v => (v && typeof v === 'object') ? (v[LANG] ?? v.en) : (v ?? '');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* ---------- rendering ---------- */
-const row = (it, extra="") => `<a class="row" href="${esc(it.link||it.book)}" target="_blank" rel="noopener">
+const row = (it, extra="") => `<a class="row${it.trial?' trial':''}" href="${esc(it.acuity||it.link||it.book)}" ${it.acuity?`onclick="openBook('${esc(it.acuity)}');return false"`:'target="_blank" rel="noopener"'}>
   <div class="ic">${esc(it.code)}</div>
   <div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div>
   ${extra || '<span class="chev">›</span>'}</a>`;
@@ -867,6 +888,7 @@ function renderCourses(){
   document.querySelectorAll('#courseTabs button').forEach(b => b.classList.toggle('on', b.dataset.g === group));
   document.getElementById('courseList').innerHTML = CONFIG.courses
     .filter(c => c.group === group)
+    .sort((x,y) => (y.trial?1:0) - (x.trial?1:0))
     .map(c => row(c, T(c.price) ? `<span class="price">${esc(T(c.price))}</span>` : '')).join('');
 }
 
@@ -1213,6 +1235,11 @@ go('home');
 if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname.endsWith('jamesalbert.it')) {
   // OneSignal registers /sw.js itself (it also handles offline caching).
 }
+</script>
+<div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b>Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy"></iframe></div>
+<script>
+function openBook(u){document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
+function closeBook(){document.getElementById('bkov').classList.remove('on');document.getElementById('bkfr').src='about:blank'}
 </script>
 </body>
 </html>
