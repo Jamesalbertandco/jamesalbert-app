@@ -2063,8 +2063,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "AD"
-  ],
+  "AD",
+  "TG"
+ ],
   "title": "Northanger Abbey",
   "meta": "Classic literature · Jane Austen",
   "desc": {
@@ -2077,8 +2078,9 @@ window.LIBRARY = [
  },
  {
   "classes": [
-   "AD"
-  ],
+  "AD",
+  "TG"
+ ],
   "title": "Jane Eyre",
   "meta": "Classic literature · Charlotte Brontë",
   "desc": {
@@ -2326,5 +2328,35 @@ window.LIBRARY = [
  "focus": "Reading · British & world literature",
  "image": "images/books/wuthering-heights.webp",
  "link": "https://books.jamesalbert.it/books/kliq/"
+},
+{
+ "classes": [
+  "AD",
+  "TG"
+ ],
+ "title": "The Scarlet Pimpernel",
+ "meta": "Classic literature · Baroness Orczy",
+ "desc": {
+  "it": "Durante la Rivoluzione francese, un misterioso gentiluomo inglese salva aristocratici dalla ghigliottina: ma chi si nasconde dietro la maschera?",
+  "en": "During the French Revolution, a mysterious English gentleman rescues aristocrats from the guillotine – but who is behind the mask?"
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/scarlet-pimpernel.webp",
+ "link": "https://books.jamesalbert.it/books/sdgp/"
+},
+{
+ "classes": [
+  "AD",
+  "TG"
+ ],
+ "title": "Pride and Prejudice",
+ "meta": "Classic literature · Jane Austen",
+ "desc": {
+  "it": "Elizabeth Bennet e il signor Darcy imparano che la prima impressione può ingannare, nel romanzo più amato di Jane Austen.",
+  "en": "Elizabeth Bennet and Mr Darcy learn that first impressions can deceive, in Jane Austen’s best-loved novel."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/pride-and-prejudice.webp",
+ "link": "https://books.jamesalbert.it/books/yncc/"
 }
 ];
