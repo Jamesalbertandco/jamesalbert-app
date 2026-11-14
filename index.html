@@ -1232,11 +1232,11 @@ function go(id, f){
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
-// Membership: opens the registration form on the website inside the app.
+// Membership: opens the registration form on the website. Squarespace refuses to be shown
+// inside the app (X-Frame-Options: sameorigin), so it opens in the phone's browser.
 const REG_URL = 'https://www.jamesalbert.it/registration-form';
-function openReg(){ openBook(REG_URL, T(TEXT.memTitle)); }
-document.getElementById('memberBtn').href = REG_URL;
-document.getElementById('memberBtn').onclick = e => { e.preventDefault(); openReg(); };
+function openReg(){ window.open(REG_URL, '_blank', 'noopener'); }
+['memberBtn','wMember'].forEach(id => { const a = document.getElementById(id); a.href = REG_URL; a.target = '_blank'; a.rel = 'noopener'; });
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go, b.dataset.f));
 
 // Welcome screen: shown the first time the app is opened on a device.
@@ -1246,8 +1246,7 @@ document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.data
   try { seen = localStorage.getItem('ja-welcomed') === '1'; } catch(e){}
   if (new URLSearchParams(location.search).has('welcome')) seen = false;
   const done = () => { w.classList.add('hide'); try { localStorage.setItem('ja-welcomed','1'); } catch(e){} };
-  document.getElementById('wMember').href = REG_URL;
-  document.getElementById('wMember').addEventListener('click', e => { e.preventDefault(); done(); openReg(); });
+  document.getElementById('wMember').addEventListener('click', done);
   document.getElementById('wExplore').onclick = done;
   if (!seen) w.classList.remove('hide');
 })();
