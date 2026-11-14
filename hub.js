@@ -1119,7 +1119,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/qvpt/files/shot.jpg",
+ "image": "images/books/tender-is-the-night.webp",
  "book": true
 },
 {
