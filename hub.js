@@ -419,6 +419,38 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
   "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/e439883b-6811-4b5b-90a4-3d394fd65741/William+Shakespeare_+A+Candlelit+Study.png?format=1000w"
  },
  {
+ "title": "Jane Eyre",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Charlotte Brontë",
+ "desc": {
+  "it": "Il romanzo di Charlotte Brontë segue Jane, orfana e governante, nella sua ricerca di indipendenza, dignità e amore.",
+  "en": "Charlotte Brontë’s novel follows Jane, an orphan turned governess, in her search for independence, dignity and love."
+ },
+ "link": "https://books.jamesalbert.it/books/wkjo/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/jane-eyre.webp",
+ "book": true
+},
+{
+ "title": "Northanger Abbey",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Jane Austen",
+ "desc": {
+  "it": "La giovane Catherine Morland, appassionata di romanzi gotici, scopre a Bath e a Northanger che la vita reale è ben diversa dai libri.",
+  "en": "Young Catherine Morland loves Gothic novels, but in Bath and at Northanger she learns that real life is very different from fiction."
+ },
+ "link": "https://books.jamesalbert.it/books/fmlk/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/northanger-abbey.webp",
+ "book": true
+},
+{
   "title": "Adjectives and Adverbs",
   "type": "pdf",
   "meta": "B1 Grammar · Booklet 01",
@@ -787,6 +819,38 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/e439883b-6811-4b5b-90a4-3d394fd65741/William+Shakespeare_+A+Candlelit+Study.png?format=1000w"
  },
  {
+ "title": "Jane Eyre",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Charlotte Brontë",
+ "desc": {
+  "it": "Il romanzo di Charlotte Brontë segue Jane, orfana e governante, nella sua ricerca di indipendenza, dignità e amore.",
+  "en": "Charlotte Brontë’s novel follows Jane, an orphan turned governess, in her search for independence, dignity and love."
+ },
+ "link": "https://books.jamesalbert.it/books/wkjo/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/jane-eyre.webp",
+ "book": true
+},
+{
+ "title": "Northanger Abbey",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Jane Austen",
+ "desc": {
+  "it": "La giovane Catherine Morland, appassionata di romanzi gotici, scopre a Bath e a Northanger che la vita reale è ben diversa dai libri.",
+  "en": "Young Catherine Morland loves Gothic novels, but in Bath and at Northanger she learns that real life is very different from fiction."
+ },
+ "link": "https://books.jamesalbert.it/books/fmlk/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/northanger-abbey.webp",
+ "book": true
+},
+{
   "title": "Adjectives and Adverbs",
   "type": "pdf",
   "meta": "B1 Grammar · Booklet 01",
