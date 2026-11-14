@@ -2130,5 +2130,201 @@ window.LIBRARY = [
   "focus": "Reading · Relationships · British literature",
   "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/2be990e9-17a6-4998-849c-fa9c45876148/Persuasion_+Regency+Garden+Romance.png?format=750w",
   "link": "https://books.jamesalbert.it/books/fxoj/"
- }
+ },
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Ulysses",
+ "meta": "Classic literature · James Joyce",
+ "desc": {
+  "it": "Un giorno nella vita di Leopold Bloom a Dublino, raccontato da Joyce con uno stile rivoluzionario.",
+  "en": "One day in the life of Leopold Bloom in Dublin, told in Joyce’s revolutionary style."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/ulysses.webp",
+ "link": "https://books.jamesalbert.it/books/ddmt/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Prince",
+ "meta": "Classic literature · Niccolò Machiavelli",
+ "desc": {
+  "it": "Il celebre trattato di Machiavelli su come si conquista e si mantiene il potere.",
+  "en": "Machiavelli’s famous guide to how power is won and kept."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/the-prince.webp",
+ "link": "https://books.jamesalbert.it/books/ferh/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Swann’s Way",
+ "meta": "Classic literature · Marcel Proust",
+ "desc": {
+  "it": "Il primo volume di Alla ricerca del tempo perduto: memoria, infanzia e amore.",
+  "en": "The first volume of In Search of Lost Time: memory, childhood and love."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/swanns-way.webp",
+ "link": "https://books.jamesalbert.it/books/golp/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Brothers Karamazov",
+ "meta": "Classic literature · Fyodor Dostoevsky",
+ "desc": {
+  "it": "Tre fratelli, un padre assassinato e grandi domande su fede, libertà e colpa.",
+  "en": "Three brothers, a murdered father and big questions about faith, freedom and guilt."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/brothers-karamazov.webp",
+ "link": "https://books.jamesalbert.it/books/ymbr/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Strange Case of Dr Jekyll and Mr Hyde",
+ "meta": "Classic literature · Robert Louis Stevenson",
+ "desc": {
+  "it": "Un rispettato medico londinese nasconde un lato oscuro e terribile.",
+  "en": "A respected London doctor hides a dark and terrible other side."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/jekyll-and-hyde.webp",
+ "link": "https://books.jamesalbert.it/books/tktu/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Legend of Sleepy Hollow",
+ "meta": "Classic literature · Washington Irving",
+ "desc": {
+  "it": "Il maestro Ichabod Crane e la leggenda del Cavaliere senza testa.",
+  "en": "Schoolmaster Ichabod Crane and the legend of the Headless Horseman."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/sleepy-hollow.webp",
+ "link": "https://books.jamesalbert.it/books/kuym/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Jungle Book",
+ "meta": "Classic literature · Rudyard Kipling",
+ "desc": {
+  "it": "Mowgli cresce nella giungla indiana tra lupi, orsi e pantere.",
+  "en": "Mowgli grows up in the Indian jungle among wolves, bears and panthers."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/the-jungle-book.webp",
+ "link": "https://books.jamesalbert.it/books/wehx/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Metamorphosis",
+ "meta": "Classic literature · Franz Kafka",
+ "desc": {
+  "it": "Gregor Samsa si sveglia una mattina trasformato in un enorme insetto.",
+  "en": "Gregor Samsa wakes up one morning transformed into a giant insect."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/the-metamorphosis.webp",
+ "link": "https://books.jamesalbert.it/books/xwqz/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Moby-Dick",
+ "meta": "Classic literature · Herman Melville",
+ "desc": {
+  "it": "Il capitano Achab dà la caccia alla grande balena bianca.",
+  "en": "Captain Ahab hunts the great white whale."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/moby-dick.webp",
+ "link": "https://books.jamesalbert.it/books/vqpm/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Time Machine",
+ "meta": "Classic literature · H. G. Wells",
+ "desc": {
+  "it": "Un inventore viaggia fino all’anno 802.701 e scopre il futuro dell’umanità.",
+  "en": "An inventor travels to the year 802,701 and discovers humanity’s future."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/the-time-machine.webp",
+ "link": "https://books.jamesalbert.it/books/ozfl/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Women in Love",
+ "meta": "Classic literature · D. H. Lawrence",
+ "desc": {
+  "it": "Le sorelle Brangwen cercano amore e libertà nell’Inghilterra di inizio Novecento.",
+  "en": "The Brangwen sisters search for love and freedom in early 20th-century England."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/women-in-love.webp",
+ "link": "https://books.jamesalbert.it/books/trir/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "The Odyssey",
+ "meta": "Classic literature · Homer",
+ "desc": {
+  "it": "Il lungo viaggio di Ulisse verso casa dopo la guerra di Troia.",
+  "en": "Odysseus’s long journey home after the Trojan War."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/the-odyssey.webp",
+ "link": "https://books.jamesalbert.it/books/wsug/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Tender Is the Night",
+ "meta": "Classic literature · F. Scott Fitzgerald",
+ "desc": {
+  "it": "Glamour e crisi di una coppia americana sulla Costa Azzurra.",
+  "en": "The glamour and unravelling of an American couple on the French Riviera."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/tender-is-the-night.webp",
+ "link": "https://books.jamesalbert.it/books/qvpt/"
+},
+{
+ "classes": [
+  "AD"
+ ],
+ "title": "Wuthering Heights",
+ "meta": "Classic literature · Emily Brontë",
+ "desc": {
+  "it": "L’amore tempestoso tra Heathcliff e Catherine nella brughiera dello Yorkshire.",
+  "en": "The stormy love of Heathcliff and Catherine on the Yorkshire moors."
+ },
+ "focus": "Reading · British & world literature",
+ "image": "images/books/wuthering-heights.webp",
+ "link": "https://books.jamesalbert.it/books/kliq/"
+}
 ];
