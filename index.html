@@ -420,6 +420,8 @@
         </div>
       </div>
 
+      <div class="sec" id="wotdHome"></div>
+
       <div class="sec">
         <h2 class="big" data-t="instTitle"></h2>
         <p class="body" data-t="instText"></p>
@@ -490,6 +492,9 @@
 
     <!-- TRAVEL CLUB -->
     <section class="screen" id="club"><div id="clubBody"></div></section>
+
+    <!-- PRACTICE: fun & games (practice.js) -->
+    <section class="screen" id="practice"><div id="prBody"></div></section>
 
     <!-- LEVEL TEST -->
     <section class="screen" id="levelTest"><div id="ltBody"></div></section>
@@ -577,6 +582,7 @@
 <script src="videos.js"></script>
 <script src="leveltest.js"></script>
 <script src="club.js"></script>
+<script src="practice.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -740,6 +746,8 @@ const TEXT = {
   wNote:     {en:"Members get access to class hubs, homework, books and films.", it:"I soci accedono alle aree classe, ai compiti, ai libri e ai film."},
   memText:   {en:"Get access to the class hubs, homework and our books and films. Fill in our short registration form and our team will reply with your class password.", it:"Accedi alle aree classe, ai compiti e ai nostri libri e film. Compila il breve modulo di iscrizione e il nostro team ti risponderà con la password della tua classe."},
   memBtn:    {en:"Register in 2 minutes", it:"Iscriviti in 2 minuti"},
+  practice:  {en:"Practice your English", it:"Esercitati in inglese"},
+  practiceS: {en:"Fun & games, word of the day", it:"Giochi e parola del giorno"},
   regHere:   {en:"Not a member yet? Register here.", it:"Non sei ancora iscritto? Iscriviti qui."},
   artBack:   {en:"Back", it:"Indietro"},
   artBy:     {en:"By the jamesalbert® team", it:"A cura del team jamesalbert®"},
@@ -889,6 +897,7 @@ function renderHome(){
 
 function renderMore(){
   const items = [
+    { code:"🎲", name:TEXT.practice,info:TEXT.practiceS,go:"practice" },
     { code:"📰", name:TEXT.dispatch,info:TEXT.dispatchS,go:"dispatch" },
     { code:"💬", name:TEXT.tContact,info:TEXT.tContactS,go:"contact" },
     { code:"🌐", name:TEXT.mWebsite,info:TEXT.mWebsiteS,link:CONFIG.links.website },
@@ -1182,6 +1191,8 @@ function renderAll(){
     `<div class="news"><div class="d">${esc(T(n.date))}</div><b>${esc(T(n.title))}</b><p>${esc(T(n.text))}</p></div>`).join('');
   document.getElementById('hubList').innerHTML = CONFIG.hubs.map(h => `<a class="row hwc" href="#" onclick="hwTap('${h.code}','hubClass');return false"><div class="ic">${esc(h.code)}</div><div class="t"><b>${esc(T(h.name))}</b><span>${esc(T(h.info))}</span></div>${hwOpenFor(h.code) ? `<span class="badge">${esc(T(TEXT.hwOpen))}</span>` : `<span class="badge lock">🔒 ${esc(T(TEXT.hwLocked))}</span>`}</a>`).join('');
   renderHwList();
+  if (window.renderPracticeHome) renderPracticeHome();
+  if (document.getElementById('practice').classList.contains('active') && window.renderPractice) renderPractice();
   const lib = [{code:"📖",name:TEXT.nKidsBooks,info:TEXT.kidsBooksS,f:"Kids"},{code:"🎬",name:TEXT.nAdultBooks,info:TEXT.adultBooksS,f:"Adults"}];
   document.getElementById('hubLib').innerHTML = lib.map(it => `<a class="row" href="#" onclick="go('library','${it.f}');return false"><div class="ic">${it.code}</div><div class="t"><b>${esc(T(it.name))}</b><span>${esc(T(it.info))}</span></div><span class="chev">›</span></a>`).join('');
   document.getElementById('contactList').innerHTML = CONFIG.contact.map(h => row(h)).join('');
@@ -1210,11 +1221,12 @@ function go(id, f){
   if (id === 'hubClass') { HUBTAB = HUBTAB || 'week'; renderHub(); }
   if (id === 'team') renderTeam();
   if (id === 'levelTest') renderLevelTest();
+  if (id === 'practice') renderPractice();
   if (id === 'club') renderClub();
   if (id === 'teacher') { TID = f || TID; renderTeacher(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', levelTest:'home', club:'home', hubClass:'hubs'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', levelTest:'home', practice:'home', club:'home', hubClass:'hubs'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
