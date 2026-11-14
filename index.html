@@ -689,7 +689,7 @@ const CONFIG = {
     { title:"Room on the Broom", class:"Kids" }
   ],
   more: [
-    { code:"🃏", name:{en:"Flashcards with audio", it:"Flashcard con audio"}, info:{en:"In your Class Hub", it:"Nell'area della tua classe"}, link: SITE + "/class-2-hub" }
+    { code:"🃏", name:{en:"Flashcards with audio", it:"Flashcard con audio"}, info:{en:"In your Class Hub", it:"Nell'area della tua classe"}, go:"hubs" }
   ],
 
   contact: [
@@ -927,7 +927,7 @@ function renderLib(){
     (b.length ? `<h2>📖 ${esc(T(TEXT.books))}</h2><div class="shelf">${b.map(x => media(x,'book')).join('')}</div>` : '') +
     (f.length ? `<h2>🎬 ${esc(T(TEXT.films))}</h2><div class="shelf">${f.map(x => media(x,'film')).join('')}</div>` : '') +
     (!b.length && !f.length ? `<p class="sub" style="margin-top:14px">${esc(T(TEXT.empty))}</p>` : '') +
-    `<h2>${esc(T(TEXT.more))}</h2><div class="list">${CONFIG.more.map(h => row(h)).join('')}</div>`;
+    `<h2>${esc(T(TEXT.more))}</h2><div class="list">${CONFIG.more.map(h => h.go ? `<a class="row" href="#" onclick="go('${h.go}');return false"><div class="ic">${esc(h.code)}</div><div class="t"><b>${esc(T(h.name))}</b><span>${esc(T(h.info))}</span></div><span class="chev">›</span></a>` : row(h)).join('')}</div>`;
   document.querySelectorAll('#libList .chips button').forEach(btn =>
     btn.onclick = () => { filter = btn.dataset.f; renderLib();  });
 }
