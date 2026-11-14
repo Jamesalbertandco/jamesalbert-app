@@ -451,6 +451,38 @@ window.HUB.TG = { flash: window.HUB.C2.flash, material: [
  "book": true
 },
 {
+ "title": "The Scarlet Pimpernel",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Baroness Orczy",
+ "desc": {
+  "it": "Durante la Rivoluzione francese, un misterioso gentiluomo inglese salva aristocratici dalla ghigliottina: ma chi si nasconde dietro la maschera?",
+  "en": "During the French Revolution, a mysterious English gentleman rescues aristocrats from the guillotine – but who is behind the mask?"
+ },
+ "link": "https://books.jamesalbert.it/books/sdgp/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/scarlet-pimpernel.webp",
+ "book": true
+},
+{
+ "title": "Pride and Prejudice",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Jane Austen",
+ "desc": {
+  "it": "Elizabeth Bennet e il signor Darcy imparano che la prima impressione può ingannare, nel romanzo più amato di Jane Austen.",
+  "en": "Elizabeth Bennet and Mr Darcy learn that first impressions can deceive, in Jane Austen’s best-loved novel."
+ },
+ "link": "https://books.jamesalbert.it/books/yncc/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/pride-and-prejudice.webp",
+ "book": true
+},
+{
   "title": "Adjectives and Adverbs",
   "type": "pdf",
   "meta": "B1 Grammar · Booklet 01",
@@ -848,6 +880,38 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "en": "Open the book →"
  },
  "image": "images/books/northanger-abbey.webp",
+ "book": true
+},
+{
+ "title": "The Scarlet Pimpernel",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Baroness Orczy",
+ "desc": {
+  "it": "Durante la Rivoluzione francese, un misterioso gentiluomo inglese salva aristocratici dalla ghigliottina: ma chi si nasconde dietro la maschera?",
+  "en": "During the French Revolution, a mysterious English gentleman rescues aristocrats from the guillotine – but who is behind the mask?"
+ },
+ "link": "https://books.jamesalbert.it/books/sdgp/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/scarlet-pimpernel.webp",
+ "book": true
+},
+{
+ "title": "Pride and Prejudice",
+ "type": "pdf",
+ "meta": "Reading · Classic Literature · Jane Austen",
+ "desc": {
+  "it": "Elizabeth Bennet e il signor Darcy imparano che la prima impressione può ingannare, nel romanzo più amato di Jane Austen.",
+  "en": "Elizabeth Bennet and Mr Darcy learn that first impressions can deceive, in Jane Austen’s best-loved novel."
+ },
+ "link": "https://books.jamesalbert.it/books/yncc/",
+ "cta": {
+  "it": "Apri il libro →",
+  "en": "Open the book →"
+ },
+ "image": "images/books/pride-and-prejudice.webp",
  "book": true
 },
 {
