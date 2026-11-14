@@ -927,7 +927,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/ddmt/files/shot.jpg",
+ "image": "images/books/ulysses.webp",
  "book": true
 },
 {
@@ -943,7 +943,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/ferh/files/shot.jpg",
+ "image": "images/books/the-prince.webp",
  "book": true
 },
 {
@@ -959,7 +959,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/golp/files/shot.jpg",
+ "image": "images/books/swanns-way.webp",
  "book": true
 },
 {
@@ -975,7 +975,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/ymbr/files/shot.jpg",
+ "image": "images/books/brothers-karamazov.webp",
  "book": true
 },
 {
@@ -991,7 +991,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/tktu/files/shot.jpg",
+ "image": "images/books/jekyll-and-hyde.webp",
  "book": true
 },
 {
@@ -1007,7 +1007,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/kuym/files/shot.jpg",
+ "image": "images/books/sleepy-hollow.webp",
  "book": true
 },
 {
@@ -1023,7 +1023,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/wehx/files/shot.jpg",
+ "image": "images/books/the-jungle-book.webp",
  "book": true
 },
 {
@@ -1039,7 +1039,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/xwqz/files/shot.jpg",
+ "image": "images/books/the-metamorphosis.webp",
  "book": true
 },
 {
@@ -1055,7 +1055,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/vqpm/files/shot.jpg",
+ "image": "images/books/moby-dick.webp",
  "book": true
 },
 {
@@ -1071,7 +1071,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/ozfl/files/shot.jpg",
+ "image": "images/books/the-time-machine.webp",
  "book": true
 },
 {
@@ -1087,7 +1087,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/trir/files/shot.jpg",
+ "image": "images/books/women-in-love.webp",
  "book": true
 },
 {
@@ -1103,7 +1103,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/wsug/files/shot.jpg",
+ "image": "images/books/the-odyssey.webp",
  "book": true
 },
 {
@@ -1135,7 +1135,7 @@ window.HUB.AD = { flash: window.HUB.C2.flash, material: [
   "it": "Apri il libro →",
   "en": "Open the book →"
  },
- "image": "https://online.fliphtml5.com/lwics/kliq/files/shot.jpg",
+ "image": "images/books/wuthering-heights.webp",
  "book": true
 },
 {
