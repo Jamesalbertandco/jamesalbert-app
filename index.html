@@ -105,6 +105,7 @@
   .codebox .row2 .btn{flex:1}
   .codebox .help{font-size:12.5px;color:#666;text-align:center;margin-top:14px}
   .codebox .help a{color:var(--navy);font-weight:600}
+  .regnote{text-align:center;font-size:12.5px;color:var(--muted);margin-top:8px}
   .hwk .card{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
   .hwk .card .top{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
   .hwk .card .top b{font:600 11px Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase}
@@ -349,7 +350,7 @@
       <input type="password" inputmode="text" autocomplete="off" aria-label="Class code" onkeydown="if(event.key==='Enter')hwCheck()">
       <div class="err"></div>
       <div class="row2"><button class="btn ghost" onclick="document.getElementById('codeBox').classList.add('hide')" data-t="hwCancel"></button><button class="btn navy" onclick="hwCheck()" data-t="hwGo"></button></div>
-      <div class="help"><span data-t="hwHelp"></span> <a href="#" onclick="document.getElementById('codeBox').classList.add('hide');go('home');setTimeout(()=>document.querySelector('.sec.member').scrollIntoView({behavior:'smooth'}),100);return false" data-t="memTitle"></a></div>
+      <div class="help"><span data-t="hwHelp"></span> <a href="#" onclick="document.getElementById('codeBox').classList.add('hide');openReg();return false" data-t="regHere"></a></div>
     </div>
   </div>
 
@@ -400,7 +401,8 @@
       <div class="sec member">
         <h2 class="big" data-t="memTitle"></h2>
         <p class="body" data-t="memText"></p>
-        <div class="center"><a class="btn navy" id="memberBtn" data-t="memBtn"></a></div>
+        <div class="center"><a class="btn navy" id="memberBtn" data-t="memTitle"></a></div>
+        <p class="regnote" data-t="memBtn"></p>
       </div>
 
       <div class="sec">
@@ -732,12 +734,13 @@ const TEXT = {
   dEnd:      {en:"Ask about any of these courses, or book a trial lesson.", it:"Richiedi informazioni su uno di questi corsi, o prenota una lezione di prova."},
   privacy:   {en:"Privacy policy", it:"Informativa sulla privacy"},
   privacyS:  {en:"How we handle your data", it:"Come trattiamo i tuoi dati"},
-  memTitle:  {en:"Become a member", it:"Diventa socio"},
+  memTitle:  {en:"Become a member", it:"Entra nella famiglia jamesalbert"},
   wTag:      {en:"Learn Naturally, Speak Naturally", it:"Impara con naturalezza, parla con naturalezza"},
   wExplore:  {en:"Explore the app", it:"Esplora l'app"},
   wNote:     {en:"Members get access to class hubs, homework, books and films.", it:"I soci accedono alle aree classe, ai compiti, ai libri e ai film."},
-  memText:   {en:"Get access to the class hubs, homework and our books and films. Send us a request and our team will reply with your class password.", it:"Accedi alle aree classe, ai compiti e ai nostri libri e film. Inviaci una richiesta e il nostro team ti risponderà con la password della tua classe."},
-  memBtn:    {en:"Request membership", it:"Richiedi l'iscrizione"},
+  memText:   {en:"Get access to the class hubs, homework and our books and films. Fill in our short registration form and our team will reply with your class password.", it:"Accedi alle aree classe, ai compiti e ai nostri libri e film. Compila il breve modulo di iscrizione e il nostro team ti risponderà con la password della tua classe."},
+  memBtn:    {en:"Register in 2 minutes", it:"Iscriviti in 2 minuti"},
+  regHere:   {en:"Not a member yet? Register here.", it:"Non sei ancora iscritto? Iscriviti qui."},
   artBack:   {en:"Back", it:"Indietro"},
   artBy:     {en:"By the jamesalbert® team", it:"A cura del team jamesalbert®"},
   artEnd:    {en:"Want to practise this for real?", it:"Vuoi metterlo in pratica davvero?"},
@@ -1217,9 +1220,11 @@ function go(id, f){
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
-// Temporary: membership requests open an email to info@ until the in-app form is connected.
-document.getElementById('memberBtn').href = 'mailto:info@jamesalbert.it?subject=' + encodeURIComponent('Membership request') +
-  '&body=' + encodeURIComponent('Name:\nEmail:\nPhone:\nClass or course:\nIf the student is under 18, parent/guardian name:\n');
+// Membership: opens the registration form on the website inside the app.
+const REG_URL = 'https://www.jamesalbert.it/registration-form';
+function openReg(){ openBook(REG_URL, T(TEXT.memTitle)); }
+document.getElementById('memberBtn').href = REG_URL;
+document.getElementById('memberBtn').onclick = e => { e.preventDefault(); openReg(); };
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go, b.dataset.f));
 
 // Welcome screen: shown the first time the app is opened on a device.
@@ -1229,8 +1234,8 @@ document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.data
   try { seen = localStorage.getItem('ja-welcomed') === '1'; } catch(e){}
   if (new URLSearchParams(location.search).has('welcome')) seen = false;
   const done = () => { w.classList.add('hide'); try { localStorage.setItem('ja-welcomed','1'); } catch(e){} };
-  document.getElementById('wMember').href = document.getElementById('memberBtn').href;
-  document.getElementById('wMember').addEventListener('click', done);
+  document.getElementById('wMember').href = REG_URL;
+  document.getElementById('wMember').addEventListener('click', e => { e.preventDefault(); done(); openReg(); });
   document.getElementById('wExplore').onclick = done;
   if (!seen) w.classList.remove('hide');
 })();
@@ -1252,9 +1257,9 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' && location.h
   // OneSignal registers /sw.js itself (it also handles offline caching).
 }
 </script>
-<div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b>Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy"></iframe></div>
+<div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b id="bkttl">Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy"></iframe></div>
 <script>
-function openBook(u){document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
+function openBook(u,t){document.getElementById('bkttl').textContent=t||(typeof LANG!=='undefined'&&LANG==='it'?'Prenota una lezione':'Book a lesson');document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
 function closeBook(){document.getElementById('bkov').classList.remove('on');document.getElementById('bkfr').src='about:blank'}
 </script>
 </body>
