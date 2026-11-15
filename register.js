@@ -27,6 +27,8 @@
     start:   B("Start date", "Data di inizio"),
     sPar:    B("Parent/guardian (if the student is under 18)", "Genitore/tutore (se lo studente è minorenne)"),
     pName:   B("Full name", "Nome e cognome"),
+    sParReq: B("Required if the student is under 18.", "Obbligatorio se lo studente è minorenne."),
+    needPar: B("The student is under 18: please add the parent/guardian's name and Codice Fiscale.", "Lo studente è minorenne: inserisci nome e Codice Fiscale del genitore/tutore."),
     sPriv:   B("Privacy & consent", "Privacy e consensi"),
     priv:    B("I have read and accept the Privacy Policy (GDPR, Art. 13).", "Ho letto e accetto l'Informativa sulla Privacy (GDPR, Art. 13)."),
     privL:   B("Read the Privacy Policy", "Leggi l'Informativa"),
@@ -89,7 +91,9 @@
         ${fld('rgStart', 'start', 'date')}
 
         <h3>${esc(t('sPar'))}</h3>
+        <p class="rg-note">${esc(t('sParReq'))}</p>
         ${fld('rgPName', 'pName', 'text', 0, 'autocapitalize="words"')}
+        ${fld('rgPCF', 'cf', 'text', 0, 'maxlength="16" autocapitalize="characters" style="text-transform:uppercase"')}
         ${fld('rgPEmail', 'email', 'email', 0, 'inputmode="email" autocapitalize="off"')}
         ${fld('rgPPhone', 'phone', 'tel', 0, 'inputmode="tel"')}
 
@@ -110,7 +114,7 @@
 
   function keep(){
     if (!document.getElementById('rgName')) return;
-    ['rgName','rgCF','rgDob','rgPob','rgAddr','rgCity','rgCap','rgProv','rgEmail','rgPhone','rgEmerg','rgCourse','rgLevel','rgStart','rgPName','rgPEmail','rgPPhone','rgSigned','rgPlace']
+    ['rgName','rgCF','rgDob','rgPob','rgAddr','rgCity','rgCap','rgProv','rgEmail','rgPhone','rgEmerg','rgCourse','rgLevel','rgStart','rgPName','rgPCF','rgPEmail','rgPPhone','rgSigned','rgPlace']
       .forEach(id => DATA[id] = v(id));
     ['rgPriv','rgMkt','rgPhoto','rgConfirm'].forEach(id => DATA[id] = c(id));
   }
@@ -123,7 +127,7 @@
       address: d.rgAddr, city: d.rgCity, postcode: o(d.rgCap), province: o(d.rgProv.toUpperCase()),
       email: d.rgEmail, phone: d.rgPhone, emergency_contact: o(d.rgEmerg),
       course: L.courses.en[d.rgCourse], level: o(d.rgLevel), start_date: o(d.rgStart),
-      parent_guardian_name: o(d.rgPName), parent_guardian_email: o(d.rgPEmail), parent_guardian_phone: o(d.rgPPhone),
+      parent_guardian_name: o(d.rgPName), parent_guardian_codice_fiscale: o(d.rgPCF.toUpperCase()), parent_guardian_email: o(d.rgPEmail), parent_guardian_phone: o(d.rgPPhone),
       privacy_policy_accepted: yn(d.rgPriv), marketing_consent: yn(d.rgMkt), photo_video_consent: yn(d.rgPhoto),
       signed_by: d.rgSigned, signed_at: d.rgPlace, declaration_confirmed: yn(d.rgConfirm),
       app_language: LANG === 'it' ? 'Italian' : 'English', sent: new Date().toLocaleString('en-GB')
@@ -136,6 +140,9 @@
     const req = ['rgName','rgCF','rgDob','rgAddr','rgCity','rgEmail','rgPhone','rgCourse','rgSigned','rgPlace'];
     if (req.some(id => !d[id]) || !d.rgPriv || !d.rgConfirm) { err.textContent = t('need'); err.hidden = false; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.rgEmail)) { err.textContent = t('badMail'); err.hidden = false; return; }
+    const dob = new Date(d.rgDob), now = new Date();
+    const age = now.getFullYear() - dob.getFullYear() - (now < new Date(now.getFullYear(), dob.getMonth(), dob.getDate()) ? 1 : 0);
+    if (age < 18 && (!d.rgPName || !d.rgPCF)) { err.textContent = t('needPar'); err.hidden = false; return; }
     err.hidden = true;
     const b = document.getElementById('rgSend'); b.disabled = true; b.textContent = t('sending');
     const key = (window.LEVEL_TEST || {}).accessKey;
@@ -176,6 +183,7 @@
     #register .rg-form input:not([type=checkbox]),#register .rg-form select{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:1px solid #cfd5e2;border-radius:10px;font:16px Poppins,sans-serif;background:#fff;color:var(--ink);min-height:46px}
     #register .rg-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     #register .rg-req{color:#a3121f}
+    #register .rg-note{font-size:12.5px;color:#666;margin:-4px 0 10px}
     #register .rg-chk{display:flex!important;gap:10px;align-items:flex-start;font-weight:500!important;color:var(--ink)!important;line-height:1.45}
     #register .rg-chk input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--navy)}
     #register .rg-chk a{color:var(--navy);font-weight:600}
