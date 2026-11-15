@@ -1,7 +1,7 @@
 // "Become a member" – student registration form inside the app (screen "register").
-// Mirrors the website form (jamesalbert.it/registration-form): one Codice Fiscale field, which is the
-// parent/guardian's for children and the student's own for adults. For under-18s the parent's
-// name, email and phone are required, and the signatory must be that parent/guardian.
+// Mirrors the website form (jamesalbert.it/registration-form). Students 18+ give their own Codice Fiscale;
+// for under-18s the parent/guardian's name, Codice Fiscale, email and phone are required, and the
+// signatory must be that parent/guardian.
 // Each registration is emailed to info@jamesalbert.it through Web3Forms (same key as the level test).
 (() => {
   const B = (en, it) => ({en, it});
@@ -28,9 +28,12 @@
     s3:      B("Parent / Guardian", "Genitore o Tutore"),
     s3it:    B("if the student is under 18", "se lo studente è minorenne"),
     pName:   B("Full name", "Nome e cognome"),
-    cf:      B("Parent/Guardian's Codice Fiscale (or adult student's)", "Codice Fiscale del genitore/tutore (o dello studente maggiorenne)"),
-    cfHelp:  B("If registering a child, enter the parent's or guardian's Codice Fiscale, NOT the child's. Adult students enter their own.",
-               "Se si iscrive un minorenne, inserire il codice fiscale del genitore o tutore, NON quello del bambino/a. Gli studenti maggiorenni inseriscono il proprio."),
+    sCf:     B("Student's Codice Fiscale (students aged 18+)", "Codice Fiscale dello studente (studenti maggiorenni)"),
+    sCfHelp: B("Required for students aged 18 or over. For children, leave this blank and enter the parent's below.",
+               "Obbligatorio per gli studenti maggiorenni. Per i minorenni, lasciare vuoto e inserire quello del genitore qui sotto."),
+    cf:      B("Parent/Guardian's Codice Fiscale", "Codice Fiscale del genitore/tutore"),
+    cfHelp:  B("If registering a child, enter the parent's or guardian's Codice Fiscale, NOT the child's.",
+               "Se si iscrive un minorenne, inserire il codice fiscale del genitore o tutore, NON quello del bambino/a."),
     minorNote: B("For students under 18, parent or guardian details are required.", "Per gli studenti minorenni, i dati del genitore o tutore sono obbligatori."),
     s4:      B("Privacy & Consent", "Privacy e Consensi"),
     priv:    B("I confirm that I have read the Privacy Policy (GDPR, Art. 13).", "Confermo di aver letto l'Informativa sulla Privacy (GDPR, Art. 13)."),
@@ -48,7 +51,8 @@
     badMail: B("Please check the email address.", "Controlla l'indirizzo email."),
     badDob:  B("Please check the date of birth.", "Controlla la data di nascita."),
     badCF:   B("The Codice Fiscale must be 16 letters and numbers.", "Il Codice Fiscale deve avere 16 lettere e numeri."),
-    needPar: B("The student is under 18: please add the parent/guardian's name, email and phone.", "Lo studente è minorenne: inserisci nome, email e telefono del genitore/tutore."),
+    needSCf: B("The student is 18 or over: please add the student's own Codice Fiscale.", "Lo studente è maggiorenne: inserisci il suo Codice Fiscale."),
+    needPar: B("The student is under 18: please add the parent/guardian's name, Codice Fiscale, email and phone.", "Lo studente è minorenne: inserisci nome, Codice Fiscale, email e telefono del genitore/tutore."),
     badSign: B("For students under 18, the signatory must be the parent or guardian listed above.", "Per i minorenni, il firmatario deve essere il genitore o tutore indicato sopra."),
     doneH:   B("Thank you!", "Grazie!"),
     doneP:   B("Your registration has been sent. We'll be in touch soon with your class password.", "La tua iscrizione è stata inviata. Ti contatteremo a breve con la password della tua classe."),
@@ -88,6 +92,8 @@
         ${fld('rgName', 'name', 'text', 1, 'autocomplete="name" autocapitalize="words"')}
         ${fld('rgDob', 'dob', 'date', 1, `max="${today()}"`)}
         ${fld('rgPob', 'pob')}
+        ${fld('rgSCF', 'sCf', 'text', DATA.rgDob && !minor, 'maxlength="16" autocapitalize="characters" autocomplete="off" style="text-transform:uppercase"')}
+        <p class="rg-help">${esc(t('sCfHelp'))}</p>
         ${fld('rgAddr', 'addr', 'text', 1, 'autocomplete="street-address"')}
         ${fld('rgCity', 'city', 'text', 1, 'autocomplete="address-level2"')}
         <div class="rg-two">${fld('rgCap', 'cap', 'text', 0, 'maxlength="5" inputmode="numeric" autocomplete="postal-code"')}${fld('rgProv', 'prov', 'text', 0, 'maxlength="2" autocapitalize="characters" style="text-transform:uppercase"')}</div>
@@ -102,7 +108,7 @@
 
         ${sec(3, 's3', 's3it')}
         ${fld('rgPName', 'pName', 'text', minor, 'autocapitalize="words"')}
-        ${fld('rgCF', 'cf', 'text', 1, 'maxlength="16" autocapitalize="characters" autocomplete="off" style="text-transform:uppercase"')}
+        ${fld('rgCF', 'cf', 'text', minor, 'maxlength="16" autocapitalize="characters" autocomplete="off" style="text-transform:uppercase"')}
         <p class="rg-help">${esc(t('cfHelp'))}</p>
         ${fld('rgPEmail', 'email', 'email', minor, 'inputmode="email" autocapitalize="off"')}
         ${fld('rgPPhone', 'phone', 'tel', minor, 'inputmode="tel"')}
@@ -124,14 +130,14 @@
     document.getElementById('rgSend').onclick = submit;
     // When the date of birth shows a child, redraw so the parent fields get their * marks.
     document.getElementById('rgDob').addEventListener('change', () => {
-      const was = minor; keep();
-      if ((ageOf(DATA.rgDob) < 18) !== was) { const m = document.getElementById('main'), s = m && m.scrollTop; form(); if (m) m.scrollTop = s; }
+      const was = minor, hadDob = !!DATA.rgDob; keep();
+      if ((ageOf(DATA.rgDob) < 18) !== was || hadDob !== !!DATA.rgDob) { const m = document.getElementById('main'), s = m && m.scrollTop; form(); if (m) m.scrollTop = s; }
     });
   }
 
   function keep(){
     if (!document.getElementById('rgName')) return;
-    ['rgName','rgDob','rgPob','rgAddr','rgCity','rgCap','rgProv','rgEmail','rgPhone','rgEmerg','rgCourse','rgLevel','rgStart','rgPName','rgCF','rgPEmail','rgPPhone','rgSigned','rgPlace']
+    ['rgName','rgDob','rgPob','rgSCF','rgAddr','rgCity','rgCap','rgProv','rgEmail','rgPhone','rgEmerg','rgCourse','rgLevel','rgStart','rgPName','rgCF','rgPEmail','rgPPhone','rgSigned','rgPlace']
       .forEach(id => DATA[id] = v(id));
     ['rgPriv','rgMkt','rgPhoto','rgConfirm'].forEach(id => DATA[id] = c(id));
   }
@@ -144,8 +150,8 @@
       address: d.rgAddr, city: d.rgCity, postcode: o(d.rgCap), province: o(d.rgProv.toUpperCase()),
       email: d.rgEmail, phone: d.rgPhone, emergency_contact: o(d.rgEmerg),
       course: L.courses.en[d.rgCourse], level: o(d.rgLevel), start_date: o(d.rgStart),
-      parent_guardian_name: o(d.rgPName),
-      [minor ? 'parent_guardian_codice_fiscale' : 'codice_fiscale_adult_student']: d.rgCF.toUpperCase(),
+      student_codice_fiscale: o(d.rgSCF.toUpperCase()),
+      parent_guardian_name: o(d.rgPName), parent_guardian_codice_fiscale: o(d.rgCF.toUpperCase()),
       parent_guardian_email: o(d.rgPEmail), parent_guardian_phone: o(d.rgPPhone),
       privacy_policy_acknowledged: yn(d.rgPriv), marketing_consent: yn(d.rgMkt), photo_video_consent: yn(d.rgPhoto),
       signed_by: d.rgSigned, signed_at: d.rgPlace, declaration_confirmed: yn(d.rgConfirm),
@@ -157,13 +163,15 @@
     keep();
     const d = DATA, err = document.getElementById('rgErr'), fail = k => { err.textContent = t(k); err.hidden = false; };
     const mailOk = e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
-    const req = ['rgName','rgDob','rgAddr','rgCity','rgEmail','rgPhone','rgCourse','rgCF','rgSigned','rgPlace'];
+    const req = ['rgName','rgDob','rgAddr','rgCity','rgEmail','rgPhone','rgCourse','rgSigned','rgPlace'];
     if (req.some(id => !d[id]) || !d.rgPriv || !d.rgConfirm) return fail('need');
     if (d.rgDob > today()) return fail('badDob');
     if (!mailOk(d.rgEmail) || (d.rgPEmail && !mailOk(d.rgPEmail))) return fail('badMail');
-    if (!/^[A-Za-z0-9]{16}$/.test(d.rgCF)) return fail('badCF');
+    const cfOk = x => /^[A-Za-z0-9]{16}$/.test(x);
+    if (ageOf(d.rgDob) >= 18 && !d.rgSCF) return fail('needSCf');
+    if ((d.rgSCF && !cfOk(d.rgSCF)) || (d.rgCF && !cfOk(d.rgCF))) return fail('badCF');
     if (ageOf(d.rgDob) < 18) {
-      if (!d.rgPName || !d.rgPEmail || !d.rgPPhone) return fail('needPar');
+      if (!d.rgPName || !d.rgCF || !d.rgPEmail || !d.rgPPhone) return fail('needPar');
       if (d.rgSigned.toLocaleLowerCase() !== d.rgPName.toLocaleLowerCase()) return fail('badSign');
     }
     err.hidden = true;
