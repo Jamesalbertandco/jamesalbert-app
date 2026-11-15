@@ -1294,11 +1294,12 @@ function openBook(u,t){document.getElementById('bkttl').textContent=t||(typeof L
 function closeBook(){document.getElementById('bkov').classList.remove('on');document.getElementById('bkfr').src='about:blank'}
 </script>
 <script>
-// Live chat (tawk.to): loads hidden, opens inside the app when "Chat with us" is tapped.
+// Live chat (tawk.to): floating bubble on every screen, lifted above the bottom menu;
+// "Chat with us" also opens it. To hide the bubble again (button only), add back:
+//   Tawk_API.onLoad=function(){Tawk_API.hideWidget();}; Tawk_API.onChatMinimized=function(){Tawk_API.hideWidget();};
 // To go back to WhatsApp, change data-link="chat" to data-link="whatsapp" on #chatBtn and delete this block.
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-Tawk_API.onLoad=function(){Tawk_API.hideWidget();};
-Tawk_API.onChatMinimized=function(){Tawk_API.hideWidget();};
+Tawk_API.customStyle={visibility:{mobile:{position:'br',xOffset:12,yOffset:90},desktop:{position:'br',xOffset:20,yOffset:20}}};
 (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;s1.src='https://embed.tawk.to/6af9c2aea5d5183c4021e5d0/1k7fq0ue5';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 document.getElementById('chatBtn').addEventListener('click',function(e){
