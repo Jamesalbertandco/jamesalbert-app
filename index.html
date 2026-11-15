@@ -390,7 +390,7 @@
         <a class="info-link" onclick="go('more')"><span data-t="genInfo"></span> ›</a>
         <div class="cta">
           <button class="btn ghost" id="inviteBtn">⇪ <span data-t="invite"></span></button>
-          <a class="btn dark" data-link="whatsapp" target="_blank" rel="noopener" data-t="chatBtn"></a>
+          <a class="btn dark" id="chatBtn" data-link="chat" target="_blank" rel="noopener" data-t="chatBtn"></a>
         </div>
       </div>
 
@@ -603,6 +603,7 @@ const CONFIG = {
     privacy:   SITE + "/privacy-policy",
     bookTrial: TRIAL,
     whatsapp:  "https://wa.me/393516211640",
+    chat:      "https://tawk.to/chat/6af9c2aea5d5183c4021e5d0/1k7fq0ue5",
     // TODO tonight: real addresses for these
     levelTest:   SITE,
     team:        SITE + "/tutors",
@@ -1291,6 +1292,18 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' && location.h
 <script>
 function openBook(u,t){document.getElementById('bkttl').textContent=t||(typeof LANG!=='undefined'&&LANG==='it'?'Prenota una lezione':'Book a lesson');document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
 function closeBook(){document.getElementById('bkov').classList.remove('on');document.getElementById('bkfr').src='about:blank'}
+</script>
+<script>
+// Live chat (tawk.to): loads hidden, opens inside the app when "Chat with us" is tapped.
+// To go back to WhatsApp, change data-link="chat" to data-link="whatsapp" on #chatBtn and delete this block.
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.onLoad=function(){Tawk_API.hideWidget();};
+Tawk_API.onChatMinimized=function(){Tawk_API.hideWidget();};
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;s1.src='https://embed.tawk.to/6af9c2aea5d5183c4021e5d0/1k7fq0ue5';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+document.getElementById('chatBtn').addEventListener('click',function(e){
+  if (Tawk_API.maximize) { e.preventDefault(); Tawk_API.showWidget(); Tawk_API.maximize(); }
+});
 </script>
 </body>
 </html>
