@@ -493,6 +493,7 @@
 
     <!-- TRAVEL CLUB -->
     <section class="screen" id="club"><div id="clubBody"></div></section>
+    <section class="screen" id="register"><div id="regBody"></div></section>
 
     <!-- PRACTICE: fun & games (practice.js) -->
     <section class="screen" id="practice"><div id="prBody"></div></section>
@@ -583,6 +584,7 @@
 <script src="videos.js"></script>
 <script src="leveltest.js"></script>
 <script src="club.js"></script>
+<script src="register.js"></script>
 <script src="practice.js"></script>
 <script src="rsvp.js"></script>
 <script>
@@ -1216,6 +1218,7 @@ function renderAll(){
   renderArticle();
   renderLevelTest();
   renderClub();
+  renderReg();
   renderDispatch();
   renderTeam();
   renderTeacher();
@@ -1236,20 +1239,23 @@ function go(id, f){
   if (id === 'levelTest') renderLevelTest();
   if (id === 'practice') renderPractice();
   if (id === 'club') renderClub();
+  if (id === 'register') renderReg();
   if (id === 'teacher') { TID = f || TID; renderTeacher(); }
   document.querySelector('.phone').classList.toggle('on-home', id === 'home');
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
-  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', levelTest:'home', practice:'home', club:'home', hubClass:'hubs'}[id] || id;
+  const tab = {library:'hubs', contact:'more', article:'home', dispatch:'more', hwClass:'homework', team:'home', teacher:'home', levelTest:'home', practice:'home', club:'home', register:'home', hubClass:'hubs'}[id] || id;
   document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.go === tab));
   document.getElementById('main').scrollTop = 0;
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
-// Membership: opens the registration form on the website. Squarespace refuses to be shown
-// inside the app (X-Frame-Options: sameorigin), so it opens in the phone's browser.
-const REG_URL = 'https://www.jamesalbert.it/registration-form';
-function openReg(){ window.open(REG_URL, '_blank', 'noopener'); }
-['memberBtn','wMember'].forEach(id => { const a = document.getElementById(id); a.href = REG_URL; a.target = '_blank'; a.rel = 'noopener'; });
+// Membership: opens the in-app registration form (register.js), sent to info@ via Web3Forms.
+// To go back to the website form instead, set USE_WEB_FORM = true.
+const USE_WEB_FORM = false, REG_URL = 'https://www.jamesalbert.it/registration-form';
+if (USE_WEB_FORM) window.openReg = () => window.open(REG_URL, '_blank', 'noopener');
+['memberBtn','wMember'].forEach(id => { const a = document.getElementById(id);
+  if (USE_WEB_FORM) { a.href = REG_URL; a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.href = '#'; a.addEventListener('click', e => { e.preventDefault(); openReg(); }); } });
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.dataset.go, b.dataset.f));
 
 // Welcome screen: shown the first time the app is opened on a device.
