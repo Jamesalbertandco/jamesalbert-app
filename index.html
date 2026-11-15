@@ -257,7 +257,7 @@
   .event .dt b{display:block;font-size:20px;font-weight:500}
   .event h4{font-size:18px;color:var(--navy);margin-bottom:6px;line-height:1.25}
   .event .meta{font-size:13.5px;color:var(--navy-2);line-height:1.5}
-  .event a.rsvp{display:block;text-align:center;border-top:1px solid var(--cream-2);padding:13px;font-weight:600;color:var(--navy);text-decoration:none}
+  .event .rsvp{display:block;width:100%;background:none;border:0;border-top:1px solid var(--cream-2);padding:13px;font:600 15px Poppins,sans-serif;text-align:center;color:var(--navy);text-decoration:none;cursor:pointer}
   .post{background:var(--white);border-radius:14px;box-shadow:var(--shadow);padding:20px;margin:16px 0 6px}
   .post .who{display:flex;align-items:center;gap:14px;margin-bottom:14px}
   .post .who img{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 1.5px var(--navy)}
@@ -584,6 +584,7 @@
 <script src="leveltest.js"></script>
 <script src="club.js"></script>
 <script src="practice.js"></script>
+<script src="rsvp.js"></script>
 <script>
 /* =========================================================
    SETTINGS — edit this block to update the app.
@@ -622,22 +623,19 @@ const CONFIG = {
       when:{en:"Last week of November · Date and time to be confirmed", it:"Ultima settimana di novembre · Data e orario da confermare"},
       where:{en:"Venue to be confirmed", it:"Luogo da confermare"},
       note:{en:"Adult group social evening · Come along and practise your English", it:"Serata sociale del gruppo adulti · Vieni a praticare il tuo inglese"},
-      img:"images/event-pizza.jpg",
-      link:"https://wa.me/393516211640?text=" + encodeURIComponent("Hi! I'd like to come to the adult group Pizza evening.") },
+      img:"images/event-pizza.jpg" },
     { day:"5", mon:{en:"DEC", it:"DIC"},
       title:{en:"Teacher–Parent meeting", it:"Incontro insegnanti–genitori"},
       when:{en:"Saturday 5 December · Time to be confirmed", it:"Sabato 5 dicembre · Orario da confermare"},
       where:{en:"Venue to be confirmed", it:"Luogo da confermare"},
       note:{en:"Meet your child's teacher and hear how they're getting on", it:"Incontra l'insegnante di tuo figlio e scopri i suoi progressi"},
-      img:"images/event-parents.jpg",
-      link:"https://wa.me/393516211640?text=" + encodeURIComponent("Hi! We'd like to come to the Teacher–Parent meeting on Saturday 5 December.") },
+      img:"images/event-parents.jpg" },
     { day:"19", mon:{en:"DEC", it:"DIC"},
       title:{en:"Carols by Candlelight", it:"Carols by Candlelight"},
       when:{en:"Saturday 19 December · Time to be confirmed", it:"Sabato 19 dicembre · Orario da confermare"},
       where:"Via Piave 2, San Michele al Tagliamento",
       note:{en:"Performed by the jamesalbert® children. Free entry · Parents and friends welcome", it:"Con i bambini di jamesalbert®. Ingresso libero · Genitori e amici sono i benvenuti"},
-      img:"images/event-christmas.jpg",
-      link:"https://wa.me/393516211640?text=" + encodeURIComponent("Hi! We'd like to come to Carols by Candlelight on Saturday 19 December.") }
+      img:"images/event-christmas.jpg" }
   ],
 
   // Home: social links — paste each address between the quotes (empty = greyed out)
@@ -898,11 +896,11 @@ function renderHome(){
     `<a class="ptile" href="#" onclick="go('article','${p.art}');return false" style="background-image:url('${esc(p.img)}')">
       <span>${esc(T(p.title))}</span></a>`).join('');
   const ev = CONFIG.events;
-  document.getElementById('events').innerHTML = ev.map(e =>
+  document.getElementById('events').innerHTML = ev.map((e, i) =>
     `<div class="event"><div class="img" style="background-image:url('${esc(e.img)}')"></div>
       <div class="bd"><div class="dt"><b>${esc(e.day)}</b>${esc(T(e.mon))}</div>
         <div><h4>${esc(T(e.title))}</h4><div class="meta">${esc(T(e.when))}<br>${esc(T(e.where))}${e.note ? `<br><em>${esc(T(e.note))}</em>` : ''}</div></div></div>
-      <a class="rsvp" href="${esc(e.link)}" target="_blank" rel="noopener">${esc(T(TEXT.rsvp))}</a></div>`).join('');
+      <button class="rsvp" type="button" onclick="rsvpOpen(${i})">${esc(T(TEXT.rsvp))}</button></div>`).join('');
   document.getElementById('eventsSec').style.display = ev.length ? '' : 'none';
   document.getElementById('socials').innerHTML = Object.entries(CONFIG.social).map(([k,u]) =>
     `<a class="${u ? '' : 'off'}" href="${esc(u || '#')}" target="_blank" rel="noopener" aria-label="${k}">${SOCIAL_ICONS[k]}</a>`).join('');
