@@ -2,8 +2,11 @@
 // Mirrors the website form (jamesalbert.it/registration-form). Students 18+ give their own Codice Fiscale;
 // for under-18s the parent/guardian's name, Codice Fiscale, email and phone are required, and the
 // signatory must be that parent/guardian.
-// Each registration is emailed to info@jamesalbert.it through Web3Forms (same key as the level test).
+// Each registration is emailed to info@jamesalbert.it through FormSubmit (same as the website form),
+// and FormSubmit sends the applicant a confirmation email (_autoresponse) to the student email.
+// (The level test still uses Web3Forms.)
 (() => {
+  const AUTO = "Thank you for registering with jamesalbert® English Institute. We have received your application and will contact you soon. / Grazie per l'iscrizione a jamesalbert® English Institute. Abbiamo ricevuto la vostra richiesta e vi contatteremo a breve. — info@jamesalbert.it";
   const B = (en, it) => ({en, it});
   const L = {
     brand:   B("ENGLISH INSTITUTE", "ENGLISH INSTITUTE"),
@@ -176,12 +179,13 @@
     }
     err.hidden = true;
     const b = document.getElementById('rgSend'); b.disabled = true; b.textContent = t('sending');
-    const key = (window.LEVEL_TEST || {}).accessKey;
     FAILED = true;
-    if (key) try {
-      const res = await fetch('https://api.web3forms.com/submit', {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
-        body: JSON.stringify(Object.assign({access_key:key, from_name:'jamesalbert app – New member', replyto:d.rgPEmail || d.rgEmail}, report()))});
-      FAILED = !(await res.json()).success;
+    try {
+      const r = report(), subject = r.subject; delete r.subject;
+      const res = await fetch('https://formsubmit.co/ajax/info@jamesalbert.it', {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'},
+        body: JSON.stringify(Object.assign({_subject:subject, _template:'table', _captcha:'false', _replyto:d.rgPEmail || d.rgEmail, _autoresponse:AUTO}, r))});
+      const j = await res.json();
+      FAILED = !(j.success === true || j.success === 'true');
     } catch(e) {}
     VIEW = 'done'; render(); top();
   }

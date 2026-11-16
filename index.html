@@ -1250,7 +1250,7 @@ function go(id, f){
 }
 
 document.querySelectorAll('[data-link]').forEach(a => a.href = CONFIG.links[a.dataset.link]);
-// Membership: opens the in-app registration form (register.js), sent to info@ via Web3Forms.
+// Membership: opens the in-app registration form (register.js), sent to info@ via FormSubmit (with confirmation email).
 // To go back to the website form instead, set USE_WEB_FORM = true.
 const USE_WEB_FORM = false, REG_URL = 'https://www.jamesalbert.it/registration-form';
 if (USE_WEB_FORM) window.openReg = () => window.open(REG_URL, '_blank', 'noopener');
