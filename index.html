@@ -1305,6 +1305,10 @@ s1.async=true;s1.src='https://embed.tawk.to/6af9c2aea5d5183c4021e5d0/1k7fq0ue5';
 document.getElementById('chatBtn').addEventListener('click',function(e){
   if (Tawk_API.maximize) { e.preventDefault(); Tawk_API.showWidget(); Tawk_API.maximize(); }
 });
+// "Talk to us · Parla con noi" invitation after 30 seconds (chat-nudge.js), sitting above the chat button.
+// tawk.to's own Attention Grabber is switched off in the tawk.to dashboard (it had no delay option).
+window.JA_NUDGE_RIGHT = 12; window.JA_NUDGE_BOTTOM = 166;
 </script>
+<script src="chat-nudge.js" defer></script>
 </body>
 </html>
