@@ -6,7 +6,7 @@
 // The applicant then gets a confirmation email from info@ via EmailJS (template "Registration received";
 // sent to the parent's email for children). (The level test still uses Web3Forms.)
 (() => {
-  const EMAILJS = {service_id:'service_zji5ekr', template_id:'um0d1lq', user_id:'unFopjG9ifmKM9nru'};
+  const EMAILJS = {service_id:'service_zji5ekr', template_id:'template_ags3235', user_id:'unFopjG9ifmKM9nru'};
   const B = (en, it) => ({en, it});
   const L = {
     brand:   B("ENGLISH INSTITUTE", "ENGLISH INSTITUTE"),
