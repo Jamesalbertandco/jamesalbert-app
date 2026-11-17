@@ -1358,6 +1358,19 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' && location.h
   // OneSignal registers /sw.js itself (it also handles offline caching).
 }
 </script>
+<!-- Offline notice: shows only when the phone has no internet. -->
+<div id="offl" style="display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 86px);z-index:9999;background:#0f1f3d;color:#fff;font:500 12.5px Poppins,sans-serif;padding:7px 14px;border-radius:20px;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:92vw;text-align:center"></div>
+<script>
+(function(){
+  const el = document.getElementById('offl');
+  function upd(){
+    const it = (typeof LANG !== 'undefined' && LANG === 'it');
+    el.textContent = it ? 'Sei offline – Pratica e flashcard funzionano lo stesso' : "You're offline – Practice and flashcards still work";
+    el.style.display = navigator.onLine ? 'none' : 'block';
+  }
+  addEventListener('online', upd); addEventListener('offline', upd); upd();
+})();
+</script>
 <div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b id="bkttl">Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy"></iframe></div>
 <script>
 function openBook(u,t){document.getElementById('bkttl').textContent=t||(typeof LANG!=='undefined'&&LANG==='it'?'Prenota una lezione':'Book a lesson');document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
