@@ -1371,7 +1371,7 @@ if ('serviceWorker' in navigator && location.protocol === 'https:' && location.h
   addEventListener('online', upd); addEventListener('offline', upd); upd();
 })();
 </script>
-<div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b id="bkttl">Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy"></iframe></div>
+<div class="bkov" id="bkov"><div class="bar"><button onclick="closeBook()">‹ Back</button><b id="bkttl">Book a lesson</b><a id="bkext" href="#" target="_blank" rel="noopener">Open in browser</a></div><iframe id="bkfr" title="Booking" loading="lazy" allow="payment *"></iframe></div>
 <script>
 function openBook(u,t){document.getElementById('bkttl').textContent=t||(typeof LANG!=='undefined'&&LANG==='it'?'Prenota una lezione':'Book a lesson');document.getElementById('bkfr').src=u;document.getElementById('bkext').href=u;document.getElementById('bkov').classList.add('on')}
 function closeBook(){document.getElementById('bkov').classList.remove('on');document.getElementById('bkfr').src='about:blank'}
