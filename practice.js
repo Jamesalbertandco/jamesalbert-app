@@ -74,7 +74,7 @@
     g_qz:{en:"Quick quiz", it:"Quiz veloce"}, g_qzS:{en:"5 questions – what's in the picture?", it:"5 domande: cosa c'è nell'immagine?"},
     g_li:{en:"Listen & choose", it:"Ascolta e scegli"}, g_liS:{en:"Hear the word, tap the picture", it:"Ascolta la parola, tocca l'immagine"},
     g_mt:{en:"Match the pairs", it:"Trova le coppie"}, g_mtS:{en:"A memory game – pictures and words", it:"Gioco di memoria: immagini e parole"},
-    g_sy:{en:"Say it!", it:"Dillo tu!"}, g_syS:{en:"Listen, then say it out loud", it:"Ascolta, poi ripeti ad alta voce"},
+    g_sy:{en:"Say it!", it:"Dillo tu!"}, g_syS:{en:"Listen, record yourself, compare", it:"Ascolta, registrati, confronta"},
     back:{en:"Back", it:"Indietro"}, next:{en:"Next", it:"Avanti"},
     card:{en:"Card", it:"Carta"}, q:{en:"Question", it:"Domanda"}, of:{en:"of", it:"di"},
     right:{en:"Well done!", it:"Bravo!"}, wrong:{en:"Not quite – it's", it:"Quasi! È"},
@@ -88,6 +88,12 @@
     great:{en:"Great pronunciation!", it:"Ottima pronuncia!"},
     tryAgain:{en:"Nearly! Listen and try again.", it:"Quasi! Ascolta e riprova."},
     noMic:{en:"Say the word out loud, then tap Next.", it:"Ripeti la parola ad alta voce, poi tocca Avanti."},
+    rec:{en:"Record me", it:"Registrami"}, stop:{en:"Stop", it:"Stop"},
+    recording:{en:"Recording… say the word now", it:"Sto registrando… di' la parola ora"},
+    myVoice:{en:"My voice", it:"La mia voce"}, compare:{en:"Compare", it:"Confronta"},
+    compareHint:{en:"Listen: first the model, then you. Sound the same? Try again until you do!", it:"Ascolta: prima il modello, poi tu. Suona uguale? Riprova finché non ci riesci!"},
+    check:{en:"Check my word ✓", it:"Controlla la parola ✓"},
+    micBlocked:{en:"The microphone is switched off for this app. You can allow it in your phone's settings.", it:"Il microfono è disattivato per questa app. Puoi attivarlo nelle impostazioni del telefono."},
     member:{en:"Want more? Members get class flashcards, videos and homework.", it:"Vuoi di più? I soci hanno flashcard, video e compiti della propria classe."}
   };
   const t = k => T(TX[k]);
@@ -108,6 +114,14 @@
     try { const u = new SpeechSynthesisUtterance(text); u.lang = 'en-GB'; if (VOICE) u.voice = VOICE; u.rate = .9; speechSynthesis.speak(u); } catch(e){}
   }
   window.prSay = (w, a) => say({w, a});
+  // Play the model, then call done() when it has finished.
+  function sayThen(x, done){
+    let fired = false; const fin = () => { if (!fired) { fired = true; done(); } };
+    const viaVoice = () => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(x.w); u.lang = 'en-GB'; if (VOICE) u.voice = VOICE; u.rate = .9; u.onend = fin; u.onerror = fin; speechSynthesis.speak(u); setTimeout(fin, 4000); } catch(e){ fin(); } };
+    try { AU.pause(); } catch(e){}
+    if (x.a) { try { AU.src = x.a; AU.currentTime = 0; AU.onended = () => { AU.onended = null; fin(); }; const p = AU.play(); if (p && p.catch) p.catch(viaVoice); } catch(e){ viaVoice(); } }
+    else viaVoice();
+  }
 
   // ---------- word of the day + weekly challenge ----------
   const dayNo = () => { const d = new Date(); return Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5); };
@@ -254,25 +268,70 @@
     });
   }
 
-  // Say it! (speech check where the phone supports it)
-  let REC = null;
-  const stopMic = () => { try { if (REC) REC.abort(); } catch(e){} REC = null; };
+  // Say it! – listen, record yourself, compare (recording stays on the phone; nothing is uploaded).
+  // "Check my word" uses the phone's speech recognition where available (usually needs internet).
+  let REC = null, MREC = null, STREAM = null, MYURL = null; const ME = new Audio();
+  const stopMic = () => {
+    try { if (REC) REC.abort(); } catch(e){} REC = null;
+    try { if (MREC && MREC.state !== 'inactive') MREC.stop(); } catch(e){} MREC = null;
+    try { if (STREAM) STREAM.getTracks().forEach(tr => tr.stop()); } catch(e){} STREAM = null;
+    try { ME.pause(); } catch(e){}
+  };
+  const canRecord = () => !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   function sy(){
-    const x = G.list[G.i], SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const x = G.list[G.i], SR = window.SpeechRecognition || window.webkitSpeechRecognition, REC_OK = canRecord();
+    if (MYURL) { try { URL.revokeObjectURL(MYURL); } catch(e){} MYURL = null; }
     body().innerHTML = top(t('g_sy')) + `
       <div class="pr-card">${pic(x, 'big')}<div class="pr-w">${esc(x.w)}</div><div class="pr-it">${esc(x.it)}</div>
         <small>${esc(t('card'))} ${G.i + 1} / ${G.list.length}</small></div>
-      <div class="pr-ctl"><button class="btn ghost" id="prS">🔊 ${esc(t('listen'))}</button>${SR ? `<button class="btn navy" id="prM">🎤 ${esc(t('yourTurn'))}</button>` : ''}</div>
-      <div class="pr-fb" id="prFb">${SR ? '' : `<p>${esc(t('noMic'))}</p>`}</div>
+      <div class="pr-ctl"><button class="btn ghost" id="prS">🔊 ${esc(t('listen'))}</button>${REC_OK ? `<button class="btn navy" id="prR">🎤 ${esc(t('rec'))}</button>` : ''}</div>
+      <div class="pr-ctl" id="prPB" style="display:none"><button class="btn ghost" id="prMe">▶ ${esc(t('myVoice'))}</button><button class="btn navy" id="prCmp">🔁 ${esc(t('compare'))}</button></div>
+      <div class="pr-fb" id="prFb">${REC_OK ? '' : `<p>${esc(t('noMic'))}</p>`}</div>
+      ${SR ? `<div class="center" style="margin-top:4px"><button class="pr-back" id="prM">${esc(t('check'))}</button></div>` : ''}
       <div class="pr-ctl"><button class="btn ghost" id="prP">←</button><button class="btn ghost" id="prN">${esc(t('next'))} →</button></div>`;
     wireBack(); say(x);
+    const fb = document.getElementById('prFb');
     document.getElementById('prS').onclick = () => say(x);
     document.getElementById('prP').onclick = () => { stopMic(); G.i = (G.i - 1 + G.list.length) % G.list.length; sy(); };
     document.getElementById('prN').onclick = () => { stopMic(); G.i = (G.i + 1) % G.list.length; sy(); };
+
+    const playMe = () => { if (!MYURL) return; try { AU.pause(); speechSynthesis.cancel(); } catch(e){} ME.src = MYURL; ME.currentTime = 0; ME.play().catch(() => {}); };
+    const compare = () => sayThen(x, () => setTimeout(playMe, 250));
+
+    const r = document.getElementById('prR');
+    if (r) r.onclick = async () => {
+      if (MREC && MREC.state === 'recording') { MREC.stop(); return; }
+      stopMic();
+      try { AU.pause(); speechSynthesis.cancel(); } catch(e){}
+      try {
+        STREAM = await navigator.mediaDevices.getUserMedia({audio: true});
+        const chunks = []; MREC = new MediaRecorder(STREAM);
+        MREC.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+        MREC.onstop = () => {
+          try { STREAM.getTracks().forEach(tr => tr.stop()); } catch(e){} STREAM = null;
+          r.innerHTML = `🎤 ${esc(t('rec'))}`;
+          if (!chunks.length) return;
+          if (MYURL) { try { URL.revokeObjectURL(MYURL); } catch(e){} }
+          MYURL = URL.createObjectURL(new Blob(chunks, {type: chunks[0].type || 'audio/webm'}));
+          document.getElementById('prPB').style.display = 'flex';
+          fb.innerHTML = `<p>${esc(t('compareHint'))}</p>`;
+          compare();
+        };
+        MREC.start();
+        r.innerHTML = `⏹ ${esc(t('stop'))}`;
+        fb.innerHTML = `<p class="good">🔴 ${esc(t('recording'))}</p>`;
+        const me = MREC; setTimeout(() => { try { if (me.state === 'recording') me.stop(); } catch(e){} }, 3500);
+      } catch(e) {
+        stopMic(); r.innerHTML = `🎤 ${esc(t('rec'))}`;
+        fb.innerHTML = `<p>${esc(t('micBlocked'))}</p>`;
+      }
+    };
+    document.getElementById('prMe').onclick = playMe;
+    document.getElementById('prCmp').onclick = compare;
+
     const m = document.getElementById('prM'); if (!m) return;
     m.onclick = () => {
       stopMic();
-      const fb = document.getElementById('prFb');
       try {
         REC = new SR(); REC.lang = 'en-GB'; REC.maxAlternatives = 5; REC.interimResults = false;
         fb.innerHTML = `<p>${esc(t('listening'))}</p>`;
