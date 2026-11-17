@@ -323,10 +323,49 @@
   nav button.on:after{content:"";width:18px;height:3px;border-radius:3px;background:var(--navy);margin-top:1px}
   footer.small{text-align:center;font-size:11px;color:var(--muted);margin-top:26px}
   footer.small a{color:var(--muted)}
+
+  /* FOYER (preview) */
+  .foyer{position:absolute;inset:0;z-index:45;overflow:hidden;background:radial-gradient(130% 90% at 25% 70%,#1f3a6b 0%,#13285a 40%,#0c1b3e 100%);color:#fff;display:flex;flex-direction:column;overscroll-behavior:none;touch-action:none}
+  .foyer.hide{display:none}
+  /* ghost flag: a diagonal band rising from bottom-left, fading out before the top-right */
+  .fflag{position:absolute;left:-10%;right:-10%;top:16%;height:54%;background:url("images/flag-fabric.jpg") center 45%/cover no-repeat;opacity:.72;filter:brightness(.92) saturate(1.15);
+     -webkit-mask-image:linear-gradient(150deg,rgba(0,0,0,0) 12%,#000 34%,#000 58%,rgba(0,0,0,0) 82%),linear-gradient(38deg,#000 25%,rgba(0,0,0,.6) 58%,rgba(0,0,0,0) 85%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 72%,rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in,source-in;mask-image:linear-gradient(150deg,rgba(0,0,0,0) 12%,#000 34%,#000 58%,rgba(0,0,0,0) 82%),linear-gradient(38deg,#000 25%,rgba(0,0,0,.6) 58%,rgba(0,0,0,0) 85%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 72%,rgba(0,0,0,0) 100%);mask-composite:intersect,intersect}
+  .fname{position:relative;text-align:center;margin-top:3vh;padding:0 20px}
+  .fname h2{font-family:'Playfair Display',serif;font-weight:400;font-size:25px;line-height:1.2;color:#fff;margin:0;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+  .fname p{font:400 13px Poppins,sans-serif;letter-spacing:1.5px;color:var(--gold);margin:16px 0 0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .ftop{position:relative;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 14px) 18px 0}
+  .fcrest{width:min(36vw,150px);height:auto;border-radius:50%;background:#fff;box-shadow:0 10px 34px rgba(0,0,0,.45);display:block;margin:0 auto}
+  .fbody{position:relative;margin-top:auto;padding:0 20px calc(env(safe-area-inset-bottom) + 26px)}
+  .fhello{font:400 22px Poppins,sans-serif;margin:0;text-shadow:0 2px 12px rgba(10,22,48,.75)}
+  .fq{font-family:'Playfair Display',serif;font-weight:400;font-size:27px;line-height:1.2;color:#fff;margin:4px 0 20px;text-shadow:0 2px 14px rgba(10,22,48,.75)}
+  .ftiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ftile{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.35);border-radius:16px;color:#fff;padding:18px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font:500 14.5px Poppins,sans-serif;cursor:pointer;min-height:108px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .ftile:active{background:rgba(255,255,255,.16)}
+  .ftile svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .fjoin{display:block;text-align:center;margin-top:18px;color:var(--gold);font:500 14px Poppins,sans-serif;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="phone">
+
+  <!-- FOYER: calm landing page shown every time the app opens; no scrolling. To remove it, delete this block, its CSS (FOYER) and its script (FOYER). -->
+  <div class="foyer" id="foyer" role="dialog" aria-label="Welcome">
+    <div class="fflag" aria-hidden="true"></div>
+    <div class="ftop">
+      <span></span>
+      <div class="lang" role="group" aria-label="Language / Lingua">
+        <button data-lang="it" aria-label="Italiano">🇮🇹 IT</button>
+        <button data-lang="en" aria-label="English">🇬🇧 EN</button>
+      </div>
+    </div>
+    <div class="fname"><img class="fcrest" src="images/crest-640.png" alt="James Albert &amp; Co. English Consultants crest"><p data-t="wTag"></p></div>
+    <div class="fbody">
+      <p class="fhello" data-t="pvHello"></p>
+      <h1 class="fq" data-t="pvQ"></h1>
+      <div class="ftiles"><button class="ftile" data-fgo="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button><button class="ftile" data-fgo="homework"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button><button class="ftile" data-fgo="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button><button class="ftile" data-fgo="hubs"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button></div>
+      <a class="fjoin" id="fJoin"><span data-t="pvJoin"></span> ›</a>
+    </div>
+  </div>
   <div class="welcome hide" id="welcomeScreen" role="dialog" aria-label="Welcome">
     <div class="lang wl" role="group" aria-label="Language / Lingua">
       <button data-lang="it" aria-label="Italiano">🇮🇹 IT</button>
@@ -718,6 +757,9 @@ const CONFIG = {
 /* ---------- screen text in both languages ---------- */
 const TEXT = {
   kicker:    {en:"San Michele al Tagliamento", it:"San Michele al Tagliamento"},
+  pvHello:   {en:"Hello,", it:"Ciao,"},
+  pvQ:       {en:"What would you like to do today?", it:"Cosa vuoi fare oggi?"},
+  pvJoin:    {en:"Not a member yet? Become a member", it:"Non sei ancora socio? Entra nella famiglia"},
   genInfo:   {en:"General Info", it:"Informazioni"},
   invite:    {en:"Invite", it:"Invita"},
   copied:    {en:"Link copied", it:"Link copiato"},
@@ -1282,6 +1324,23 @@ document.getElementById('inviteBtn').onclick = async () => {
 };
 document.querySelectorAll('#courseTabs button').forEach(b => b.onclick = () => { group = b.dataset.g; renderCourses(); });
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
+// FOYER (preview): every time the app opens, show the foyer; each tile opens its section.
+(() => {
+  const f = document.getElementById('foyer'), close = () => f.classList.add('hide');
+  const h = new Date().getHours();
+  TEXT.pvHello = h < 12 ? {en:"Good morning,", it:"Buongiorno,"} : h < 18 ? {en:"Good afternoon,", it:"Buon pomeriggio,"} : {en:"Good evening,", it:"Buonasera,"};
+  f.querySelectorAll('[data-t="pvHello"]').forEach(el => el.textContent = T(TEXT.pvHello));
+  let away = false;
+  const leave = () => { close(); if (!away) { history.pushState({jaFoyer:1}, ''); away = true; } };
+  const show = () => { away = false; f.classList.remove('hide'); };
+  window.addEventListener('popstate', () => { if (away) show(); });
+  f.querySelectorAll('[data-fgo]').forEach(b => b.onclick = () => { leave(); go(b.dataset.fgo); });
+  document.getElementById('fJoin').onclick = () => { leave(); openReg(); };
+  const hc = document.querySelector('header .crest');
+  if (hc) { hc.style.cursor = 'pointer'; hc.onclick = () => { if (away) history.back(); else show(); }; }
+  document.getElementById('wMember').addEventListener('click', leave);
+})();
+
 renderAll();
 go('home');
 if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname.endsWith('jamesalbert.it')) {
