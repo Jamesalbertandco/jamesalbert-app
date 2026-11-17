@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1f3d">
+<title>jamesalbert® Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0f1f3d;--gold:#ae9060}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;background:radial-gradient(120% 80% at 50% 40%,#1f3a6b 0%,#13285a 45%,#0c1b3e 100%);color:#fff;font-family:Poppins,sans-serif;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+  header{display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top) + 10px) 14px 10px}
+  header button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;width:40px;height:40px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer}
+  header .t{flex:1;min-width:0}
+  header .t b{display:block;font:400 19px 'Playfair Display',serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  header .t small{color:var(--gold);font-size:11.5px;letter-spacing:1px}
+  header img{width:38px;height:38px;border-radius:50%;background:#fff}
+  #stage{position:relative;display:flex;align-items:center;justify-content:center}
+  #book{box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  #book img{-webkit-user-drag:none;pointer-events:none}
+  .bar{display:flex;align-items:center;justify-content:center;gap:18px;padding:12px 0 calc(env(safe-area-inset-bottom) + 14px)}
+  .bar button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
+  .bar button:disabled{opacity:.3}
+  #count{min-width:70px;text-align:center;font-size:14px;opacity:.85}
+  .hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12.5px;opacity:.7;transition:opacity .6s}
+</style>
+</head>
+<body oncontextmenu="return false">
+<header>
+  <button id="back" aria-label="Back">‹</button>
+  <div class="t"><b id="title">The Red Ball</b><small>jamesalbert® Library</small></div>
+  <img src="images/crest-176.png" alt="">
+</header>
+<div id="stage"><div id="book"></div><div class="hint" id="hint">Swipe or tap the page corner to turn</div></div>
+<div class="bar">
+  <button id="prev" aria-label="Previous page">‹</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next page">›</button>
+</div>
+<script src="lib/page-flip.browser.js"></script>
+<script>
+// jamesalbert Library reader (test). Books are folders of page images: books/<id>/p-1.jpg …
+const BOOKS = {
+  'red-ball': { title: 'The Red Ball', pages: 7, w: 595, h: 842 }
+};
+const id = new URLSearchParams(location.search).get('book') || 'red-ball';
+const B = BOOKS[id];
+document.getElementById('title').textContent = B.title;
+document.title = B.title + ' · jamesalbert® Library';
+document.getElementById('back').onclick = () => history.length > 1 ? history.back() : (location.href = 'preview.html');
+
+// Size the book to fit the screen: one page on a phone held upright, an open double page otherwise.
+const stage = document.getElementById('stage');
+const headerH = document.querySelector('header').offsetHeight, barH = document.querySelector('.bar').offsetHeight;
+const availH = window.innerHeight - headerH - barH - 16, availW = window.innerWidth - 20;
+const portrait = availW / availH < 1.1;
+let pageH = availH, pageW = pageH * B.w / B.h;
+const spreadW = portrait ? pageW : pageW * 2;
+if (spreadW > availW) { const k = availW / spreadW; pageW *= k; pageH *= k; }
+stage.style.height = availH + 'px';
+
+const pf = new St.PageFlip(document.getElementById('book'), {
+  width: Math.round(pageW), height: Math.round(pageH), size: 'fixed',
+  showCover: true, usePortrait: portrait, maxShadowOpacity: 0.45,
+  mobileScrollSupport: false, flippingTime: 800, drawShadow: true
+});
+pf.loadFromImages(Array.from({length: B.pages}, (_, i) => `books/${id}/p-${i + 1}.jpg`));
+
+const count = document.getElementById('count'), prev = document.getElementById('prev'), next = document.getElementById('next');
+const update = () => {
+  const i = pf.getCurrentPageIndex(), n = pf.getPageCount();
+  count.textContent = `${i + 1} / ${n}`;
+  prev.disabled = i === 0; next.disabled = i >= n - 1;
+};
+pf.on('init', update);
+pf.on('flip', () => { update(); document.getElementById('hint').style.opacity = 0; });
+prev.onclick = () => pf.flipPrev();
+next.onclick = () => pf.flipNext();
+document.addEventListener('keydown', e => { if (e.key === 'ArrowRight') pf.flipNext(); if (e.key === 'ArrowLeft') pf.flipPrev(); });
+setTimeout(() => document.getElementById('hint').style.opacity = 0, 5000);
+</script>
+</body>
+</html>
