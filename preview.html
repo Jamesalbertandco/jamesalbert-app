@@ -328,6 +328,9 @@
   /* FOYER (preview) */
   .foyer{position:absolute;inset:0;z-index:45;overflow:hidden;background:radial-gradient(130% 90% at 25% 70%,#1f3a6b 0%,#13285a 40%,#0c1b3e 100%);color:#fff;display:flex;flex-direction:column;overscroll-behavior:none;touch-action:none}
   .foyer.hide{display:none}
+  .foyer{transition:opacity .55s ease}
+  .foyer.fading{opacity:0;pointer-events:none}
+  @media (prefers-reduced-motion:reduce){.foyer{transition:none}}
   /* ghost flag: a diagonal band rising from bottom-left, fading out before the top-right */
   .fflag{position:absolute;left:-10%;right:-10%;top:16%;height:54%;background:url("images/flag-fabric.jpg") center 45%/cover no-repeat;opacity:.72;filter:brightness(.92) saturate(1.15);
      -webkit-mask-image:linear-gradient(150deg,rgba(0,0,0,0) 12%,#000 34%,#000 58%,rgba(0,0,0,0) 82%),linear-gradient(38deg,#000 25%,rgba(0,0,0,.6) 58%,rgba(0,0,0,0) 85%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 72%,rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in,source-in;mask-image:linear-gradient(150deg,rgba(0,0,0,0) 12%,#000 34%,#000 58%,rgba(0,0,0,0) 82%),linear-gradient(38deg,#000 25%,rgba(0,0,0,.6) 58%,rgba(0,0,0,0) 85%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 72%,rgba(0,0,0,0) 100%);mask-composite:intersect,intersect}
@@ -1327,13 +1330,16 @@ document.querySelectorAll('#courseTabs button').forEach(b => b.onclick = () => {
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
 // FOYER (preview): every time the app opens, show the foyer; each tile opens its section.
 (() => {
-  const f = document.getElementById('foyer'), close = () => f.classList.add('hide');
+  const f = document.getElementById('foyer');
+  let fadeT;
+  // Soft fade out of the foyer, so the eye can move from the dark foyer to the light pages.
+  const close = () => { clearTimeout(fadeT); f.classList.add('fading'); fadeT = setTimeout(() => { f.classList.add('hide'); f.classList.remove('fading'); }, 550); };
   const h = new Date().getHours();
   TEXT.pvHello = h < 12 ? {en:"Good morning,", it:"Buongiorno,"} : h < 18 ? {en:"Good afternoon,", it:"Buon pomeriggio,"} : {en:"Good evening,", it:"Buonasera,"};
   f.querySelectorAll('[data-t="pvHello"]').forEach(el => el.textContent = T(TEXT.pvHello));
   let away = false;
   const leave = () => { close(); if (!away) { history.pushState({jaFoyer:1}, ''); away = true; } };
-  const show = () => { away = false; f.classList.remove('hide'); };
+  const show = () => { away = false; clearTimeout(fadeT); f.classList.add('fading'); f.classList.remove('hide'); requestAnimationFrame(() => requestAnimationFrame(() => f.classList.remove('fading'))); };
   window.addEventListener('popstate', () => { if (away) show(); });
   f.querySelectorAll('[data-fgo]').forEach(b => b.onclick = () => { leave(); go(b.dataset.fgo); });
   document.getElementById('fJoin').onclick = () => { leave(); openReg(); };
