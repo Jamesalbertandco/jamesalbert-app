@@ -325,29 +325,45 @@
   footer.small{text-align:center;font-size:11px;color:var(--muted);margin-top:26px}
   footer.small a{color:var(--muted)}
 
-  /* PREVIEW welcome home */
-  .whome{margin:0 -18px;background:var(--navy);color:#fff}
-  .wphoto{height:46vh;min-height:300px;background:linear-gradient(180deg,rgba(15,31,61,0) 45%,rgba(15,31,61,.7) 80%,var(--navy) 100%),url("images/hero.jpg") center 30%/cover no-repeat,var(--navy)}
-  .wpanel{padding:0 20px 26px;margin-top:-34px;position:relative}
-  .whello{font:400 22px Poppins,sans-serif;margin:0;opacity:.95}
-  .wq{font-family:'Playfair Display',serif;font-weight:400;font-size:27px;line-height:1.2;color:#fff;margin:4px 0 20px}
-  .wtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .wtile{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.35);border-radius:14px;color:#fff;padding:18px 6px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;font:500 13.5px Poppins,sans-serif;cursor:pointer;min-height:104px;justify-content:center;text-align:center}
-  .wtile:active{background:rgba(255,255,255,.14)}
-  .wtile svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-  .wjoin{display:block;text-align:center;margin:16px 0 4px;color:var(--gold);font:500 14px Poppins,sans-serif;cursor:pointer}
-  .wid{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15)}
-  .wid img{width:44px;height:44px;border-radius:50%;background:#fff}
-  .wid b{display:block;font:600 14px Poppins,sans-serif}
-  .wid small{font-size:12.5px;opacity:.75}
-  .wlinks{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  .wlinks a,.wlinks button{flex:1;text-align:center;padding:10px 6px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:500 13px Poppins,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
-  .wlinks #chatBtn{background:#fff;color:var(--navy);border-color:#fff;font-weight:600}
-  .wsheet{height:22px;margin:-22px -18px 0;background:var(--white);border-radius:22px 22px 0 0;position:relative}
+  /* FOYER (preview) */
+  .foyer{position:absolute;inset:0;z-index:45;overflow:hidden;background:var(--navy);color:#fff;display:flex;flex-direction:column;overscroll-behavior:none;touch-action:none}
+  .foyer.hide{display:none}
+  .fflag{position:absolute;inset:0 0 auto 0;height:68%;background:
+     linear-gradient(180deg,rgba(15,31,61,.2) 0%,rgba(15,31,61,.1) 30%,rgba(15,31,61,.8) 52%,var(--navy) 70%),
+     linear-gradient(115deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.10) 35%,rgba(0,0,0,.12) 50%,rgba(255,255,255,.08) 65%,rgba(0,0,0,.10) 80%),
+     url("images/union-flag.svg") center top/auto 74% no-repeat,var(--navy);filter:saturate(.85)}
+  .ftop{position:relative;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top) + 14px) 18px 0}
+  .fcrest{width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .fbody{position:relative;margin-top:auto;padding:0 20px calc(env(safe-area-inset-bottom) + 26px)}
+  .fhello{font:400 22px Poppins,sans-serif;margin:0}
+  .fq{font-family:'Playfair Display',serif;font-weight:400;font-size:27px;line-height:1.2;color:#fff;margin:4px 0 20px}
+  .ftiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ftile{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.35);border-radius:16px;color:#fff;padding:18px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font:500 14.5px Poppins,sans-serif;cursor:pointer;min-height:108px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .ftile:active{background:rgba(255,255,255,.16)}
+  .ftile svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .fjoin{display:block;text-align:center;margin-top:18px;color:var(--gold);font:500 14px Poppins,sans-serif;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="phone">
+
+  <!-- FOYER (preview): calm landing page shown every time the app opens; no scrolling -->
+  <div class="foyer" id="foyer" role="dialog" aria-label="Welcome">
+    <div class="fflag" aria-hidden="true"></div>
+    <div class="ftop">
+      <img class="fcrest" src="images/crest-176.png" alt="James Albert &amp; Co. crest">
+      <div class="lang" role="group" aria-label="Language / Lingua">
+        <button data-lang="it" aria-label="Italiano">🇮🇹 IT</button>
+        <button data-lang="en" aria-label="English">🇬🇧 EN</button>
+      </div>
+    </div>
+    <div class="fbody">
+      <p class="fhello" data-t="pvHello"></p>
+      <h1 class="fq" data-t="pvQ"></h1>
+      <div class="ftiles"><button class="ftile" data-fgo="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button><button class="ftile" data-fgo="homework"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button><button class="ftile" data-fgo="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button><button class="ftile" data-fgo="hubs"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button></div>
+      <a class="fjoin" id="fJoin"><span data-t="pvJoin"></span> ›</a>
+    </div>
+  </div>
   <div class="welcome hide" id="welcomeScreen" role="dialog" aria-label="Welcome">
     <div class="lang wl" role="group" aria-label="Language / Lingua">
       <button data-lang="it" aria-label="Italiano">🇮🇹 IT</button>
@@ -403,26 +419,17 @@
   <main id="main">
     <!-- HOME — actions first, reading after. Previous order: commit 121f667 -->
     <section class="screen active" id="home">
-      <!-- PREVIEW: BA-style welcome home (photo fades into navy, greeting, three main actions) -->
-      <div class="whome">
-        <div class="wphoto" role="img" aria-label="Child with Union Jack face paint"></div>
-        <div class="wpanel">
-          <p class="whello" data-t="pvHello"></p>
-          <h1 class="wq" data-t="pvQ"></h1>
-          <div class="wtiles"><button class="wtile" onclick="go('homework')"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button><button class="wtile" onclick="go('book')"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button><button class="wtile" onclick="go('hubs')"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button></div>
-          <a class="wjoin" onclick="openReg()"><span data-t="pvJoin"></span> ›</a>
-          <div class="wid">
-            <img src="images/crest-176.png" alt="">
-            <div><b>James Albert English Institute®</b><small data-t="kicker"></small></div>
-          </div>
-          <div class="wlinks">
-            <a onclick="go('more')"><span data-t="genInfo"></span></a>
-            <button id="inviteBtn">⇪ <span data-t="invite"></span></button>
-            <a id="chatBtn" data-link="chat" target="_blank" rel="noopener" data-t="chatBtn"></a>
-          </div>
+      <div class="homecover" role="img" aria-label="Child with Union Jack face paint"></div>
+      <div class="sheet">
+        <img class="logo" src="images/logo.png" onerror="this.onerror=null;this.src='images/crest-176.png'" alt="James Albert English Institute logo">
+        <h1 class="school">James Albert English Institute®</h1>
+        <p class="kicker" data-t="kicker"></p>
+        <a class="info-link" onclick="go('more')"><span data-t="genInfo"></span> ›</a>
+        <div class="cta">
+          <button class="btn ghost" id="inviteBtn">⇪ <span data-t="invite"></span></button>
+          <a class="btn dark" id="chatBtn" data-link="chat" target="_blank" rel="noopener" data-t="chatBtn"></a>
         </div>
       </div>
-      <div class="wsheet"></div>
 
       <div class="sec" id="eventsSec">
         <h2 class="big" data-t="events"></h2>
@@ -1296,7 +1303,7 @@ document.querySelectorAll('nav button').forEach(b => b.onclick = () => go(b.data
 (() => {
   const w = document.getElementById('welcomeScreen');
   let seen = false;
-  seen = true; // PREVIEW: no separate welcome screen
+  try { seen = localStorage.getItem('ja-welcomed') === '1'; } catch(e){}
   if (new URLSearchParams(location.search).has('welcome')) seen = false;
   const done = () => { w.classList.add('hide'); try { localStorage.setItem('ja-welcomed','1'); } catch(e){} };
   document.getElementById('wMember').addEventListener('click', done);
@@ -1315,6 +1322,14 @@ document.getElementById('inviteBtn').onclick = async () => {
 };
 document.querySelectorAll('#courseTabs button').forEach(b => b.onclick = () => { group = b.dataset.g; renderCourses(); });
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
+// FOYER (preview): every time the app opens, show the foyer; each tile opens its section.
+(() => {
+  const f = document.getElementById('foyer'), close = () => f.classList.add('hide');
+  f.querySelectorAll('[data-fgo]').forEach(b => b.onclick = () => { close(); go(b.dataset.fgo); });
+  document.getElementById('fJoin').onclick = () => { close(); openReg(); };
+  document.getElementById('wMember').addEventListener('click', close);
+})();
+
 renderAll();
 go('home');
 if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname.endsWith('jamesalbert.it')) {
