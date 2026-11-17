@@ -1332,13 +1332,18 @@ document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang
   const f = document.getElementById('foyer');
   let fadeT;
   // Soft fade out of the foyer, so the eye can move from the dark foyer to the light pages.
-  const close = () => { clearTimeout(fadeT); f.classList.add('fading'); fadeT = setTimeout(() => { f.classList.add('hide'); f.classList.remove('fading'); }, 550); };
+  // The tawk.to chat button is hidden while the foyer is open (it sat on the Student Hub tile) and returns on every other page.
+  const chat = on => { const T = window.Tawk_API; if (T && T.hideWidget) { try { on ? T.showWidget() : T.hideWidget(); } catch(e){} } };
+  window.Tawk_API = window.Tawk_API || {};
+  const prevLoad = Tawk_API.onLoad;
+  Tawk_API.onLoad = function(){ if (typeof prevLoad === 'function') prevLoad.apply(this, arguments); if (!f.classList.contains('hide')) chat(false); };
+  const close = () => { clearTimeout(fadeT); f.classList.add('fading'); fadeT = setTimeout(() => { f.classList.add('hide'); f.classList.remove('fading'); chat(true); }, 550); };
   const h = new Date().getHours();
   TEXT.pvHello = h < 12 ? {en:"Good morning,", it:"Buongiorno,"} : h < 18 ? {en:"Good afternoon,", it:"Buon pomeriggio,"} : {en:"Good evening,", it:"Buonasera,"};
   f.querySelectorAll('[data-t="pvHello"]').forEach(el => el.textContent = T(TEXT.pvHello));
   let away = false;
   const leave = () => { close(); if (!away) { history.pushState({jaFoyer:1}, ''); away = true; } };
-  const show = () => { away = false; clearTimeout(fadeT); f.classList.add('fading'); f.classList.remove('hide'); requestAnimationFrame(() => requestAnimationFrame(() => f.classList.remove('fading'))); };
+  const show = () => { away = false; clearTimeout(fadeT); chat(false); f.classList.add('fading'); f.classList.remove('hide'); requestAnimationFrame(() => requestAnimationFrame(() => f.classList.remove('fading'))); };
   window.addEventListener('popstate', () => { if (away) show(); });
   f.querySelectorAll('[data-fgo]').forEach(b => b.onclick = () => { leave(); go(b.dataset.fgo); });
   document.getElementById('fJoin').onclick = () => { leave(); openReg(); };
