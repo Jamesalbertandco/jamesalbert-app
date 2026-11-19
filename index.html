@@ -1202,7 +1202,11 @@ function fcSay(){ const d = fcList()[FCI]; if (!d) return; try { FCA.pause(); FC
 function fcShow(i){ const L = fcList(); if (!L.length) return; FCI = (i + L.length) % L.length; const d = L[FCI];
   document.getElementById('fcImg').src = d.i; document.getElementById('fcW').textContent = d.w;
   document.getElementById('fcN').textContent = (d.g ? d.g + ' · ' : '') + (LANG === 'it' ? 'Carta ' : 'Card ') + (FCI+1) + ' / ' + L.length; fcSay(); }
-function fcOpen(deck){ FCD = deck || null; document.getElementById('fcBox').classList.remove('hide'); fcShow(0); }
+function fcOpen(deck){ FCD = deck || null; document.getElementById('fcBox').classList.remove('hide'); fcShow(0); fcSaveOffline(); }
+// Save the whole deck (pictures and sounds) in the background, so it also works with no internet afterwards.
+function fcSaveOffline(){ if (!navigator.onLine) return; const L = fcList().slice();
+  (async () => { for (const d of L) { for (const u of [d.i, d.a]) { if (!u) continue;
+    try { await fetch(u, u.startsWith('http') && !u.startsWith(location.origin) ? {mode:'no-cors'} : {}); } catch(e){} } } })(); }
 function fcClose(){ FCA.pause(); document.getElementById('fcBox').classList.add('hide'); }
 
 // ---------- Read-along reader ----------

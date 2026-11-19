@@ -6,7 +6,7 @@ importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 //  - MEDIA: pictures, fonts and practice audio that live on other sites (Squarespace, Google Fonts,
 //    jamesalbert.it/s/...). Saved the first time they're seen, so they also work with no internet.
 // Bump the version number after big changes so phones pick up the new files.
-const CACHE = 'ja-app-v103';
+const CACHE = 'ja-app-v104';
 const MEDIA = 'ja-media-v1';
 const MEDIA_MAX = 400; // most items kept in MEDIA; the oldest are removed first
 
@@ -43,6 +43,19 @@ async function trimMedia() {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   const u = new URL(e.request.url);
+
+  // 1a. Our own audio files (e.g. audio/kitchen/...): players ask for parts of the file, so use the
+  //     internet when there is one and keep one full copy for offline use.
+  if (u.origin === location.origin && /\.(mp3|m4a)$/i.test(u.pathname)) {
+    const key = u.origin + u.pathname;
+    e.respondWith(fetch(e.request).then(r => {
+      e.waitUntil(caches.open(CACHE).then(async c => {
+        if (!(await c.match(key))) { try { const full = await fetch(key); if (full.ok) await c.put(key, full); } catch (err) {} }
+      }));
+      return r;
+    }).catch(async () => (await caches.match(key)) || Response.error()));
+    return;
+  }
 
   // 1. The app itself: show the saved copy straight away, refresh it in the background.
   if (u.origin === location.origin) {
