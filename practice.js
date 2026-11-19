@@ -346,7 +346,11 @@
           <span class="pr-lvi">${l.icon}</span>
           <span class="pr-lvt"><b>${esc(l.name)}</b><em>${esc(T(l.tag))}</em><small>${esc(T(l.sub))}</small></span>
           ${l.id === last ? `<span class="pr-lvl">${esc(t('lastUsed'))}</span>` : '<span class="chev">›</span>'}
-        </button>`).join('')}</div>
+        </button>`).join('')}
+        ${window.openTower ? `<button class="pr-lv pr-tower" id="prTower">
+          <span class="pr-lvi">🔔</span>
+          <span class="pr-lvt"><b>${esc(T({en:'The Tower', it:'La Torre'}))}</b><em>Big Ben</em><small>${esc(T({en:'Climb 10 floors – all levels – and ring Big Ben!', it:'Sali 10 piani – tutti i livelli – e suona il Big Ben!'}))}</small></span>
+          <span class="chev">›</span></button>` : ''}</div>
       <div class="pr-ch">
         <div class="pr-k">🏆 ${esc(t('challenge'))} · A1–A2</div>
         <p>${esc(n >= 5 ? t('chDone') : t('chText').replace('{t}', T(wt.name)))}</p>
@@ -359,6 +363,7 @@
       try { localStorage.setItem('ja-practice-level', LEVEL); } catch(e){}
       menu(); document.getElementById('main').scrollTop = 0;
     });
+    const tw = document.getElementById('prTower'); if (tw) tw.onclick = () => window.openTower();
     const ch = document.getElementById('prCh'); if (ch) ch.onclick = () => { LEVEL = 'a'; TOPIC = wt; start('qz'); };
   }
 
@@ -557,7 +562,7 @@
     };
   }
 
-  window.renderPractice = () => { if (!body()) return; stopMic(); LEVEL = null; menu(); };
+  window.renderPractice = () => { if (!body()) return; stopMic(); if (window.towerStop) towerStop(); LEVEL = null; menu(); };
 
   const css = document.createElement('style');
   css.textContent = `
@@ -624,6 +629,9 @@
     .pr-big{font-size:22px;color:var(--navy);line-height:1.5;margin-bottom:8px}
     .pr-big small{font-size:14px;color:var(--muted)}
     .pr-levels{display:grid;gap:12px}
+    .pr-lv.pr-tower{background:linear-gradient(135deg,#0f1f3d,#1c3466);border-color:var(--gold)}
+    .pr-tower .pr-lvi{background:var(--gold)}
+    .pr-lv.pr-tower .pr-lvt b{color:#fff}.pr-tower .pr-lvt small{color:#d9dce4}.pr-tower .chev{color:var(--gold)}
     .pr-lv{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--cream-2);border-radius:18px;padding:16px;box-shadow:var(--shadow);cursor:pointer;font:inherit;color:inherit}
     .pr-lvi{width:54px;height:54px;border-radius:50%;background:var(--navy);display:grid;place-items:center;font-size:26px;flex:none}
     .pr-lvt{flex:1;min-width:0}

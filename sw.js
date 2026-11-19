@@ -6,7 +6,7 @@ importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 //  - MEDIA: pictures, fonts and practice audio that live on other sites (Squarespace, Google Fonts,
 //    jamesalbert.it/s/...). Saved the first time they're seen, so they also work with no internet.
 // Bump the version number after big changes so phones pick up the new files.
-const CACHE = 'ja-app-v95';
+const CACHE = 'ja-app-v96';
 const MEDIA = 'ja-media-v1';
 const MEDIA_MAX = 400; // most items kept in MEDIA; the oldest are removed first
 
@@ -14,7 +14,7 @@ const FILES = [
   '/', '/index.html', '/manifest.json',
   '/icons/icon-192.png', '/icons/icon-512.png', '/icons/apple-touch-icon.png',
   '/articles.js', '/dispatch.js', '/homework.js', '/team.js', '/hub.js', '/library.js', '/videos.js',
-  '/leveltest.js', '/club.js', '/register.js', '/practice.js', '/rsvp.js', '/chat-nudge.js',
+  '/leveltest.js', '/club.js', '/register.js', '/practice.js', '/tower.js', '/rsvp.js', '/chat-nudge.js',
   '/images/crest-176.png', '/images/crest-640.png', '/images/wordmark-cream.png', '/images/union-flag.svg',
   '/images/flag-fabric.jpg', '/images/kids-banner.jpg', '/images/parlo-inglese.jpg', '/images/social-group.jpg'
 ];
