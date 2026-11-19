@@ -1035,230 +1035,230 @@ window.HUB.AD.decks = Object.assign(window.HUB.AD.decks || {}, { kitchen: [
   "w": "Fridge-freezer",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-fridge-freezer.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-fridge-freezer.mp3"
+  "a": "audio/kitchen/kitchen-fridge-freezer.mp3"
  },
  {
   "w": "Oven",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-oven.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-oven.mp3"
+  "a": "audio/kitchen/kitchen-oven.mp3"
  },
  {
   "w": "Hob",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-hob.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-hob.mp3"
+  "a": "audio/kitchen/kitchen-hob.mp3"
  },
  {
   "w": "Cooker",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-cooker.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-cooker.mp3"
+  "a": "audio/kitchen/kitchen-cooker.mp3"
  },
  {
   "w": "Microwave",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-microwave.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-microwave.mp3"
+  "a": "audio/kitchen/kitchen-microwave.mp3"
  },
  {
   "w": "Toaster",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-toaster.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-toaster.mp3"
+  "a": "audio/kitchen/kitchen-toaster.mp3"
  },
  {
   "w": "Kettle",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-kettle.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-kettle.mp3"
+  "a": "audio/kitchen/kitchen-kettle.mp3"
  },
  {
   "w": "Blender",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-blender.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-blender.mp3"
+  "a": "audio/kitchen/kitchen-blender.mp3"
  },
  {
   "w": "Food mixer",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-food-mixer.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-food-mixer.mp3"
+  "a": "audio/kitchen/kitchen-food-mixer.mp3"
  },
  {
   "w": "Dishwasher",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-dishwasher.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-dishwasher.mp3"
+  "a": "audio/kitchen/kitchen-dishwasher.mp3"
  },
  {
   "w": "Sink and tap",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-sink.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-sink.mp3"
+  "a": "audio/kitchen/kitchen-sink.mp3"
  },
  {
   "w": "Extractor fan",
   "g": "Kitchen Equipment",
   "i": "https://www.jamesalbert.it/s/kitchen-extractor-fan.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-extractor-fan.mp3"
+  "a": "audio/kitchen/kitchen-extractor-fan.mp3"
  },
  {
   "w": "Knife",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-knife.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-knife.mp3"
+  "a": "audio/kitchen/kitchen-knife.mp3"
  },
  {
   "w": "Fork",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-fork.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-fork.mp3"
+  "a": "audio/kitchen/kitchen-fork.mp3"
  },
  {
   "w": "Spoon",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-spoon.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-spoon.mp3"
+  "a": "audio/kitchen/kitchen-spoon.mp3"
  },
  {
   "w": "Tablespoon · Dessert spoon · Teaspoon",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-spoons-compare.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-spoons-compare.mp3"
+  "a": "audio/kitchen/kitchen-spoons-compare.mp3"
  },
  {
   "w": "Soup spoon",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-soup-spoon.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-soup-spoon.mp3"
+  "a": "audio/kitchen/kitchen-soup-spoon.mp3"
  },
  {
   "w": "Butter knife",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-butter-knife.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-butter-knife.mp3"
+  "a": "audio/kitchen/kitchen-butter-knife.mp3"
  },
  {
   "w": "Steak knife",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-steak-knife.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-steak-knife.mp3"
+  "a": "audio/kitchen/kitchen-steak-knife.mp3"
  },
  {
   "w": "Ladle",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-ladle.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-ladle.mp3"
+  "a": "audio/kitchen/kitchen-ladle.mp3"
  },
  {
   "w": "Slotted spoon",
   "g": "Cutlery",
   "i": "https://www.jamesalbert.it/s/kitchen-slotted-spoon.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-slotted-spoon.mp3"
+  "a": "audio/kitchen/kitchen-slotted-spoon.mp3"
  },
  {
   "w": "Dinner plate · Side plate",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-plates-compare.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-plates-compare.mp3"
+  "a": "audio/kitchen/kitchen-plates-compare.mp3"
  },
  {
   "w": "Bowl",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-bowl.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-bowl.mp3"
+  "a": "audio/kitchen/kitchen-bowl.mp3"
  },
  {
   "w": "Cup and saucer",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-cup-and-saucer.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-cup-and-saucer.mp3"
+  "a": "audio/kitchen/kitchen-cup-and-saucer.mp3"
  },
  {
   "w": "Mug",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-mug.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-mug.mp3"
+  "a": "audio/kitchen/kitchen-mug.mp3"
  },
  {
   "w": "Teapot",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-teapot.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-teapot.mp3"
+  "a": "audio/kitchen/kitchen-teapot.mp3"
  },
  {
   "w": "Milk jug",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-milk-jug.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-milk-jug.mp3"
+  "a": "audio/kitchen/kitchen-milk-jug.mp3"
  },
  {
   "w": "Sugar bowl",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-sugar-bowl.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-sugar-bowl.mp3"
+  "a": "audio/kitchen/kitchen-sugar-bowl.mp3"
  },
  {
   "w": "Gravy boat",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-gravy-boat.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-gravy-boat.mp3"
+  "a": "audio/kitchen/kitchen-gravy-boat.mp3"
  },
  {
   "w": "Egg cup",
   "g": "Crockery",
   "i": "https://www.jamesalbert.it/s/kitchen-egg-cup.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-egg-cup.mp3"
+  "a": "audio/kitchen/kitchen-egg-cup.mp3"
  },
  {
   "w": "Wine glass",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-wine-glass.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-wine-glass.mp3"
+  "a": "audio/kitchen/kitchen-wine-glass.mp3"
  },
  {
   "w": "Champagne flute",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-champagne-flute.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-champagne-flute.mp3"
+  "a": "audio/kitchen/kitchen-champagne-flute.mp3"
  },
  {
   "w": "Pint glass · Tumbler · Shot glass",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-glasses-compare.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-glasses-compare.mp3"
+  "a": "audio/kitchen/kitchen-glasses-compare.mp3"
  },
  {
   "w": "Water jug",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-water-jug.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-water-jug.mp3"
+  "a": "audio/kitchen/kitchen-water-jug.mp3"
  },
  {
   "w": "Carafe",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-carafe.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-carafe.mp3"
+  "a": "audio/kitchen/kitchen-carafe.mp3"
  },
  {
   "w": "Decanter",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-decanter.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-decanter.mp3"
+  "a": "audio/kitchen/kitchen-decanter.mp3"
  },
  {
   "w": "Jar",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-jar.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-jar.mp3"
+  "a": "audio/kitchen/kitchen-jar.mp3"
  },
  {
   "w": "Whisky glass",
   "g": "Glassware",
   "i": "https://www.jamesalbert.it/s/kitchen-whisky-glass.jpg",
-  "a": "https://www.jamesalbert.it/s/kitchen-whisky-glass.mp3"
+  "a": "audio/kitchen/kitchen-whisky-glass.mp3"
  }
 ] });
 (function(){ const m = window.HUB.AD.material, i = m.findIndex(x => x.title === 'Food Flashcards');
-  if (!m.some(x => x.deck === 'kitchen')) m.splice(i + 1, 0, {"title": "Kitchen Flashcards", "type": "flash", "deck": "kitchen", "meta": "Vocabulary · In the Kitchen", "desc": {"it": "38 carte in quattro gruppi — elettrodomestici, posate, stoviglie e bicchieri. Guarda l’immagine, ascolta la parola e ripetila ad alta voce: sentirai anche “a” e “an” davanti a ogni parola.", "en": "38 cards in four groups — kitchen equipment, cutlery, crockery and glassware. Look at the picture, listen to the word and say it out loud: you’ll also hear “a” or “an” before each word."}, "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/030d8d49-69e6-4469-9a5b-23f0d19e709f/Kitchen+Vocabulary+Flashcards.png?format=750w"}); })();
+  if (!m.some(x => x.deck === 'kitchen')) m.splice(i + 1, 0, {"title": "Kitchen Flashcards", "type": "flash", "deck": "kitchen", "soon": true, "meta": "Vocabulary · In the Kitchen", "desc": {"it": "38 carte in quattro gruppi — elettrodomestici, posate, stoviglie e bicchieri. Guarda l’immagine, ascolta la parola e ripetila ad alta voce: sentirai anche “a” e “an” davanti a ogni parola.", "en": "38 cards in four groups — kitchen equipment, cutlery, crockery and glassware. Look at the picture, listen to the word and say it out loud: you’ll also hear “a” or “an” before each word."}, "image": "https://images.squarespace-cdn.com/content/v1/6a7c915a0c696149d4ca5023/030d8d49-69e6-4469-9a5b-23f0d19e709f/Kitchen+Vocabulary+Flashcards.png?format=750w"}); })();
