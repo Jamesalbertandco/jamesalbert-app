@@ -1183,7 +1183,7 @@ function renderHub(){
 }
 function hubOpen(i){
   const m = ((window.HUB||{})[HWC]||{material:[]}).material[i]; if (!m) return;
-  if (m.type === 'flash') { fcOpen(); return; }
+  if (m.type === 'flash') { fcOpen(m.deck); return; }
   if (m.type === 'pdf') { window.open(m.link, '_blank'); return; }
   document.getElementById('vidFrame').src = vimeoEmbed(m.vimeo);
   document.getElementById('vidT').textContent = m.title;
@@ -1196,12 +1196,13 @@ function vidPlay(src, id, h, title){
 }
 function vidClose(){ document.getElementById('vidFrame').src = 'about:blank'; document.getElementById('vidBox').classList.add('hide'); }
 let FCI = 0; const FCA = new Audio();
-const fcList = () => ((window.HUB||{})[HWC]||{}).flash || [];
+let FCD = null; // which deck is open: null = the hub's main deck (flash), or a named deck from hub.decks (e.g. 'kitchen')
+const fcList = () => { const hb = (window.HUB||{})[HWC]||{}; return (FCD && hb.decks && hb.decks[FCD]) || hb.flash || []; };
 function fcSay(){ const d = fcList()[FCI]; if (!d) return; try { FCA.pause(); FCA.src = d.a; FCA.currentTime = 0; const p = FCA.play(); if (p && p.catch) p.catch(()=>{}); } catch(e){} }
 function fcShow(i){ const L = fcList(); if (!L.length) return; FCI = (i + L.length) % L.length; const d = L[FCI];
   document.getElementById('fcImg').src = d.i; document.getElementById('fcW').textContent = d.w;
-  document.getElementById('fcN').textContent = (LANG === 'it' ? 'Carta ' : 'Card ') + (FCI+1) + ' / ' + L.length; fcSay(); }
-function fcOpen(){ document.getElementById('fcBox').classList.remove('hide'); fcShow(0); }
+  document.getElementById('fcN').textContent = (d.g ? d.g + ' · ' : '') + (LANG === 'it' ? 'Carta ' : 'Card ') + (FCI+1) + ' / ' + L.length; fcSay(); }
+function fcOpen(deck){ FCD = deck || null; document.getElementById('fcBox').classList.remove('hide'); fcShow(0); }
 function fcClose(){ FCA.pause(); document.getElementById('fcBox').classList.add('hide'); }
 
 // ---------- Read-along reader ----------
