@@ -6,7 +6,7 @@ importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 //  - MEDIA: pictures, fonts and practice audio that live on other sites (Squarespace, Google Fonts,
 //    jamesalbert.it/s/...). Saved the first time they're seen, so they also work with no internet.
 // Bump the version number after big changes so phones pick up the new files.
-const CACHE = 'ja-app-v100';
+const CACHE = 'ja-app-v101';
 const MEDIA = 'ja-media-v1';
 const MEDIA_MAX = 400; // most items kept in MEDIA; the oldest are removed first
 
