@@ -345,6 +345,15 @@
   .ftile{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.35);border-radius:16px;color:#fff;padding:18px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font:500 14.5px Poppins,sans-serif;cursor:pointer;min-height:108px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .ftile:active{background:rgba(255,255,255,.16)}
   .ftile svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .ftile.fwide{grid-column:1/-1;flex-direction:row;min-height:62px;padding:12px 18px;border-color:var(--gold);background:rgba(201,162,74,.14);font-weight:600}
+  .ftile.fwide .fbell{font-size:24px}
+  .ftile.fwide .fchev{margin-left:auto;color:var(--gold);font-size:22px}
+  @media (max-height:700px){.ftile{min-height:76px;padding:10px 8px;gap:6px}.ftile.fwide{min-height:48px}.fcrest{width:min(26vw,104px)}.fname p{margin-top:10px}.fq{font-size:23px;margin-bottom:12px}.fhello{font-size:19px}.fjoin{margin-top:10px}.fbody{padding-bottom:calc(env(safe-area-inset-bottom) + 14px)}}
+  .gamesCard{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0f1f3d,#1c3466);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:18px;cursor:pointer;box-shadow:var(--shadow);text-align:left;width:100%;font:inherit}
+  .gamesCard .gi{font-size:40px;line-height:1}
+  .gamesCard b{display:block;font-family:'Playfair Display',serif;font-size:22px;color:#fff}
+  .gamesCard span.s{display:block;font-size:13px;color:#d9dce4;margin:3px 0 10px;line-height:1.4}
+  .gamesCard em{display:inline-block;font-style:normal;background:var(--gold);color:var(--navy);font:600 13px Poppins,sans-serif;padding:7px 16px;border-radius:999px}
   .fjoin{display:block;text-align:center;margin-top:18px;color:var(--gold);font:500 14px Poppins,sans-serif;cursor:pointer}
 </style>
 </head>
@@ -365,7 +374,7 @@
     <div class="fbody">
       <p class="fhello" data-t="pvHello"></p>
       <h1 class="fq" data-t="pvQ"></h1>
-      <div class="ftiles"><button class="ftile" data-fgo="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button><button class="ftile" data-fgo="homework"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button><button class="ftile" data-fgo="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button><button class="ftile" data-fgo="hubs"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button></div>
+      <div class="ftiles"><button class="ftile" data-fgo="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span data-t="nHome"></span></button><button class="ftile" data-fgo="homework"><svg viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/></svg><span data-t="nHomework"></span></button><button class="ftile" data-fgo="book"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nBook"></span></button><button class="ftile" data-fgo="hubs"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg><span data-t="nHub"></span></button><button class="ftile fwide" data-fgo="practice"><span class="fbell">🔔</span><span data-t="nGames"></span><span class="fchev">›</span></button></div>
       <a class="fjoin" id="fJoin"><span data-t="pvJoin"></span> ›</a>
     </div>
   </div>
@@ -462,6 +471,8 @@
           <button class="btn navy" onclick="go('levelTest')" data-t="startHere"></button>
         </div>
       </div>
+
+      <div class="sec"><button class="gamesCard" type="button" onclick="go('practice')"><span class="gi">🎲</span><span><b data-t="gamesT"></b><span class="s" data-t="gamesS"></span><em><span data-t="gamesB"></span> ›</em></span></button></div>
 
       <div class="sec" id="wotdHome"></div>
 
@@ -816,6 +827,10 @@ const TEXT = {
   artEnd:    {en:"Want to practise this for real?", it:"Vuoi metterlo in pratica davvero?"},
   artCta:    {en:"Book a free trial lesson", it:"Prenota una lezione di prova gratuita"},
   nHub:      {en:"Student Hub", it:"Area Studenti"},
+  nGames:    {en:"Games & The Tower", it:"Giochi e La Torre"},
+  gamesT:    {en:"Play & practise", it:"Gioca ed esercitati"},
+  gamesS:    {en:"Games for every level – and climb The Tower to ring Big Ben!", it:"Giochi per ogni livello – e sali sulla Torre per suonare il Big Ben!"},
+  gamesB:    {en:"Let's play", it:"Giochiamo"},
   nBook:     {en:"Book a lesson", it:"Prenota"},
   hwTitle:   {en:"Homework", it:"Compiti"},
   hwSub:     {en:"Choose your class. The first time, enter the class code from your teacher.", it:"Scegli la tua classe. La prima volta inserisci il codice che ti ha dato l'insegnante."},
