@@ -1321,6 +1321,10 @@ function renderAll(){
     `<div class="news"><div class="d">${esc(T(n.date))}</div><b>${esc(T(n.title))}</b><p>${esc(T(n.text))}</p></div>`).join('');
   document.getElementById('hubList').innerHTML = CONFIG.hubs.map(h => `<a class="row hwc" href="#" onclick="hwTap('${h.code}','hubClass');return false"><div class="ic">${esc(h.code)}</div><div class="t"><b>${esc(T(h.name))}</b><span>${esc(T(h.info))}</span></div>${hwOpenFor(h.code) ? `<span class="badge">${esc(T(TEXT.hwOpen))}</span>` : `<span class="badge lock">🔒 ${esc(T(TEXT.hwLocked))}</span>`}</a>`).join('');
   renderHwList();
+  // Redraw the screen that's open, so its content changes language too (homework, hub, team, etc.)
+  const open = (document.querySelector('.screen.active')||{}).id;
+  const fn = window[{hwClass:'renderHwClass', hubClass:'renderHub', team:'renderTeam', teacher:'renderTeacher', library:'renderLib', article:'renderArticle', club:'renderClub', register:'renderReg', levelTest:'renderLevelTest'}[open]];
+  if (typeof fn === 'function') try { fn(); } catch(e){}
   if (window.renderPracticeHome) renderPracticeHome();
   if (document.getElementById('practice').classList.contains('active') && window.renderPractice) renderPractice();
   const lib = [{code:"📖",name:TEXT.nKidsBooks,info:TEXT.kidsBooksS,f:"Kids"},{code:"🎬",name:TEXT.nAdultBooks,info:TEXT.adultBooksS,f:"Adults"}];
