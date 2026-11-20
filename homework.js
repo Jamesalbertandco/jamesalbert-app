@@ -24,6 +24,14 @@ window.HOMEWORK = {
         file:  "https://www.jamesalbert.it/s/Opposite_Words_Homework_jamesalbert.pdf" }
     ] },
   AD: { teacher: "", codeHash: "7d073e3756e277ca02c271320cb796e7f2ad39b3a0920d32382fcf6617aa8b7d", items: [
+      { date: "2026-11-18",
+        title: { en: "My Culture Presentation", it: "My Culture Presentation – la mia cultura" },
+        note:  { en: "Prepare a 1–2 minute presentation. Introduce yourself in two or three sentences, give 10 short facts about a culture you find interesting (one sentence each), then finish with “Thank you for listening!” Listen to the example and follow the same structure.",
+                 it: "Prepara una presentazione di 1–2 minuti. Presentati in due o tre frasi, racconta 10 fatti brevi su una cultura a tua scelta (una frase per ogni fatto) e concludi con “Thank you for listening!” Ascolta l’esempio e segui la stessa struttura." },
+        due:   { en: "Due Wednesday 25 November", it: "Da consegnare mercoledì 25 novembre" },
+        image: "/homework/AD/2026-11-18-my-culture.jpg",
+        audio: "/homework/AD/2026-11-18-my-culture-example.mp3",
+        file:  "/homework/AD/2026-11-18-my-culture.pdf" },
       { date: "2026-11-04",
         title: { en: "Homework 1 – 4 November", it: "Compiti 1 – 4 novembre" },
         note:  { en: "Practise reading big numbers out loud in English, as we learned in class. You don't need to write anything.", it: "Esercitatevi a leggere i numeri grandi ad alta voce in inglese, come abbiamo imparato in classe. Non è necessario scrivere nulla." },

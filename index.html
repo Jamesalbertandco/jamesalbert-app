@@ -115,6 +115,18 @@
   .hwk .card p{font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.55;color:#333;margin-bottom:12px}
   .hwk .due{display:inline-block;font:600 12px Poppins,sans-serif;color:var(--navy);background:#eef1f6;border-radius:20px;padding:5px 11px;margin-bottom:14px}
   .hwk .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+  .hwk .card .face{display:block;width:100%;height:auto;background:#0b4a3f}
+  .hwa{background:#f5f6f8;border-radius:14px;padding:13px 14px 12px;margin:2px 0 14px}
+  .hwa .h{font:600 13px Poppins,sans-serif;color:var(--navy);margin-bottom:9px}
+  .hwa .r{display:flex;align-items:center;gap:10px}
+  .hwa .pl{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .hwa input[type=range]{flex:1;accent-color:var(--navy);min-width:0}
+  .hwa .tm{flex:none;font:500 12px Poppins,sans-serif;color:#555;min-width:76px;text-align:right;font-variant-numeric:tabular-nums}
+  .hwa .sp{display:flex;gap:5px;margin-top:11px;align-items:center}
+  .hwa .sp small{font:500 12px Poppins,sans-serif;color:#666;margin-right:2px}
+  .hwa .sp button{flex:1;min-width:0;border:1px solid #cfd5e0;background:#fff;color:var(--navy);border-radius:20px;padding:6px 4px;font:600 12px Poppins,sans-serif;cursor:pointer}
+  .hwa .sp button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .hwa .tip{font:400 12.5px Poppins,sans-serif !important;color:#666 !important;margin:9px 0 0 !important}
   .hwk .empty{background:#f5f6f8;border-radius:16px;padding:22px;text-align:center;color:#555;font-size:14px;margin-bottom:22px}
   .hwk .back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--navy);font:600 13px Poppins,sans-serif;padding:0 0 8px;cursor:pointer}
   .hwk .lockit{display:block;margin:22px auto 6px;border:0;background:none;color:#888;font:500 12.5px Poppins,sans-serif;text-decoration:underline;cursor:pointer}
@@ -876,6 +888,12 @@ const TEXT = {
   hwHelp:    {en:"No code yet?", it:"Non hai il codice?"},
   hwThis:    {en:"This week", it:"Questa settimana"},
   hwDl:      {en:"Download worksheet", it:"Scarica la scheda"},
+  hwListen:  {en:"🎧 Listen to the example", it:"🎧 Ascolta l’esempio"},
+  hwSpeed:   {en:"Speed:", it:"Velocità:"},
+  hwSlow:    {en:"Slow", it:"Lento"},
+  hwMed:     {en:"Medium", it:"Medio"},
+  hwNorm:    {en:"Normal", it:"Normale"},
+  hwTip:     {en:"Listen, then record yourself and compare.", it:"Ascolta, poi registrati e confronta."},
   hwEarlier: {en:"Earlier homework", it:"Compiti precedenti"},
   hwNone:    {en:"No homework has been posted for this class yet. You'll get a notification when it's up.", it:"Non ci sono ancora compiti per questa classe. Riceverai una notifica appena saranno pubblicati."},
   nfT:       {en:"Get a notification for new homework", it:"Ricevi una notifica per i nuovi compiti"},
@@ -1097,6 +1115,40 @@ async function nfToggle(){
 }
 
 function hwLock(){ try { localStorage.removeItem(hwKey(HWC)); } catch(e){} renderHwList(); go('homework'); }
+// One homework card: picture, title, note, due date, example audio (with speeds) and worksheet.
+function hwCard(cur){
+  hwSaveOffline(cur);
+  return `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
+    ${cur.image ? `<img class="face" src="${esc(cur.image)}" alt="${esc(T(cur.title))}">` : ''}
+    <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>
+    ${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
+    ${cur.audio ? `<div class="hwa" data-src="${esc(cur.audio)}"><div class="h">${esc(T(TEXT.hwListen))}</div>
+      <div class="r"><button class="pl" onclick="hwaPlay(this)" aria-label="Play">▶</button>
+      <input type="range" min="0" max="1000" value="0" oninput="hwaSeek(this)" aria-label="Position"><span class="tm">0:00</span></div>
+      <div class="sp"><small>${esc(T(TEXT.hwSpeed))}</small>${[[0.75,TEXT.hwSlow],[0.9,TEXT.hwMed],[1,TEXT.hwNorm]].map(([r,l]) =>
+        `<button data-r="${r}" class="${r === HWA_RATE ? 'on' : ''}" onclick="hwaRate(this)">${esc(T(l))}</button>`).join('')}</div>
+      <p class="tip">${esc(T(TEXT.hwTip))}</p></div>` : ''}
+    ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`;
+}
+function hwSaveOffline(cur){ if (!navigator.onLine) return; [cur.image, cur.audio, cur.file].forEach(u => { if (u && u.startsWith('/')) fetch(u).catch(() => {}); }); }
+var HWA = new Audio(), HWA_RATE = 1;
+HWA.preservesPitch = true;
+const hwaFmt = t => isFinite(t) ? Math.floor(t/60) + ':' + String(Math.floor(t%60)).padStart(2,'0') : '0:00';
+function hwaBoxes(){ return [...document.querySelectorAll('.hwa')].filter(b => HWA.src && HWA.src.endsWith(b.dataset.src)); }
+function hwaUI(){ hwaBoxes().forEach(b => {
+  b.querySelector('.pl').textContent = HWA.paused ? '▶' : '❚❚';
+  if (HWA.duration) b.querySelector('input').value = Math.round(HWA.currentTime / HWA.duration * 1000);
+  b.querySelector('.tm').textContent = hwaFmt(HWA.currentTime) + ' / ' + hwaFmt(HWA.duration); }); }
+['timeupdate','play','pause','ended','loadedmetadata'].forEach(ev => HWA.addEventListener(ev, hwaUI));
+function hwaLoad(box){ if (!HWA.src.endsWith(box.dataset.src)) { HWA.src = box.dataset.src; HWA.playbackRate = HWA_RATE; } }
+function hwaPlay(btn){ const box = btn.closest('.hwa'); hwaLoad(box);
+  if (HWA.paused) { if (HWA.ended) HWA.currentTime = 0; HWA.playbackRate = HWA_RATE; HWA.play().catch(() => {}); } else HWA.pause(); }
+function hwaSeek(inp){ const box = inp.closest('.hwa'); hwaLoad(box);
+  const go = () => { HWA.currentTime = inp.value / 1000 * HWA.duration; hwaUI(); };
+  if (HWA.duration) go(); else HWA.addEventListener('loadedmetadata', go, {once:true}); }
+function hwaRate(btn){ HWA_RATE = +btn.dataset.r; HWA.playbackRate = HWA_RATE;
+  document.querySelectorAll('.hwa .sp button').forEach(x => x.classList.toggle('on', +x.dataset.r === HWA_RATE)); }
+
 function renderHwClass(){
   const d = (window.HOMEWORK||{})[HWC] || {items:[]}, h = CONFIG.hubs.find(x => x.code === HWC);
   const [cur, ...older] = d.items;
@@ -1107,11 +1159,7 @@ function renderHwClass(){
     <h1>${esc(T(h.name)).replace(/ Hub$/,'').replace(/^Area /,'')}</h1>
     <p class="sub">${esc(T(h.info))}${d.teacher ? ' · ' + esc(d.teacher) : ''}</p>
     <div class="notify" id="notifyBox"></div>
-    ${cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
-      <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>
-      ${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
-      ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`
-      : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`}
+    ${cur ? hwCard(cur) : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`}
     ${older.length ? `<h2>${esc(T(TEXT.hwEarlier))}</h2><div class="list">${older.map(o =>
       `<a class="row" href="${esc(o.file||'#')}" target="_blank" rel="noopener"><div class="ic">⬇</div><div class="t"><b>${esc(T(o.title))}</b><span>${esc(fmtDate(o.date))}</span></div><span class="chev">›</span></a>`).join('')}</div>` : ''}
     <button class="lockit" onclick="hwLock()">${esc(T(TEXT.hwLock))}</button>`;
@@ -1153,10 +1201,7 @@ function renderHub(){
   const h = CONFIG.hubs.find(x => x.code === HWC), hub = (window.HUB||{})[HWC] || {material:[]}, hw = ((window.HOMEWORK||{})[HWC]||{items:[]}), cur = hw.items[0];
   const tabs = [['week',TEXT.hbWeek],['mat',TEXT.hbMat],['read',TEXT.hbRead],['vid',TEXT.hbVid]];
   let body = '';
-  if (HUBTAB === 'week') body = (cur ? `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
-      <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
-      ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`
-      : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`) + `<div class="center"><a class="btn ghost" href="#" onclick="go('hwClass');return false">${esc(T(TEXT.hbAllHw))}</a></div>`;
+  if (HUBTAB === 'week') body = (cur ? hwCard(cur) : `<div class="empty">${esc(T(TEXT.hwNone))}</div>`) + `<div class="center"><a class="btn ghost" href="#" onclick="go('hwClass');return false">${esc(T(TEXT.hbAllHw))}</a></div>`;
   if (HUBTAB === 'mat') body = hub.material.length ? hub.material.map((m,i) => {
       const ok = !m.soon && (m.type === 'flash' || m.type === 'pdf' || (m.type === 'video' && m.vimeo)); // soon: shown as Coming soon (e.g. Kitchen deck until its pictures are added)
       return `<button class="mcard${ok ? '' : ' soon'}" ${ok ? `onclick="hubOpen(${i})"` : ''}>${m.image ? `<img${m.book ? ' class="book"' : ''} src="${esc(m.image)}" alt="" loading="lazy">` : ''}
@@ -1301,6 +1346,7 @@ function setLang(l){
 }
 
 function go(id, f){
+  if (window.HWA && !HWA.paused) HWA.pause();
   if (id === 'library') { filter = f || 'All'; renderLib(); }
   if (id === 'article') { ART = f || ART; renderArticle(); }
   if (id === 'hwClass') renderHwClass();
