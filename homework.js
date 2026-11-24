@@ -18,11 +18,6 @@ window.HOMEWORK = {
       note:  { en: "We practised food words in class with our flashcards. Match each word to a picture, then colour the food you like and say “I like…” at home.",
                it: "In classe abbiamo ripassato le parole del cibo con le flashcard. Abbina ogni parola a un'immagine, poi colora il cibo che ti piace e a casa di' “I like…”." },
       due:   { en: "Bring it to class on Saturday", it: "Da portare in classe sabato" },
-      file:  "homework/C2/2026-11-12-food-words.pdf" },
-    { date: "2026-11-05",
-      title: { en: "My family: draw and label", it: "La mia famiglia: disegna e scrivi" },
-      note:  { en: "Draw your family and write mum, dad, brother, sister under each person.", it: "Disegna la tua famiglia e scrivi mum, dad, brother, sister sotto ogni persona." },
-      due:   { en: "Saturday 8 November", it: "Sabato 8 novembre" },
       file:  "homework/C2/2026-11-12-food-words.pdf" }
   ] },
   C3: { teacher: "", codeHash: "2ff162b6fd045055f25ccc52281605d8f58db6a0646bb6226ead69769cffcd60", items: [] },
