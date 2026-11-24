@@ -116,6 +116,10 @@
   .hwk .due{display:inline-block;font:600 12px Poppins,sans-serif;color:var(--navy);background:#eef1f6;border-radius:20px;padding:5px 11px;margin-bottom:14px}
   .hwk .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
   .hwk .card .face{display:block;width:100%;height:auto;background:#0b4a3f}
+  .hwk .card p.other{font-size:14px;color:#666;font-style:italic;margin-top:-4px}
+  .hwv{margin:2px 0 14px}
+  .hwv .h{font:600 13px Poppins,sans-serif;color:var(--navy);margin-bottom:8px}
+  .hwv video{display:block;width:100%;border-radius:12px;background:#000;aspect-ratio:16/9}
   .hwa{background:#f5f6f8;border-radius:14px;padding:13px 14px 12px;margin:2px 0 14px}
   .hwa .h{font:600 13px Poppins,sans-serif;color:var(--navy);margin-bottom:9px}
   .hwa .r{display:flex;align-items:center;gap:10px}
@@ -889,6 +893,7 @@ const TEXT = {
   hwThis:    {en:"This week", it:"Questa settimana"},
   hwDl:      {en:"Download worksheet", it:"Scarica la scheda"},
   hwListen:  {en:"🎧 Listen to the example", it:"🎧 Ascolta l’esempio"},
+  hwWatch:   {en:"▶️ Watch the video first", it:"▶️ Prima guarda il video"},
   hwSpeed:   {en:"Speed:", it:"Velocità:"},
   hwSlow:    {en:"Slow", it:"Lento"},
   hwMed:     {en:"Medium", it:"Medio"},
@@ -1121,7 +1126,9 @@ function hwCard(cur){
   return `<div class="card"><div class="top"><b>${esc(T(TEXT.hwThis))}</b><span>${esc(fmtDate(cur.date))}</span></div>
     ${cur.image ? `<img class="face" src="${esc(cur.image)}" alt="${esc(T(cur.title))}">` : ''}
     <div class="in"><h3>${esc(T(cur.title))}</h3><p>${esc(T(cur.note))}</p>
+    ${cur.both && cur.note && cur.note.it ? `<p class="other">${esc(LANG === 'it' ? cur.note.en : cur.note.it)}</p>` : ''}
     ${cur.due ? `<span class="due">📅 ${esc(T(cur.due))}</span>` : ''}
+    ${cur.video ? `<div class="hwv"><div class="h">${esc(T(TEXT.hwWatch))}</div><video src="${esc(cur.video)}" ${cur.poster ? `poster="${esc(cur.poster)}"` : ''} controls playsinline preload="metadata"></video></div>` : ''}
     ${cur.audio ? `<div class="hwa" data-src="${esc(cur.audio)}"><div class="h">${esc(T(TEXT.hwListen))}</div>
       <div class="r"><button class="pl" onclick="hwaPlay(this)" aria-label="Play">▶</button>
       <input type="range" min="0" max="1000" value="0" oninput="hwaSeek(this)" aria-label="Position"><span class="tm">0:00</span></div>
@@ -1130,7 +1137,7 @@ function hwCard(cur){
       <p class="tip">${esc(T(TEXT.hwTip))}</p></div>` : ''}
     ${cur.file ? `<a class="btn navy dl" href="${esc(cur.file)}" target="_blank" rel="noopener">⬇ ${esc(T(TEXT.hwDl))}</a>` : ''}</div></div>`;
 }
-function hwSaveOffline(cur){ if (!navigator.onLine) return; [cur.image, cur.audio, cur.file].forEach(u => { if (u && u.startsWith('/')) fetch(u).catch(() => {}); }); }
+function hwSaveOffline(cur){ if (!navigator.onLine) return; [cur.image, cur.poster, cur.audio, cur.video, cur.file].forEach(u => { if (u && u.startsWith('/')) fetch(u).catch(() => {}); }); }
 var HWA = new Audio(), HWA_RATE = 1;
 HWA.preservesPitch = true;
 const hwaFmt = t => isFinite(t) ? Math.floor(t/60) + ':' + String(Math.floor(t%60)).padStart(2,'0') : '0:00';
@@ -1351,6 +1358,7 @@ function setLang(l){
 
 function go(id, f){
   if (window.HWA && !HWA.paused) HWA.pause();
+  document.querySelectorAll('.hwv video').forEach(v => v.pause());
   if (id === 'library') { filter = f || 'All'; renderLib(); }
   if (id === 'article') { ART = f || ART; renderArticle(); }
   if (id === 'hwClass') renderHwClass();

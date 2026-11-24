@@ -3,7 +3,16 @@
 // Passwords are not written here (this code is public). Capitals are ignored when typing.
 window.HOMEWORK = {
   C1: { teacher: "", codeHash: "03d53b7eaa65b761735a2c8aa9e631b7212ae8b5b93d1cf177bee8dd7269a617", items: [] },
-  C2: { teacher: "Teacher Diana", codeHash: "6946ef235ac07cc5814158c36f7cb26cf519006e27d1c52eca0c5512efeb9aa5", items: [
+  C2: { teacher: "Teacher James & Teacher Diana", codeHash: "6946ef235ac07cc5814158c36f7cb26cf519006e27d1c52eca0c5512efeb9aa5", items: [
+    { date: "2026-11-24", both: true,
+      title: { en: "Class 2A · Teacher James – A or AN?", it: "Classe 2A · Teacher James – A oppure AN?" },
+      note:  { en: "First watch the video. Then, in your writing book (not your textbook), copy the 10 sentences from the worksheet and fill in A or AN.",
+               it: "Prima guarda il video. Poi, sul quaderno (non sul libro di testo), copia le 10 frasi della scheda e completale con A oppure AN." },
+      due:   { en: "Bring it to class on Saturday 28 November", it: "Da portare in classe sabato 28 novembre" },
+      image: "/homework/C2/2026-11-24-c2a-a-or-an.jpg",
+      video: "/homework/C2/2026-11-24-c2a-a-or-an.mp4",
+      poster:"/homework/C2/2026-11-24-c2a-a-or-an-poster.jpg",
+      file:  "/homework/C2/2026-11-24-c2a-a-or-an.pdf" },
     { date: "2026-11-12",
       title: { en: "Food words: match and colour", it: "Parole del cibo: abbina e colora" },
       note:  { en: "We practised food words in class with our flashcards. Match each word to a picture, then colour the food you like and say “I like…” at home.",
